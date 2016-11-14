@@ -3,12 +3,48 @@
 
     <item
         is-multidex="true"
+        jar="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.4.0_ccb6663000f3d4882bbaa4cf7cecae3d2c88dd95\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.4.0_ceb073dde3c5143db06fb980159ea043745bdddc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\peppe\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
         <dex dex="C:\Users\peppe\Documents\UNI\Android\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_c22321fdb1d32b8fca34711cccf5e43d57ed8d63\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_ab79468e4ad503bd863d28562f01ca9e247fd629\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_0dde3a257aa9a981ba4d844914cc6c1e32747cd7\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -39,6 +75,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="360b9e485126b1a5f5aa3fa947d099a75243d28e">
+        <dex dex="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_fcfd84fc761d8b734658ef1247c23806cbb4da8f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\peppe\Documents\UNI\Android\Indoornavigation\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -66,12 +111,39 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.4.0_0de57bdaac897551b7ddcefce37449a5221f0285\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\peppe\Documents\UNI\Android\Indoornavigation\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
         <dex dex="C:\Users\peppe\Documents\UNI\Android\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.4.0_db5465acb21ebb179378879e1b87c9e38bb01a6b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.4.0_ece2c03bdb8783a01c2f5baacff612ca5a40d1cb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d10c65baa5a095481c1dc797fb4540bcfb17bd7c">
+        <dex dex="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_6884688593d0a0a5cd54cee8c37449af4f0a1b71\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -93,12 +165,30 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\exploded-aar\com.estimote\sdk\0.10.8\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="640af651fe94032b8f34112aabd351df29d3e2df">
+        <dex dex="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.estimote-sdk-0.10.8_9052705a1500a91c84b7c3255ea5388dda892ea2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\peppe\Documents\UNI\Android\Indoornavigation\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
         <dex dex="C:\Users\peppe\Documents\UNI\Android\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.4.0_9df0e27869a466371e759e6bc5f80374af20a5e1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_8e9eedab7646d52af6031a19f2bb38463646edfb\classes.dex" />
     </item>
 
 </items>
