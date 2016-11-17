@@ -5,8 +5,8 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="248298783266396"
-    token="7307586116375476370"
+    timestamp="93946368088036"
+    token="-939984296959727748"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
@@ -23,37 +23,14 @@
         duration="0" />
 
     <build
-        timestamp="246940043044607"
+        timestamp="93850519547800"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="247682789685136"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
-            type="RESOURCES" />
-        <artifact
-            location="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_3\classes.dex"
-            type="DEX" />
-    </build>
-    <build
-        timestamp="248298783266396"
+        timestamp="93946368088036"
         verifier="COLD_SWAP_REQUESTED" />
-    <build
-        timestamp="586803614154924"
-        verifier="FULL_BUILD_REQUESTED" >
-        <artifact
-            location="C:\Users\peppe\Documents\UNI\Android\Indoornavigation\app\build\outputs\apk\app-debug.apk"
-            type="MAIN" />
-    </build>
 
 </instant-run>
