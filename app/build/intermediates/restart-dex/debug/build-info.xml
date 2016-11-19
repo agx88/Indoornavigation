@@ -5,32 +5,64 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="93946368088036"
+    timestamp="98584561118715"
     token="-939984296959727748"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="189" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="394" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="47" />
     <task
         name="verifier"
-        duration="0" />
+        duration="3" />
+
+    <artifact
+        location="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\reload-dex\debug\classes.dex"
+        type="RELOAD_DEX" />
 
     <build
-        timestamp="93850519547800"
+        timestamp="97608816627992"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="93946368088036"
-        verifier="COLD_SWAP_REQUESTED" />
+        timestamp="98330767371753"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_5\classes.dex"
+            type="DEX" />
+        <artifact
+            location="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_3\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="98484122731933"
+        verifier="FIELD_ADDED" >
+        <artifact
+            location="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="98520557961826"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\builds\debug\98520557961826\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="98584561118715"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\build\intermediates\reload-dex\debug\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
 
 </instant-run>

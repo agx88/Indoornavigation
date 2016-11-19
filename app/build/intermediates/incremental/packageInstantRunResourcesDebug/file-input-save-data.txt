@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Nov 17 17:50:41 CET 2016
+#Thu Nov 17 19:05:42 CET 2016
 175.set=ANDROID_RESOURCE
 122.file=C\:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\abc_seekbar_thumb_material.xml
 60.set=ANDROID_RESOURCE

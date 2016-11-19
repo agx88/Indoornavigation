@@ -38,6 +38,7 @@ public class MapFragment extends Fragment {
     public MapFragment() {
         // Required empty public constructor
     }
+    private ImageView drawingImageView;
 
     /**
      * Use this factory method to create a new instance of
@@ -75,8 +76,10 @@ public class MapFragment extends Fragment {
         //Mantiene il fragment "vivo" durante il cambio di orientamento
         setRetainInstance(true);
 
-        ImageView drawingImageView = (ImageView) view.findViewById(R.id.DrawingImageView);
+
+        drawingImageView = (ImageView) view.findViewById(R.id.DrawingImageView);
         drawingImageView.setImageResource(R.drawable.piantina);
+
         Bitmap bitmap = Bitmap.createBitmap((int) getActivity().getWindowManager()
                 .getDefaultDisplay().getWidth(), (int) getActivity().getWindowManager()
                 .getDefaultDisplay().getHeight(), Bitmap.Config.ARGB_8888);
@@ -101,7 +104,7 @@ public class MapFragment extends Fragment {
         Paint paint3 = new Paint();
         paint3.setColor(Color.CYAN);
         paint3.setStrokeWidth(50);
-        canvas.drawPoint(900, 1500, paint3);
+        canvas.drawPoint(0, 0, paint3);
 
         return view;
     }

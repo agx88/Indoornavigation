@@ -1,4 +1,4 @@
-#Thu Nov 17 17:51:05 CET 2016
+#Thu Nov 17 18:53:51 CET 2016
 base.0=C\:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_6884688593d0a0a5cd54cee8c37449af4f0a1b71
 renamed.1=classes2.dex
 renamed.0=classes.dex

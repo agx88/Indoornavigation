@@ -11,12 +11,12 @@ public final class R {
 		public static final int error_no_bluetooth_enabled = 0x7f060019;
 		public static final int error_no_bluetooth_le = 0x7f06001a;
 		public static final int error_no_location_permission = 0x7f06001b;
-		public static final int requesting_location_access = 0x7f06001d;
-		public static final int requesting_location_access_cancel = 0x7f06001e;
-		public static final int requesting_location_access_ok = 0x7f06001f;
-		public static final int requesting_location_access_rationale = 0x7f060020;
-		public static final int requesting_location_permission = 0x7f060021;
-		public static final int requesting_location_permission_rationale = 0x7f060022;
+		public static final int requesting_location_access = 0x7f06001e;
+		public static final int requesting_location_access_cancel = 0x7f06001f;
+		public static final int requesting_location_access_ok = 0x7f060020;
+		public static final int requesting_location_access_rationale = 0x7f060021;
+		public static final int requesting_location_permission = 0x7f060022;
+		public static final int requesting_location_permission_rationale = 0x7f060023;
 	}
 	public static final class style {
 		public static final int Theme_Transparent = 0x7f090109;
