@@ -44,44 +44,7 @@ public class Trilateration2D {
         this.c.setX(x);
         this.c.setY(y);
     }
-
-   /* public void calculateCoordinates(){
-        double a1 = this.a.getX();
-        double a2 = this.b.getX();
-        double a3 = this.c.getX();
-
-        double b1 = this.a.getY();
-        double b2 = this.b.getY();
-        double b3 = this.c.getY();
-
-        double a1Sq = Math.pow(a1,2);
-        double a2Sq = Math.pow(a2,2);
-        double a3Sq = Math.pow(a3,2);
-
-        double b1Sq = Math.pow(b1,2);
-        double b2Sq = Math.pow(b2,2);
-        double b3Sq = Math.pow(b3,2);
-
-        double r1Sq = Math.pow(this.r1,2);
-        double r2Sq = Math.pow(this.r2,2);
-        double r3Sq = Math.pow(this.r3,2);
-
-        double numerator1 = (a2 - a1) * (a3Sq + b3Sq - r3Sq) +
-                (a1 - a3) * (a2Sq + b2Sq - r2Sq) +
-                (a3 - a2) * (a1Sq + b1Sq - r1Sq);
-
-        double denominator1 = 2 * (b3 * (a2 - a1) + b2 * (a1 - a3) + b1 * (a3 - a2));
-        double y = numerator1/denominator1;
-        this.u.setY(y);
-
-        double numerator2 = r2Sq - r1Sq + a1Sq - a2Sq + b1Sq - b2Sq - 2 * (b1 - b2) * y;
-
-        double denominator2 = 2 * (a1 - a2);
-        double x = numerator2/denominator2;
-        this.u.setX(x);
-    }
-*/
-
+    
     public void calculateCoordinates(){
         double i1 = a.getX();
         double i2 = b.getX();

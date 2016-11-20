@@ -3,7 +3,6 @@ package com.EveSrl.Indoornavigation.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,15 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.EveSrl.Indoornavigation.MainActivity;
 import com.EveSrl.Indoornavigation.R;
-import com.EveSrl.Indoornavigation.adapters.BeaconListAdapter;
 import com.estimote.sdk.Beacon;
-import com.estimote.sdk.BeaconManager;
-import com.estimote.sdk.Region;
-import com.estimote.sdk.SystemRequirementsChecker;
-
-import java.util.Collections;
-import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -33,11 +26,6 @@ public class BeaconItemFragment extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-
-    private BeaconManager beaconManager;
-    private BeaconListAdapter beaconListAdapter;
-
-    private static final Region ALL_ESTIMOTE_BEACONS_REGION = new Region("rid", null, null, null);
 
     private OnListFragmentInteractionListener mListener;
 
@@ -65,7 +53,7 @@ public class BeaconItemFragment extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
-        findBeacons();
+        //findBeacons();
     }
 
     @Override
@@ -87,7 +75,7 @@ public class BeaconItemFragment extends Fragment {
             }
 
             //TODO: check
-            recyclerView.setAdapter(beaconListAdapter);
+            recyclerView.setAdapter(((MainActivity) getActivity()).getBeaconListAdapter());
         }
         return view;
     }
@@ -102,55 +90,6 @@ public class BeaconItemFragment extends Fragment {
         mListener = null;
     }
 
-    @Override public void onDestroy() {
-        beaconManager.disconnect();
-
-        super.onDestroy();
-    }
-
-    @Override public void onResume() {
-        super.onResume();
-
-        if (SystemRequirementsChecker.checkWithDefaultDialogs(getActivity())){
-            startScanning();
-        }
-    }
-
-    @Override public void onStop() {
-        beaconManager.stopRanging(ALL_ESTIMOTE_BEACONS_REGION);
-
-        super.onStop();
-    }
-
-    private void findBeacons(){
-        beaconListAdapter = new BeaconListAdapter(getActivity());
-        beaconManager = new BeaconManager(getActivity());
-        beaconManager.setRangingListener(new BeaconManager.RangingListener() {
-            @Override public void onBeaconsDiscovered(Region region, final List<Beacon> beacons) {
-                // Note that results are not delivered on UI thread.
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override public void run() {
-                        // Note that beacons reported here are already sorted by estimated
-                        // distance between device and beacon.
-                        //toolbar.setSubtitle("Found beacons: " + beacons.size());
-                        ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle("Found beacons: " + beacons.size());
-                        beaconListAdapter.replaceWith(beacons);
-                    }
-                });
-            }
-        });
-    }
-
-    private void startScanning() {
-        //toolbar.setSubtitle("Scanning...");
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle("Scanning...");
-        beaconListAdapter.replaceWith(Collections.<Beacon>emptyList());
-        beaconManager.connect(new BeaconManager.ServiceReadyCallback() {
-            @Override public void onServiceReady() {
-                beaconManager.startRanging(ALL_ESTIMOTE_BEACONS_REGION);
-            }
-        });
-    }
 
     /**
      * This interface must be implemented by activities that contain this
