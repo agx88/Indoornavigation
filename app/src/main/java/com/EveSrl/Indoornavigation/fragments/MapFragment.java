@@ -2,6 +2,7 @@ package com.EveSrl.Indoornavigation.fragments;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -80,11 +81,19 @@ public class MapFragment extends Fragment {
         drawingImageView = (ImageView) view.findViewById(R.id.DrawingImageView);
         drawingImageView.setImageResource(R.drawable.piantina);
 
+        // TODO "getWidth" e "getHeight" sono deprecati. Sarebbe da usare "getSize(Point)".
         Bitmap bitmap = Bitmap.createBitmap((int) getActivity().getWindowManager()
                 .getDefaultDisplay().getWidth(), (int) getActivity().getWindowManager()
                 .getDefaultDisplay().getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
         drawingImageView.setImageBitmap(bitmap);
+
+        // Bitmap per il Marker.
+        Bitmap marker = BitmapFactory.decodeResource(getResources(), R.drawable.googlemaps_icono);
+        // Disegno il marker sul canvas.
+        canvas.drawBitmap(marker, 40, 40, null);
+
+
 
         Paint paint = new Paint();
         paint.setColor(Color.GREEN);
