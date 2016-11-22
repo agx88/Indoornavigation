@@ -1,7 +1,4 @@
-#Sun Nov 20 11:43:34 CET 2016
-base.0=C\:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_6884688593d0a0a5cd54cee8c37449af4f0a1b71
-renamed.1=classes2.dex
+#Tue Nov 22 09:36:28 CET 2016
+base.0=/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
 renamed.0=classes.dex
-file.1=C\:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_fcfd84fc761d8b734658ef1247c23806cbb4da8f\\classes.dex
-base.1=C\:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_fcfd84fc761d8b734658ef1247c23806cbb4da8f
-file.0=C\:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_6884688593d0a0a5cd54cee8c37449af4f0a1b71\\classes.dex
+file.0=/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex

@@ -2282,11 +2282,15 @@ containing a value of this type.
         public static final int beacon_icon=0x7f02004c;
         public static final int design_fab_background=0x7f02004d;
         public static final int design_snackbar_background=0x7f02004e;
-        public static final int ic_list_white=0x7f02004f;
-        public static final int ic_room_white=0x7f020050;
-        public static final int ic_visibility_white=0x7f020051;
-        public static final int notification_template_icon_bg=0x7f020053;
-        public static final int piantina=0x7f020052;
+        public static final int googlemaps_icono=0x7f02004f;
+        public static final int ic_list_white=0x7f020050;
+        public static final int ic_room_white=0x7f020051;
+        public static final int ic_visibility_white=0x7f020052;
+        public static final int map_marker_outside_azure=0x7f020053;
+        public static final int map_marker_outside_chartreuse=0x7f020054;
+        public static final int map_marker_outside_pink_icon=0x7f020055;
+        public static final int notification_template_icon_bg=0x7f020057;
+        public static final int piantina=0x7f020056;
     }
     public static final class id {
         public static final int DrawingImageView=0x7f0c0077;
