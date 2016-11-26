@@ -5,27 +5,29 @@
     tools:context="com.EveSrl.Indoornavigation.fragments.MapFragment">
 
 
-    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/piantina"
             android:src="@drawable/piantina"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/piantina_description" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/piantina_description"
+            android:scaleType="fitStart" />
 
 
         <com.EveSrl.Indoornavigation.utils.MarkerPositioner
             android:id="@+id/overlay"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
 
             <ImageView
-                android:layout_width="167dp"
-                android:layout_height="100dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/googlemaps_icono"
-                android:paddingTop="50px"/>
+                android:layout_marginTop="150dp"
+                android:cropToPadding="false" />
 
         </com.EveSrl.Indoornavigation.utils.MarkerPositioner>
     </FrameLayout>
