@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
 import com.EveSrl.Indoornavigation.R;
 import com.EveSrl.Indoornavigation.utils.MarkerPositioner;
@@ -85,8 +84,8 @@ public class MapFragment extends Fragment {
         drawSpace = (MarkerPositioner) view.findViewById(R.id.overlay);
         drawSpace.setContext(this.getContext());
 
-
-        drawSpace.setMarkerPosition(40, 40);
+        drawSpace.addMarker(0, 0, "Prova");
+        drawSpace.setMarkerPosition(40, 40, "Prova");
 
         return view;
     }
