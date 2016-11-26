@@ -4,10 +4,30 @@
     android:layout_height="match_parent"
     tools:context="com.EveSrl.Indoornavigation.fragments.MapFragment">
 
-    <ImageView
-        android:id="@+id/DrawingImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/map_img_desc" />
+
+    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/piantina"
+            android:src="@drawable/piantina"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/piantina_description" />
+
+
+        <com.EveSrl.Indoornavigation.utils.MarkerPositioner
+            android:id="@+id/overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:layout_width="167dp"
+                android:layout_height="100dp"
+                android:src="@drawable/googlemaps_icono"
+                android:paddingTop="50px"/>
+
+        </com.EveSrl.Indoornavigation.utils.MarkerPositioner>
+    </FrameLayout>
 
 </FrameLayout>
