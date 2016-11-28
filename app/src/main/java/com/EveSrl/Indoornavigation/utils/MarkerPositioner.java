@@ -59,7 +59,7 @@ public class MarkerPositioner
     }
 
     public void addMarker(int x, int y, String tag){
-        LayoutParams lp = new LayoutParams(80, 80);
+        LayoutParams lp = new LayoutParams(50, 50);
         ImageView marker = new ImageView(mContext);
 
         marker.setImageResource(R.drawable.map_marker_outside_azure);
@@ -104,6 +104,6 @@ public class MarkerPositioner
 
     @Override
     public void onClick(View view) {
-        //Toast.makeText(mContext, view.getTag().toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext, view.getTag().toString(), Toast.LENGTH_SHORT).show();
     }
 }

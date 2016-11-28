@@ -116,7 +116,6 @@ public class ZoomableImageView extends ImageView {
                             fixTrans();
 
                             last.set(curr.x, curr.y);
-
                         }
 
                         break;
@@ -230,14 +229,19 @@ public class ZoomableImageView extends ImageView {
 
         // MIO--------------------------------
         // Sistema correttamente il marker nelle coordinate relative della mappa.
-        // X e Y da dove è stata disegnata la mappa.--
-        imageView_x = (int) transX;
-        imageView_y = (int) transY;
-        if(drawSpace != null) {
-            drawSpace.updateAllMarkerPosition(imageView_x, imageView_y);
+        // X e Y da dove è stata disegnata la mappa.
+        imageView_x = (int) m[Matrix.MTRANS_X];
+        imageView_y = (int) m[Matrix.MTRANS_Y];
+        // (imageView_x <= 0 && imageView_y >= 0) aiuta a tenere più fermi i marker ai limiti dell'immagine.
+        // (Su X funziona, mentre su Y no.
+        if (drawSpace != null) {
+
+            if (imageView_x <= 0 && imageView_y >= 0)
+                drawSpace.updateAllMarkerPosition(imageView_x, imageView_y);
+
+            Log.d("ZoomableImageView", "x:= " + Integer.toString(imageView_x) + "  y:= " + Integer.toString(imageView_y));
         }
         // #MIO-------------------------------
-
     }
 
 
