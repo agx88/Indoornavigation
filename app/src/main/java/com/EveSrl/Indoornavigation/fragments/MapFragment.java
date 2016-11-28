@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.EveSrl.Indoornavigation.R;
 import com.EveSrl.Indoornavigation.utils.MarkerPositioner;
+import com.EveSrl.Indoornavigation.utils.ZoomableImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -75,6 +76,7 @@ public class MapFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_map, container, false);
 
+        ZoomableImageView zIView = (ZoomableImageView) view.findViewById(R.id.piantina);
         //Mantiene il fragment "vivo" durante il cambio di orientamento
         setRetainInstance(true);
 
@@ -82,8 +84,7 @@ public class MapFragment extends Fragment {
         drawSpace = (MarkerPositioner) view.findViewById(R.id.overlay);
         drawSpace.setContext(this.getContext());
 
-        drawSpace.addMarker(0, 0, "Prova");
-        drawSpace.setMarkerPosition(80, 150, "Prova");
+        zIView.setMarkerPositioner(drawSpace);
 
         return view;
     }

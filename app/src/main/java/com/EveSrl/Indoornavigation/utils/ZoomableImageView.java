@@ -42,6 +42,13 @@ public class ZoomableImageView extends ImageView {
 
     Context context;
 
+    // MIO-------------------------------------------------
+    private MarkerPositioner drawSpace;
+    private int imageView_x;
+    private int imageView_y;
+
+    // #MIO------------------------------------------------
+
     public ZoomableImageView(Context context) {
         super(context);
         sharedConstructing(context);
@@ -66,10 +73,6 @@ public class ZoomableImageView extends ImageView {
 
         setImageMatrix(matrix);
 
-        // Mio
-        setAdjustViewBounds(true);
-        // #Mio
-
         setScaleType(ScaleType.MATRIX);
 
         setOnTouchListener(new OnTouchListener() {
@@ -82,7 +85,7 @@ public class ZoomableImageView extends ImageView {
                 PointF curr = new PointF(event.getX(), event.getY());
 
                 switch (event.getAction()) {
-
+                    // For the first pointer that touches the screen. This starts the gesture.
                     case MotionEvent.ACTION_DOWN:
 
                         last.set(curr);
@@ -93,6 +96,9 @@ public class ZoomableImageView extends ImageView {
 
                         break;
 
+                    // A change has happened during a press gesture.
+                    // A change has happened during a press gesture (between ACTION_DOWN and ACTION_UP).
+                    // The motion contains the most recent point, as well as any intermediate points since the last down or move event.
                     case MotionEvent.ACTION_MOVE:
 
                         if (mode == DRAG) {
@@ -115,6 +121,7 @@ public class ZoomableImageView extends ImageView {
 
                         break;
 
+                    // Sent when the last pointer leaves the screen.
                     case MotionEvent.ACTION_UP:
 
                         mode = NONE;
@@ -129,8 +136,8 @@ public class ZoomableImageView extends ImageView {
 
                         break;
 
+                    // Sent when a non-primary pointer goes up.
                     case MotionEvent.ACTION_POINTER_UP:
-
                         mode = NONE;
 
                         break;
@@ -144,6 +151,8 @@ public class ZoomableImageView extends ImageView {
                 return true; // indicate event was handled
 
             }
+
+
 
         });
     }
@@ -169,7 +178,6 @@ public class ZoomableImageView extends ImageView {
         public boolean onScale(ScaleGestureDetector detector) {
 
             float mScaleFactor = detector.getScaleFactor();
-
             float origScale = saveScale;
 
             saveScale *= mScaleFactor;
@@ -219,6 +227,14 @@ public class ZoomableImageView extends ImageView {
         if (fixTransX != 0 || fixTransY != 0)
 
             matrix.postTranslate(fixTransX, fixTransY);
+
+        // MIO--------------------------------
+        // Sistema correttamente il marker nelle coordinate relative della mappa.
+        // X e Y da dove è stata disegnata la mappa.
+        imageView_x = (int) transX;
+        imageView_y = (int) transY;
+        drawSpace.setMarkerPosition(imageView_x + 80, imageView_y + 150, "Prova");
+        // #MIO-------------------------------
 
     }
 
@@ -331,11 +347,20 @@ public class ZoomableImageView extends ImageView {
             origHeight = viewHeight - 2 * redundantYSpace;
 
             setImageMatrix(matrix);
-
         }
 
         fixTrans();
-
     }
+
+
+
+
+    // MIO------------------------------------------------
+    public void setMarkerPositioner(MarkerPositioner markerPositioner){
+        drawSpace = markerPositioner;
+
+        drawSpace.addMarker(0, 0, "Prova");
+    }
+    // #MIO-----------------------------------------------
 
 }
