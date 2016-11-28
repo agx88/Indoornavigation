@@ -1,19 +1,16 @@
 package com.EveSrl.Indoornavigation.fragments;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.EveSrl.Indoornavigation.R;
+import com.EveSrl.Indoornavigation.utils.MarkerPositioner;
+import com.EveSrl.Indoornavigation.utils.ZoomableImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,10 +32,13 @@ public class MapFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
+    private MarkerPositioner drawSpace;
+
     public MapFragment() {
         // Required empty public constructor
     }
-    private ImageView drawingImageView;
+
+
 
     /**
      * Use this factory method to create a new instance of
@@ -61,6 +61,9 @@ public class MapFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -73,38 +76,15 @@ public class MapFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_map, container, false);
 
+        ZoomableImageView zIView = (ZoomableImageView) view.findViewById(R.id.piantina);
         //Mantiene il fragment "vivo" durante il cambio di orientamento
         setRetainInstance(true);
 
+        // Inizializzazione del FrameLayout utilizzato per disegnare i Marker sull'immagine.
+        drawSpace = (MarkerPositioner) view.findViewById(R.id.overlay);
+        drawSpace.setContext(this.getContext());
 
-        drawingImageView = (ImageView) view.findViewById(R.id.DrawingImageView);
-        drawingImageView.setImageResource(R.drawable.piantina);
-
-        Bitmap bitmap = Bitmap.createBitmap((int) getActivity().getWindowManager()
-                .getDefaultDisplay().getWidth(), (int) getActivity().getWindowManager()
-                .getDefaultDisplay().getHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bitmap);
-        drawingImageView.setImageBitmap(bitmap);
-
-        Paint paint = new Paint();
-        paint.setColor(Color.GREEN);
-        paint.setStrokeWidth(50);
-        canvas.drawPoint(199, 300, paint);
-
-        Paint paint1 = new Paint();
-        paint1.setColor(Color.BLUE);
-        paint1.setStrokeWidth(50);
-        canvas.drawPoint(500, 250, paint1);
-
-        Paint paint2 = new Paint();
-        paint2.setColor(Color.GRAY);
-        paint2.setStrokeWidth(50);
-        canvas.drawPoint(700, 900, paint2);
-
-        Paint paint3 = new Paint();
-        paint3.setColor(Color.CYAN);
-        paint3.setStrokeWidth(50);
-        canvas.drawPoint(0, 0, paint3);
+        zIView.setMarkerPositioner(drawSpace);
 
         return view;
     }
