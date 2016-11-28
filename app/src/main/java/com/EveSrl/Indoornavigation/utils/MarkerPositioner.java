@@ -1,6 +1,8 @@
 package com.EveSrl.Indoornavigation.utils;
 
 import android.content.Context;
+import android.graphics.*;
+import android.graphics.Point;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -20,25 +22,37 @@ public class MarkerPositioner
 
     private Context mContext;
     private HashMap<String, ImageView> listMarker;
+    private HashMap<String, android.graphics.Point> listCoordinate;
 
+
+    private int tx;
+    private int ty;
 
     public MarkerPositioner(Context context) {
         super(context);
-        mContext = context;
-        listMarker = new HashMap<>();
+        init(context);
     }
+
 
     public MarkerPositioner(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mContext = context;
-        listMarker = new HashMap<>();
+        init(context);
     }
 
     public MarkerPositioner(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        init(context);
+    }
+
+    private void init(Context context){
         mContext = context;
         listMarker = new HashMap<>();
+        listCoordinate = new HashMap<>();
+
+        tx = 0;
+        ty = 0;
     }
+
 
     public void setContext(Context context){
         mContext = context;
@@ -50,9 +64,12 @@ public class MarkerPositioner
 
         marker.setImageResource(R.drawable.map_marker_outside_azure);
 
-        lp.leftMargin = x;
-        lp.topMargin = y;
 
+        listCoordinate.put(tag, new Point(x, y));
+        lp.leftMargin = tx + x - (lp.width / 2);
+        lp.topMargin = ty + y - lp.height;
+
+        marker.setTag(tag);
         marker.setOnClickListener(this);
         marker.setLayoutParams(lp);
 
@@ -63,14 +80,30 @@ public class MarkerPositioner
 
     public void setMarkerPosition(int x, int y, String tag){
         ImageView marker = listMarker.get(tag);
+
         LayoutParams lp = (LayoutParams) marker.getLayoutParams();
 
-        lp.setMargins(x - lp.width, y - lp.height, 0, 0);
+        listCoordinate.get(tag).set(x, y);
+
+        lp.leftMargin = tx + x - (lp.width / 2);
+        lp.topMargin = ty + y - lp.height;
+
         marker.setLayoutParams(lp);
+    }
+
+
+    public void updateAllMarkerPosition(int x, int y){
+        tx = x;
+        ty = y;
+
+        for (String key: listMarker.keySet()
+             ) {
+            setMarkerPosition(listCoordinate.get(key).x, listCoordinate.get(key).y, key);
+        }
     }
 
     @Override
     public void onClick(View view) {
-        Toast.makeText(mContext, "BANANANANANANANA", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(mContext, view.getTag().toString(), Toast.LENGTH_SHORT).show();
     }
 }

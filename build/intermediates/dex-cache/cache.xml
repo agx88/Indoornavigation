@@ -3,12 +3,30 @@
 
     <item
         is-multidex="true"
+        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_a3859724390ce7f65f821fae63796dbce2b0243e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
         <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_e6621fa778b174ef21750999dc50fe16ac61f489/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cloud/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_5500ba32cf61fa7ec1918dc008c407d60028c14c/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -52,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="0aab3d4b4be8fa8ae3102b003331437496de660a">
+        sha1="a4e23db2d8e161a895cf7a431f8f1bdde2e12a1f">
         <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_c81934d7128b6b6eb2eee52788f98465325f89b3/classes.dex" />
     </item>
     <item
@@ -61,26 +79,8 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="23166bcde2621c87bc1d7839f5de1073fea3c61c">
+        sha1="9b59907d410ac6a207cd953c8b3e5bb146eb7e67">
         <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_2f77238adc13ea918ea59cc4a6786a296882436c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_a3859724390ce7f65f821fae63796dbce2b0243e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/cloud/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_5500ba32cf61fa7ec1918dc008c407d60028c14c/classes.dex" />
     </item>
     <item
         is-multidex="true"

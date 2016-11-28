@@ -230,10 +230,12 @@ public class ZoomableImageView extends ImageView {
 
         // MIO--------------------------------
         // Sistema correttamente il marker nelle coordinate relative della mappa.
-        // X e Y da dove è stata disegnata la mappa.
+        // X e Y da dove è stata disegnata la mappa.--
         imageView_x = (int) transX;
         imageView_y = (int) transY;
-        drawSpace.setMarkerPosition(imageView_x + 80, imageView_y + 150, "Prova");
+        if(drawSpace != null) {
+            drawSpace.updateAllMarkerPosition(imageView_x, imageView_y);
+        }
         // #MIO-------------------------------
 
     }
@@ -359,7 +361,11 @@ public class ZoomableImageView extends ImageView {
     public void setMarkerPositioner(MarkerPositioner markerPositioner){
         drawSpace = markerPositioner;
 
-        drawSpace.addMarker(0, 0, "Prova");
+        drawSpace.addMarker(0, 0, "Prova1");
+        drawSpace.addMarker(110, 0, "Prova2");
+        drawSpace.addMarker(0, 110, "Prova3");
+        drawSpace.addMarker(110, 110, "Prova4");
+        drawSpace.addMarker(200, 180, "Prova5");
     }
     // #MIO-----------------------------------------------
 
