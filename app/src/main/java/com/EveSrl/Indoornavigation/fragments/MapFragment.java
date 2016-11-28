@@ -75,8 +75,6 @@ public class MapFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_map, container, false);
 
-
-
         //Mantiene il fragment "vivo" durante il cambio di orientamento
         setRetainInstance(true);
 
@@ -85,7 +83,7 @@ public class MapFragment extends Fragment {
         drawSpace.setContext(this.getContext());
 
         drawSpace.addMarker(0, 0, "Prova");
-        drawSpace.setMarkerPosition(40, 40, "Prova");
+        drawSpace.setMarkerPosition(80, 150, "Prova");
 
         return view;
     }
