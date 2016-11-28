@@ -2,5 +2,9 @@
     {
         "merged": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher.png",
         "source": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher.png",
+        "source": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     }
 ]

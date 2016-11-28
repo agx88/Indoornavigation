@@ -2,5 +2,9 @@
     {
         "merged": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
         "source": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\src\\main\\res\\menu\\menu_main.xml"
+    },
+    {
+        "merged": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
+        "source": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\src\\main\\res\\menu\\menu_main.xml"
     }
 ]

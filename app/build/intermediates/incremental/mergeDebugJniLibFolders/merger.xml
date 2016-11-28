@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\src\debug\jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/home/cloud/git-repo/Indoornavigation/app/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/home/cloud/git-repo/Indoornavigation/app/src/debug/jniLibs"/></dataSet></merger>

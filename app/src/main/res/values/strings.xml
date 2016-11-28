@@ -6,5 +6,6 @@
     <string name="hello_blank_fragment">Hello Blank Fragment</string>
 
     <string name="map_img_desc">Map image</string>
+    <string name="piantina_description">La piantina della stanza o dell\'edificio</string>
 
 </resources>
