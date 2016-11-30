@@ -33,7 +33,7 @@ import com.EveSrl.Indoornavigation.utils.GeoObjectExt;
 
 public class ARFragment
         extends Fragment
-        implements OnClickBeyondarObjectListener, LocationListener, OnClickListener{
+        implements OnClickBeyondarObjectListener, LocationListener{
 
     protected GPSReader gpsReader;
 
@@ -42,8 +42,6 @@ public class ARFragment
 
     protected RadarView mRadarView;
     protected RadarWorldPlugin mRadarPlugin;
-
-    protected Button showMapButton;
 
     // Inflate the layout for this fragment.
     protected View view;
@@ -117,9 +115,6 @@ public class ARFragment
         View view = inflater.inflate(R.layout.fragment_ar, container, false);
         mBeyondarFragment = (BeyondarFragment) this.getActivity().getFragmentManager().findFragmentById(R.id.myFragmentSample);
 
-        // showMapButton start GoogleMapActivity
-        showMapButton = (Button) view.findViewById(R.id.showMapButton);
-        showMapButton.setOnClickListener(this);
         /*
         showMapButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -190,16 +185,5 @@ public class ARFragment
         gpsReader.getLocation();
         //Toast.makeText(this, "GPS restarted!", Toast.LENGTH_LONG).show();
 
-    }
-
-    @Override
-    public void onClick(View view) {
-        Fragment nextFrag= new ARMapFragment();
-        this.getFragmentManager().beginTransaction()
-                .replace(R.id.AR_container, nextFrag, "GoogleMaps for AR")
-                .addToBackStack(null)
-                .commit();
-
-        //this.getFragmentManager().executePendingTransactions();
     }
 }
