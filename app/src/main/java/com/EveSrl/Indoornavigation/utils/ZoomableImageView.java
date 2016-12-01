@@ -3,6 +3,7 @@ package com.EveSrl.Indoornavigation.utils;
 import android.content.Context;
 import android.graphics.Matrix;
 import android.graphics.PointF;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -46,7 +47,10 @@ public class ZoomableImageView extends ImageView {
     private MarkerPositioner drawSpace;
     private int imageView_x;
     private int imageView_y;
+    private int scaleView_x;
+    private int scaleView_y;
 
+    private float mScale = 0.0f;
     // #MIO------------------------------------------------
 
     public ZoomableImageView(Context context) {
@@ -117,7 +121,6 @@ public class ZoomableImageView extends ImageView {
 
                             last.set(curr.x, curr.y);
                         }
-
                         break;
 
                     // Sent when the last pointer leaves the screen.
@@ -144,6 +147,11 @@ public class ZoomableImageView extends ImageView {
                 }
 
                 setImageMatrix(matrix);
+
+                // MIO---------------------------------------------
+                // Mettendo l'update qui, i marker non "traballano" più.
+                updateDrawSpace();
+                // #MIO---------------------------------------------
 
                 invalidate();
 
@@ -206,9 +214,7 @@ public class ZoomableImageView extends ImageView {
             fixTrans();
 
             return true;
-
         }
-
     }
 
     void fixTrans() {
@@ -224,26 +230,8 @@ public class ZoomableImageView extends ImageView {
         float fixTransY = getFixTrans(transY, viewHeight, origHeight * saveScale);
 
         if (fixTransX != 0 || fixTransY != 0)
-
             matrix.postTranslate(fixTransX, fixTransY);
-
-        // MIO--------------------------------
-        // Sistema correttamente il marker nelle coordinate relative della mappa.
-        // X e Y da dove è stata disegnata la mappa.
-        imageView_x = (int) m[Matrix.MTRANS_X];
-        imageView_y = (int) m[Matrix.MTRANS_Y];
-        // (imageView_x <= 0 && imageView_y >= 0) aiuta a tenere più fermi i marker ai limiti dell'immagine.
-        // (Su X funziona, mentre su Y no.
-        if (drawSpace != null) {
-
-            if (imageView_x <= 0 && imageView_y >= 0)
-                drawSpace.updateAllMarkerPosition(imageView_x, imageView_y);
-
-            Log.d("ZoomableImageView", "x:= " + Integer.toString(imageView_x) + "  y:= " + Integer.toString(imageView_y));
-        }
-        // #MIO-------------------------------
     }
-
 
 
     float getFixTrans(float trans, float viewSize, float contentSize) {
@@ -353,13 +341,15 @@ public class ZoomableImageView extends ImageView {
             origHeight = viewHeight - 2 * redundantYSpace;
 
             setImageMatrix(matrix);
+
+            // MIO------------------------------
+            mScale = scale;
+            updateDrawSpace();
+            // #MIO-----------------------------
         }
 
         fixTrans();
     }
-
-
-
 
     // MIO------------------------------------------------
     public void setMarkerPositioner(MarkerPositioner markerPositioner){
@@ -370,6 +360,19 @@ public class ZoomableImageView extends ImageView {
         drawSpace.addMarker(0, 110, "Prova3");
         drawSpace.addMarker(110, 110, "Prova4");
         drawSpace.addMarker(200, 180, "Prova5");
+    }
+
+    private void updateDrawSpace() {
+        float[] mm = new float[9];
+        matrix.getValues(mm);
+        mScale = saveScale;
+        //if (mScale > 0.0f)
+            drawSpace.updateScaleFactor(mScale, mScale);
+        //else
+            drawSpace.updateScaleFactor(mm[Matrix.MSCALE_X], mm[Matrix.MSCALE_Y]);
+
+        drawSpace.updateTranslation(mm[Matrix.MTRANS_X], mm[Matrix.MTRANS_Y]);
+        drawSpace.updateAllMarkerPosition();
     }
     // #MIO-----------------------------------------------
 

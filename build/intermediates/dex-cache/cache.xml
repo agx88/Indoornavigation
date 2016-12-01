@@ -21,39 +21,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.4.0_a3859724390ce7f65f821fae63796dbce2b0243e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.estimote/sdk/0.10.8/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="640af651fe94032b8f34112aabd351df29d3e2df">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/com.estimote-sdk-0.10.8_4cab0b080c5218a4a7e1643ba91a19acf8ba3ce2.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="30bea5187a01dabe4da3568947a4add697176d14">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_2f77238adc13ea918ea59cc4a6786a296882436c.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/cloud/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
         <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/support-annotations-23.4.0_5500ba32cf61fa7ec1918dc008c407d60028c14c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.4.0_a3859724390ce7f65f821fae63796dbce2b0243e.jar" />
     </item>
     <item
         is-multidex="false"
@@ -84,11 +66,20 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.estimote/sdk/0.10.8/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="640af651fe94032b8f34112aabd351df29d3e2df">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/com.estimote-sdk-0.10.8_4cab0b080c5218a4a7e1643ba91a19acf8ba3ce2.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="325aefc44febc9a12039e7b08334d8d79544d568">
+        sha1="f8e05b17799a94db8c770b9a7a470eca2fd900b5">
         <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/instant-run_c81934d7128b6b6eb2eee52788f98465325f89b3.jar" />
     </item>
     <item
@@ -99,6 +90,15 @@
         revision="23.0.3"
         sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
         <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.4.0_e6621fa778b174ef21750999dc50fe16ac61f489.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="3e96d33b510cdf6a1fc00417bb0137be0e92a61b">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_2f77238adc13ea918ea59cc4a6786a296882436c.jar" />
     </item>
 
 </items>
