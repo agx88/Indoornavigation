@@ -88,6 +88,7 @@
         "source": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\src\\main\\res\\drawable\\map_marker_outside_pink_icon.png"
     },
     {
+<<<<<<< HEAD
         "merged": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
         "source": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_btn_radio_material.xml"
     },
@@ -98,6 +99,18 @@
     {
         "merged": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
         "source": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_textfield_search_material.xml"
+=======
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/map_marker_outside_azure.png",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/map_marker_outside_azure.png"
+    },
+    {
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/design_fab_background.xml",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/res/drawable/design_fab_background.xml"
+    },
+    {
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_cab_background_internal_bg.xml"
+>>>>>>> MapFragment
     },
     {
         "merged": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
@@ -124,8 +137,17 @@
         "source": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_seekbar_track_material.xml"
     },
     {
+<<<<<<< HEAD
         "merged": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
         "source": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_btn_borderless_material.xml"
+=======
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/rettangolo.png",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/rettangolo.png"
+    },
+    {
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_btn_check_material.xml"
+>>>>>>> MapFragment
     },
     {
         "merged": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\map_marker_outside_pink_icon.png",

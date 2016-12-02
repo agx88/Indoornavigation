@@ -3,6 +3,7 @@ package com.EveSrl.Indoornavigation.utils;
 import android.content.Context;
 import android.graphics.Matrix;
 import android.graphics.PointF;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -25,7 +26,7 @@ public class ZoomableImageView extends ImageView {
     // Remember some things for zooming
     PointF last = new PointF();
     PointF start = new PointF();
-    float minScale = 1f;
+    float minScale = 0.5f; //1f;
     float maxScale = 3f;
     float[] m;
     int viewWidth, viewHeight;
@@ -44,9 +45,6 @@ public class ZoomableImageView extends ImageView {
 
     // MIO-------------------------------------------------
     private MarkerPositioner drawSpace;
-    private int imageView_x;
-    private int imageView_y;
-
     // #MIO------------------------------------------------
 
     public ZoomableImageView(Context context) {
@@ -60,7 +58,6 @@ public class ZoomableImageView extends ImageView {
     }
 
     private void sharedConstructing(Context context) {
-
         super.setClickable(true);
 
         this.context = context;
@@ -85,7 +82,7 @@ public class ZoomableImageView extends ImageView {
                 PointF curr = new PointF(event.getX(), event.getY());
 
                 switch (event.getAction()) {
-                    // For the first pointer that touches the screen. This starts the gesture.
+
                     case MotionEvent.ACTION_DOWN:
 
                         last.set(curr);
@@ -96,9 +93,6 @@ public class ZoomableImageView extends ImageView {
 
                         break;
 
-                    // A change has happened during a press gesture.
-                    // A change has happened during a press gesture (between ACTION_DOWN and ACTION_UP).
-                    // The motion contains the most recent point, as well as any intermediate points since the last down or move event.
                     case MotionEvent.ACTION_MOVE:
 
                         if (mode == DRAG) {
@@ -121,7 +115,6 @@ public class ZoomableImageView extends ImageView {
 
                         break;
 
-                    // Sent when the last pointer leaves the screen.
                     case MotionEvent.ACTION_UP:
 
                         mode = NONE;
@@ -136,8 +129,8 @@ public class ZoomableImageView extends ImageView {
 
                         break;
 
-                    // Sent when a non-primary pointer goes up.
                     case MotionEvent.ACTION_POINTER_UP:
+
                         mode = NONE;
 
                         break;
@@ -146,13 +139,16 @@ public class ZoomableImageView extends ImageView {
 
                 setImageMatrix(matrix);
 
+                // MIO---------------------------------------------
+                // Mettendo l'update qui, i marker non "traballano" più.
+                updateDrawSpace();
+                // #MIO---------------------------------------------
+
                 invalidate();
 
                 return true; // indicate event was handled
 
             }
-
-
 
         });
     }
@@ -178,6 +174,7 @@ public class ZoomableImageView extends ImageView {
         public boolean onScale(ScaleGestureDetector detector) {
 
             float mScaleFactor = detector.getScaleFactor();
+
             float origScale = saveScale;
 
             saveScale *= mScaleFactor;
@@ -216,47 +213,61 @@ public class ZoomableImageView extends ImageView {
 
         matrix.getValues(m);
 
-        float transX = m[Matrix.MTRANS_X];
+        float transX = m[Matrix.MTRANS_X];  // mode==DRAG -> deltaX
 
-        float transY = m[Matrix.MTRANS_Y];
+        float transY = m[Matrix.MTRANS_Y];  // mode==DRAG -> deltaY
 
-        float fixTransX = getFixTrans(transX, viewWidth, origWidth * saveScale);
+        float paddingX = 30;
 
-        float fixTransY = getFixTrans(transY, viewHeight, origHeight * saveScale);
+        float paddingY = 60;
+
+        if(mode == ZOOM){
+            paddingX = paddingY = 0;
+        }
+
+        float fixTransX = getFixTrans(transX, viewWidth, origWidth * saveScale, paddingX);
+
+        float fixTransY = getFixTrans(transY, viewHeight, origHeight * saveScale, paddingY);
 
         if (fixTransX != 0 || fixTransY != 0)
 
             matrix.postTranslate(fixTransX, fixTransY);
 
-        // MIO--------------------------------
-        // Sistema correttamente il marker nelle coordinate relative della mappa.
-        // X e Y da dove è stata disegnata la mappa.
-        imageView_x = (int) transX;
-        imageView_y = (int) transY;
-        drawSpace.setMarkerPosition(imageView_x + 80, imageView_y + 150, "Prova");
-        // #MIO-------------------------------
-
     }
 
 
 
-    float getFixTrans(float trans, float viewSize, float contentSize) {
+    float getFixTrans(float trans, float viewSize, float contentSize, float padding) {
 
         float minTrans, maxTrans;
 
         if (contentSize <= viewSize) {
+            //minTrans = 0;
 
-            minTrans = 0;
+            // MIO-------------------------------
+            minTrans = 0 - padding;
+            // MIO-------------------------------
 
-            maxTrans = viewSize - contentSize;
+            //maxTrans = viewSize - contentSize;
+
+            // MIO-------------------------------
+            maxTrans = viewSize - contentSize + padding;
+            // MIO-------------------------------
 
         } else {
+            //minTrans = viewSize - contentSize;
+            // MIO-------------------------------
+            minTrans = viewSize - contentSize - padding;
+            // MIO-------------------------------
 
-            minTrans = viewSize - contentSize;
-
-            maxTrans = 0;
+            //maxTrans = 0;
+            // MIO-------------------------------
+            maxTrans = 0 + padding;
+            // MIO-------------------------------
 
         }
+
+        Log.d("Trans", "maxTrans:" + maxTrans + "  minTrans:" + minTrans + "  trans:" + trans);
 
         if (trans < minTrans)
 
@@ -267,15 +278,14 @@ public class ZoomableImageView extends ImageView {
             return -trans + maxTrans;
 
         return 0;
-
     }
 
     float getFixDragTrans(float delta, float viewSize, float contentSize) {
-
+        // If content is bigger than the View, then no movement are allowed.
         if (contentSize <= viewSize) {
 
             return 0;
-
+            //return delta;
         }
 
         return delta;
@@ -322,9 +332,9 @@ public class ZoomableImageView extends ImageView {
 
             Log.d("bmSize", "bmWidth: " + bmWidth + " bmHeight : " + bmHeight);
 
-            float scaleX = (float) viewWidth / (float) bmWidth;
+            float scaleX = (float) (viewWidth) / (float) (bmWidth);
 
-            float scaleY = (float) viewHeight / (float) bmHeight;
+            float scaleY = (float) (viewHeight) / (float) (bmHeight);
 
             scale = Math.min(scaleX, scaleY);
 
@@ -347,19 +357,45 @@ public class ZoomableImageView extends ImageView {
             origHeight = viewHeight - 2 * redundantYSpace;
 
             setImageMatrix(matrix);
+
+            float origScale = saveScale;
+            saveScale = 0.85f;
+            if (origWidth * saveScale <= viewWidth || origHeight * saveScale <= viewHeight) {
+                matrix.postScale(saveScale/origScale, saveScale/origScale, viewWidth / 2, viewHeight / 2);
+                setImageMatrix(matrix);
+            }
+            else
+                saveScale = origScale;
+
+            // MIO------------------------------
+            updateDrawSpace();
+            // #MIO-----------------------------
         }
 
         fixTrans();
     }
 
-
-
-
     // MIO------------------------------------------------
     public void setMarkerPositioner(MarkerPositioner markerPositioner){
         drawSpace = markerPositioner;
 
-        drawSpace.addMarker(0, 0, "Prova");
+        drawSpace.addMarker(0, 0, "Prova1");
+        drawSpace.addMarker(110, 0, "Prova2");
+        drawSpace.addMarker(0, 110, "Prova3");
+        drawSpace.addMarker(110, 110, "Prova4");
+        drawSpace.addMarker(200, 180, "Prova5");
+    }
+
+    private void updateDrawSpace() {
+        float[] mm = new float[9];
+        matrix.getValues(mm);
+
+        if (drawSpace != null) {
+            drawSpace.updateScaleFactor(mm[Matrix.MSCALE_X], mm[Matrix.MSCALE_Y]);
+
+            drawSpace.updateTranslation(mm[Matrix.MTRANS_X], mm[Matrix.MTRANS_Y]);
+            drawSpace.updateAllMarkerPosition();
+        }
     }
     // #MIO-----------------------------------------------
 

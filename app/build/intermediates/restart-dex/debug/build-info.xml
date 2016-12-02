@@ -1,44 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="arm64-v8a,armeabi-v7a,armeabi"
-    api-level="22"
-    density="xxhdpi"
+    abi="armeabi-v7a,armeabi"
+    api-level="19"
+    density="hdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="9333839553660"
+    timestamp="13722677022102"
     token="-1471898201175341706"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="359" />
+        duration="642" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="22" />
+        duration="356" />
     <task
         name="verifier"
-        duration="0" />
+        duration="19" />
 
     <artifact
-        location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
-        type="DEX" />
+        location="/home/cloud/git-repo/Indoornavigation/app/build/outputs/apk/app-debug.apk"
+        type="MAIN" />
 
     <build
-        timestamp="8944120041524"
+        timestamp="13722677022102"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/cloud/git-repo/Indoornavigation/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
-    </build>
-    <build
-        timestamp="9333839553660"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
-            type="DEX" />
     </build>
 
 </instant-run>

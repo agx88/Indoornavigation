@@ -2,103 +2,103 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_e6621fa778b174ef21750999dc50fe16ac61f489/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_a861992fc0c7ff51b5a398b39d5fbd042869db8c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.4.0_2ba3783aa07dbe99bea43a5c36f36199c2cbd4a5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.4.0_b35929cc8971a191fcc6cbf9e042c342f5673f48/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.estimote/sdk/0.10.8/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="640af651fe94032b8f34112aabd351df29d3e2df">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.estimote-sdk-0.10.8_4cab0b080c5218a4a7e1643ba91a19acf8ba3ce2/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="0aab3d4b4be8fa8ae3102b003331437496de660a">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_c81934d7128b6b6eb2eee52788f98465325f89b3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="23166bcde2621c87bc1d7839f5de1073fea3c61c">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_2f77238adc13ea918ea59cc4a6786a296882436c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_a3859724390ce7f65f821fae63796dbce2b0243e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/cloud/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_5500ba32cf61fa7ec1918dc008c407d60028c14c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_97580dcacf894f619f0458f8339353764e86e2be/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_3bc7bf083958512c73eff291a9687c474ab504f2/classes.dex" />
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/internal_impl-23.4.0_3bc7bf083958512c73eff291a9687c474ab504f2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.4.0_97580dcacf894f619f0458f8339353764e86e2be.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.4.0_a3859724390ce7f65f821fae63796dbce2b0243e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.estimote/sdk/0.10.8/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="640af651fe94032b8f34112aabd351df29d3e2df">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/com.estimote-sdk-0.10.8_4cab0b080c5218a4a7e1643ba91a19acf8ba3ce2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f01ad913ef2577672faf344074ea528cb1169727">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_2f77238adc13ea918ea59cc4a6786a296882436c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/cloud/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/support-annotations-23.4.0_5500ba32cf61fa7ec1918dc008c407d60028c14c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.4.0_a861992fc0c7ff51b5a398b39d5fbd042869db8c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/com.android.support-design-23.4.0_2ba3783aa07dbe99bea43a5c36f36199c2cbd4a5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.4.0_b35929cc8971a191fcc6cbf9e042c342f5673f48.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="79a7a32611953c17a9669ea5aab741b8e8489711">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/instant-run_c81934d7128b6b6eb2eee52788f98465325f89b3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.4.0_e6621fa778b174ef21750999dc50fe16ac61f489.jar" />
     </item>
 
 </items>

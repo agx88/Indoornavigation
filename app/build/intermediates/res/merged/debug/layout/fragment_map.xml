@@ -1,7 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context="com.EveSrl.Indoornavigation.fragments.MapFragment">
 
 
@@ -9,11 +9,12 @@
 
         <com.EveSrl.Indoornavigation.utils.ZoomableImageView
             android:id="@+id/piantina"
-            android:src="@drawable/piantina2"
+            android:src="@drawable/rettangolo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/piantina_description"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="false"
+            android:scaleType="matrix" />
 
 
         <com.EveSrl.Indoornavigation.utils.MarkerPositioner

@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidConfiguredLogFilters">
+    <filters>
+      <filter>
+        <option name="logLevel" value="verbose" />
+        <option name="logMessagePattern" value="" />
+        <option name="logTagPattern" value="ZoomableImageView" />
+        <option name="name" value="Unnamed-0" />
+        <option name="packageNamePattern" value="" />
+        <option name="pid" value="" />
+      </filter>
+      <filter>
+        <option name="logLevel" value="verbose" />
+        <option name="logMessagePattern" value="" />
+        <option name="logTagPattern" value="Trans" />
+        <option name="name" value="Trans" />
+        <option name="packageNamePattern" value="" />
+        <option name="pid" value="" />
+      </filter>
+    </filters>
+  </component>
   <component name="AndroidLayouts">
     <shared>
       <config />
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Trans" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f4b19b2-6651-4e1e-a0a8-22d8851d4385" name="Default" comment="">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/com/EveSrl/Indoornavigation/utils/ZoomableImageView$ScaleListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/com/EveSrl/Indoornavigation/utils/ZoomableImageView$ScaleListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/fragments/MapFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/fragments/MapFragment.java" />
@@ -48,6 +69,18 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/EveSrl/Indoornavigation/utils/ZoomableImageView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/EveSrl/Indoornavigation/utils/ZoomableImageView$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_23_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_23_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/design_23_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/design_23_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_23_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_23_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_23_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+>>>>>>> MapFragment
     </list>
     <list id="aaa6213d-6f65-40c7-bb67-3af02194a4ec" name="Rejected commit: Default" comment="I Marker vengono aggiunti alla mappa. (Testato) Adesso bisogna correggere il loro posizionamento perché la piantina non occupa tutta la View." />
     <ignored path="Indoornavigation.iws" />
@@ -72,7 +105,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view />
+        <projects_view>
+          <tree_state />
+        </projects_view>
       </state>
     </system>
   </component>
@@ -81,9 +116,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="fragment_map.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_map.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="colors.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="MapFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/fragments/MapFragment.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="1596">
               <caret line="84" column="46" selection-start-line="84" selection-start-column="46" selection-end-line="84" selection-end-column="46" />
               <folding>
@@ -93,6 +152,11 @@
                 <element signature="docComment;class#OnFragmentInteractionListener#0;class#MapFragment#0" expanded="false" />
                 <element signature="class#OnFragmentInteractionListener#0;class#MapFragment#0" expanded="false" />
               </folding>
+=======
+            <state relative-caret-position="396">
+              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+              <folding />
+>>>>>>> MapFragment
             </state>
           </provider>
         </entry>
@@ -100,8 +164,13 @@
       <file leaf-file-name="MarkerPositioner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/utils/MarkerPositioner.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="684">
               <caret line="47" column="51" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
+=======
+            <state relative-caret-position="1188">
+              <caret line="80" column="37" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
+>>>>>>> MapFragment
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -109,19 +178,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ZoomableImageView.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ZoomableImageView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/utils/ZoomableImageView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="232" column="51" selection-start-line="232" selection-start-column="51" selection-end-line="232" selection-end-column="51" />
+            <state relative-caret-position="3762">
+              <caret line="224" column="36" selection-start-line="224" selection-start-column="36" selection-end-line="224" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
+<<<<<<< HEAD
                 <element signature="method#setMaxZoom#0;class#ZoomableImageView#0" expanded="false" />
+=======
+>>>>>>> MapFragment
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="fragment_map.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_map.xml">
           <provider editor-type-id="android-designer2">
@@ -135,6 +208,8 @@
           </provider>
         </entry>
       </file>
+=======
+>>>>>>> MapFragment
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -1493,7 +1568,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4438445853636" />
+        <entry key="$PROJECT_DIR$" value="4440539339158" />
         <entry key="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation" value="4435630731131" />
       </map>
     </option>
@@ -1760,25 +1835,34 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/utils/Point.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/fragments/BeaconItemFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/utils/CanvasUtil/CanvasView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_map.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/utils/MarkerPositioner.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/utils/MarkerView.java" />
+        <option value="$PROJECT_DIR$/gradle.properties" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/fragments/MapFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/utils/MarkerPositioner.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/utils/ZoomableImageView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_map.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
     <option name="height" value="754" />
+=======
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1301" />
+    <option name="height" value="744" />
+>>>>>>> MapFragment
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1789,6 +1873,9 @@
     <OptionsSetting value="true" id="Edit" />
     <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="1" />
   </component>
   <component name="ProjectView">
     <navigator currentView="AndroidView" proportions="" version="1">
@@ -1805,20 +1892,27 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
-      <pane id="AndroidView">
-        <subPane />
-      </pane>
       <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Indoornavigation" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="device.picker.selection" value="UBE0216120001127" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AndroidStudioProjects/BeyondARSample" />
+    <property name="device.picker.selection" value="TA7440HSV0" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="106" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -1840,6 +1934,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\src\main\java\com\EveSrl\Indoornavigation\utils" />
       <recent name="C:\Users\peppe\Documents\UNI\Android\git\Indoornavigation\app\src\main\res\drawable" />
     </key>
@@ -2074,7 +2169,7 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="false" name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+    <configuration default="false" name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="app" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
@@ -2088,7 +2183,7 @@
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
       <option name="DEBUGGER_TYPE" value="Auto" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="true" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
@@ -2176,13 +2271,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
+=======
+    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
+    <editor active="false" />
+>>>>>>> MapFragment
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32591414" sideWeight="0.49722" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2201,51 +2302,44 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32591414" sideWeight="0.50907654" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32165605" sideWeight="0.59194946" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32750398" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.82829887" sideWeight="0.49723756" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32324842" sideWeight="0.53772837" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32484075" sideWeight="0.46227163" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23510723" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991317" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3961965" sideWeight="0.5194599" order="3" side_tool="false" content_ui="tabs" />
+>>>>>>> MapFragment
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39663866" sideWeight="0.5194599" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="165" y="208" width="1101" height="544" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991317" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991317" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+>>>>>>> MapFragment
     </layout>
-    <layout-to-restore>
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32591414" sideWeight="0.50907654" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32591414" sideWeight="0.59194946" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3974563" sideWeight="0.5194599" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32591414" sideWeight="0.49722" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991317" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.82829887" sideWeight="0.49723756" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32750398" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32750398" sideWeight="0.4813344" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32750398" sideWeight="0.4080505" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23046567" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -2266,7 +2360,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="21" />
+      <option name="time" value="28" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2275,6 +2369,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
           <caret line="84" column="82" selection-start-line="84" selection-start-column="82" selection-end-line="84" selection-end-column="82" />
+<<<<<<< HEAD
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#onButtonPressed#0;class#MapFragment#0" expanded="false" />
@@ -2330,6 +2425,9 @@
             <element signature="docComment;class#OnFragmentInteractionListener#0;class#MapFragment#0" expanded="false" />
             <element signature="class#OnFragmentInteractionListener#0;class#MapFragment#0" expanded="false" />
           </folding>
+=======
+          <folding />
+>>>>>>> MapFragment
         </state>
       </provider>
     </entry>
@@ -2337,12 +2435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
-          <folding>
-            <element signature="class#ViewPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#addFragment#0;class#ViewPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#setupTabIcons#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#setupViewPager#0;class#MainActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2350,10 +2442,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-          <folding>
-            <element signature="docComment;class#OnListFragmentInteractionListener#0;class#BeaconItemFragment#0" expanded="false" />
-            <element signature="class#OnListFragmentInteractionListener#0;class#BeaconItemFragment#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2361,12 +2449,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
-          <folding>
-            <element signature="class#ViewPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#addFragment#0;class#ViewPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#setupTabIcons#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#setupViewPager#0;class#MainActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2374,10 +2456,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-          <folding>
-            <element signature="docComment;class#OnListFragmentInteractionListener#0;class#BeaconItemFragment#0" expanded="false" />
-            <element signature="class#OnListFragmentInteractionListener#0;class#BeaconItemFragment#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2385,12 +2463,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
-          <folding>
-            <element signature="class#ViewPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#addFragment#0;class#ViewPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#setupTabIcons#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#setupViewPager#0;class#MainActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2398,10 +2470,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-          <folding>
-            <element signature="docComment;class#OnListFragmentInteractionListener#0;class#BeaconItemFragment#0" expanded="false" />
-            <element signature="class#OnListFragmentInteractionListener#0;class#BeaconItemFragment#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2409,6 +2477,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#onButtonPressed#0;class#MapFragment#0" expanded="false" />
@@ -2416,6 +2485,9 @@
             <element signature="docComment;class#OnFragmentInteractionListener#0;class#MapFragment#0" expanded="false" />
             <element signature="class#OnFragmentInteractionListener#0;class#MapFragment#0" expanded="false" />
           </folding>
+=======
+          <folding />
+>>>>>>> MapFragment
         </state>
       </provider>
     </entry>
@@ -2423,12 +2495,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="25" />
-          <folding>
-            <element signature="class#ViewPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#addFragment#0;class#ViewPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#setupTabIcons#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#setupViewPager#0;class#MainActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2436,10 +2502,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#OnListFragmentInteractionListener#0;class#BeaconItemFragment#0" expanded="false" />
-            <element signature="class#OnListFragmentInteractionListener#0;class#BeaconItemFragment#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2447,6 +2509,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1577">
           <caret line="112" column="41" selection-start-line="112" selection-start-column="41" selection-end-line="112" selection-end-column="41" />
+<<<<<<< HEAD
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#onButtonPressed#0;class#MapFragment#0" expanded="false" />
@@ -2454,6 +2517,9 @@
             <element signature="docComment;class#OnFragmentInteractionListener#0;class#MapFragment#0" expanded="false" />
             <element signature="class#OnFragmentInteractionListener#0;class#MapFragment#0" expanded="false" />
           </folding>
+=======
+          <folding />
+>>>>>>> MapFragment
         </state>
       </provider>
     </entry>
@@ -2461,10 +2527,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="912">
           <caret line="67" column="2" selection-start-line="67" selection-start-column="2" selection-end-line="67" selection-end-column="2" />
-          <folding>
-            <element signature="docComment;class#OnListFragmentInteractionListener#0;class#BeaconItemFragment#0" expanded="false" />
-            <element signature="class#OnListFragmentInteractionListener#0;class#BeaconItemFragment#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2479,6 +2541,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1577">
           <caret line="112" column="41" selection-start-line="112" selection-start-column="41" selection-end-line="112" selection-end-column="41" />
+<<<<<<< HEAD
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#onButtonPressed#0;class#MapFragment#0" expanded="false" />
@@ -2486,6 +2549,9 @@
             <element signature="docComment;class#OnFragmentInteractionListener#0;class#MapFragment#0" expanded="false" />
             <element signature="class#OnFragmentInteractionListener#0;class#MapFragment#0" expanded="false" />
           </folding>
+=======
+          <folding />
+>>>>>>> MapFragment
         </state>
       </provider>
     </entry>
@@ -2493,10 +2559,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#OnListFragmentInteractionListener#0;class#BeaconItemFragment#0" expanded="false" />
-            <element signature="class#OnListFragmentInteractionListener#0;class#BeaconItemFragment#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2579,13 +2641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/piantina.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -2627,7 +2682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="359">
           <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2635,10 +2689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-198">
           <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-          <folding>
-            <element signature="docComment;class#OnListFragmentInteractionListener#0;class#BeaconItemFragment#0" expanded="false" />
-            <element signature="class#OnListFragmentInteractionListener#0;class#BeaconItemFragment#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2656,7 +2706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="394">
           <caret line="46" column="44" selection-start-line="46" selection-start-column="44" selection-end-line="46" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2664,12 +2713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
-          <folding>
-            <element signature="class#ViewPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#addFragment#0;class#ViewPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#setupTabIcons#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#setupViewPager#0;class#MainActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2687,10 +2730,52 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+<<<<<<< HEAD
+=======
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-23/android.jar!/android/view/View.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="1102" column="38" selection-start-line="1102" selection-start-column="38" selection-end-line="1102" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/utils/MarkerView.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/fragments/ARFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+>>>>>>> MapFragment
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="23" column="2" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_map.xml">
+<<<<<<< HEAD
+=======
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+>>>>>>> MapFragment
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
@@ -2701,18 +2786,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/utils/MarkerPositioner.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="684">
           <caret line="47" column="51" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="144">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+          <folding />
+>>>>>>> MapFragment
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/fragments/MapFragment.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1596">
           <caret line="84" column="46" selection-start-line="84" selection-start-column="46" selection-end-line="84" selection-end-column="46" />
           <folding>
@@ -2721,17 +2813,34 @@
             <element signature="method#onDetach#0;class#MapFragment#0" expanded="false" />
             <element signature="docComment;class#OnFragmentInteractionListener#0;class#MapFragment#0" expanded="false" />
             <element signature="class#OnFragmentInteractionListener#0;class#MapFragment#0" expanded="false" />
+=======
+        <state relative-caret-position="396">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/utils/MarkerPositioner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="80" column="37" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+>>>>>>> MapFragment
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/EveSrl/Indoornavigation/utils/ZoomableImageView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="232" column="51" selection-start-line="232" selection-start-column="51" selection-end-line="232" selection-end-column="51" />
+        <state relative-caret-position="3762">
+          <caret line="224" column="36" selection-start-line="224" selection-start-column="36" selection-end-line="224" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="method#setMaxZoom#0;class#ZoomableImageView#0" expanded="false" />
+=======
+>>>>>>> MapFragment
           </folding>
         </state>
       </provider>

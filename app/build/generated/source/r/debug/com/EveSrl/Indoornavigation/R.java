@@ -2289,9 +2289,10 @@ containing a value of this type.
         public static final int map_marker_outside_azure=0x7f020053;
         public static final int map_marker_outside_chartreuse=0x7f020054;
         public static final int map_marker_outside_pink_icon=0x7f020055;
-        public static final int notification_template_icon_bg=0x7f020058;
+        public static final int notification_template_icon_bg=0x7f020059;
         public static final int piantina=0x7f020056;
         public static final int piantina2=0x7f020057;
+        public static final int rettangolo=0x7f020058;
     }
     public static final class id {
         public static final int action0=0x7f0c0079;
