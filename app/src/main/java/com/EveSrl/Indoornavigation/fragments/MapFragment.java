@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,9 @@ public class MapFragment extends Fragment {
     private MarkerPositioner drawSpace;
    //Punto calcolato tramite trilaterazione
     private Point target;
+
+    // Inflate the layout for this fragment
+    private View view;
 
     public MapFragment() {
         // Required empty public constructor
@@ -82,8 +86,18 @@ public class MapFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_map, container, false);
+
+        if(view != null){
+            ViewGroup parent = (ViewGroup) view.getParent();
+            if(parent != null)
+                parent.removeView(view);
+        }
+
+        try {
+            view = inflater.inflate(R.layout.fragment_map, container, false);
+        } catch (InflateException ie) {
+            // Just return the view as it is.
+        }
 
         ZoomableImageView zIView = (ZoomableImageView) view.findViewById(R.id.piantina);
         //Mantiene il fragment "vivo" durante il cambio di orientamento

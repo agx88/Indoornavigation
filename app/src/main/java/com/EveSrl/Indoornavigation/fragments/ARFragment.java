@@ -1,103 +1,189 @@
 package com.EveSrl.Indoornavigation.fragments;
 
-import android.content.Context;
+import android.content.Intent;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
+import android.location.LocationListener;
+import android.widget.Toast;
 
+import com.beyondar.android.fragment.BeyondarFragment;
+import com.beyondar.android.fragment.BeyondarFragment;
+import com.beyondar.android.plugin.radar.RadarView;
+import com.beyondar.android.plugin.radar.RadarWorldPlugin;
+import com.beyondar.android.view.OnClickBeyondarObjectListener;
+import com.beyondar.android.world.BeyondarObject;
+import com.beyondar.android.world.World;
+
+import java.util.ArrayList;
+
+import com.EveSrl.Indoornavigation.utils.CustomWorldHelper;
 import com.EveSrl.Indoornavigation.R;
+import com.EveSrl.Indoornavigation.utils.GPSReader;
+import com.EveSrl.Indoornavigation.utils.GeoObjectExt;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link ARFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link ARFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ARFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class ARFragment
+        extends Fragment
+        implements OnClickBeyondarObjectListener, LocationListener{
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    protected GPSReader gpsReader;
 
-    private OnFragmentInteractionListener mListener;
+    protected BeyondarFragment mBeyondarFragment;
+    protected World mWorld;
 
-    public ARFragment() {
-        // Required empty public constructor
-    }
+    protected RadarView mRadarView;
+    protected RadarWorldPlugin mRadarPlugin;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ARFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ARFragment newInstance(String param1, String param2) {
-        ARFragment fragment = new ARFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    // Inflate the layout for this fragment.
+    protected View view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ar, container, false);
+                             Bundle savedInstanceState){
+
+        if(view != null){
+            ViewGroup parent = (ViewGroup) view.getParent();
+            if(parent != null)
+                parent.removeView(view);
+        }
+
+        try {
+            view = loadViewFromXML(inflater, container, savedInstanceState);
+        } catch (InflateException ie) {
+            // Just return the view as it is.
+        }
+
+
+        // GPS for user's position.
+        gpsReader = new GPSReader(this.getContext());
+
+        // We create the world and fill it
+        //mWorld = CustomWorldHelper.sampleWorld(this, gpsReader.getLatitude(), gpsReader.getLongitude());
+
+        //TODO: Usare .sampleWorld per fare un esempio. Usare .newWorld quando si passerà all'app "ufficiale".
+        mWorld = CustomWorldHelper.sampleWorld(this.getContext());
+        //mWorld = CustomWorldHelper.newWorld(this.getContext());
+
+        // Location can be set once the AR World was created.
+        //CustomWorldHelper.setLocation(gpsReader.getLatitude(), gpsReader.getLongitude());
+
+        mBeyondarFragment.setWorld(mWorld);
+        mBeyondarFragment.showFPS(false);
+
+        // set listener for the geoObjects
+        mBeyondarFragment.setOnClickBeyondarObjectListener(this);
+
+        // Get the radar from the view.
+        mRadarView = (RadarView) view.findViewById(R.id.radarView);
+
+        // Create the Radar plugin.
+        mRadarPlugin = new RadarWorldPlugin(this.getContext());
+        // Set the radar view into our radar plugin.
+        mRadarPlugin.setRadarView(mRadarView);
+        // Set how far (in meters) we want to display in the view.
+        mRadarPlugin.setMaxDistance(100);
+
+        /* This part will may be useful.
+
+            // We can customize the color of the items
+            mRadarPlugin.setListColor(CustomWorldHelper.LIST_TYPE_EXAMPLE_1, Color.RED);
+            // and also the size.
+            mRadarPlugin.setListDotRadius(CustomWorldHelper.LIST_TYPE_EXAMPLE_1, 3);
+         */
+
+        mWorld.addPlugin(mRadarPlugin);
+
+        return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+    private View loadViewFromXML(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_ar, container, false);
+        mBeyondarFragment = (BeyondarFragment) this.getActivity().getFragmentManager().findFragmentById(R.id.myFragmentSample);
+
+        /*
+        showMapButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.v("showMapButton", "Prova");
+            }
+        });
+        */
+
+
+        return view;
+    }
+
+
+    @Override
+    public void onClickBeyondarObject(ArrayList<BeyondarObject> beyondarObjects) {
+        if (beyondarObjects.size() > 0) {
+            /*Toast.makeText(this, "Clicked on: " + beyondarObjects.get(0).getName(),
+                    Toast.LENGTH_LONG).show();
+            */
+            // When an object is touched, app opens an image.
+            try {
+                GeoObjectExt geo = (GeoObjectExt) beyondarObjects.get(0);
+                Bundle bndl = geo.getInfo();
+
+                if (bndl.containsKey("Imgs")) {
+                    Intent intent = new Intent();
+                    int size = bndl.getStringArrayList("Imgs").size();
+
+                    intent.setAction(Intent.ACTION_VIEW);
+
+                    for (int i = 0; i < size; i++){
+                        intent.setDataAndType(Uri.parse("file://" + bndl.getStringArrayList("Imgs").get(i)), "image/*");
+                    }
+                    startActivity(intent);
+                }
+            } catch(Exception e){
+                // Just for debugging
+                e.printStackTrace();
+            }
         }
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
+    public void onLocationChanged(Location location) {
+        CustomWorldHelper.setLocation(gpsReader.getLatitude(), gpsReader.getLongitude());
+
+        // Toast di cui ho bisogno per vedere se questo metodo funziona correttamente.
+        Toast.makeText(this.getContext(), "La posizione dell'utente è cambiata!", Toast.LENGTH_LONG).show();
     }
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+    @Override
+    public void onProviderDisabled(String provider) {
+
+    }
+
 
     @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
+    public void onResume() {
+        super.onResume();
+        gpsReader.getLocation();
+        //Toast.makeText(this, "GPS restarted!", Toast.LENGTH_LONG).show();
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
     }
 }

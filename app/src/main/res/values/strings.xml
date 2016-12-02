@@ -7,5 +7,6 @@
 
     <string name="map_img_desc">Map image</string>
     <string name="piantina_description">La piantina della stanza o dell\'edificio</string>
-
+    <string name="my_location">My location</string>
+    <string name="show_map">Show map</string>
 </resources>

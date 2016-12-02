@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #Fri Dec 02 12:27:01 CET 2016
+=======
+#Tue Nov 29 17:49:53 CET 2016
+>>>>>>> ARFragment
 base.0=/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
 renamed.0=classes.dex
 file.0=/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex

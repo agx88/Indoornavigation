@@ -5,19 +5,31 @@
     density="hdpi"
     format="8"
     plugin-version="2.2.2"
+<<<<<<< HEAD
     timestamp="13722677022102"
+=======
+    timestamp="21516859080803"
+>>>>>>> ARFragment
     token="-1471898201175341706"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
+<<<<<<< HEAD
         duration="642" />
+=======
+        duration="184" />
+>>>>>>> ARFragment
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
+<<<<<<< HEAD
         duration="356" />
+=======
+        duration="15" />
+>>>>>>> ARFragment
     <task
         name="verifier"
         duration="19" />
@@ -27,7 +39,11 @@
         type="MAIN" />
 
     <build
+<<<<<<< HEAD
         timestamp="13722677022102"
+=======
+        timestamp="21516859080803"
+>>>>>>> ARFragment
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/cloud/git-repo/Indoornavigation/app/build/outputs/apk/app-debug.apk"
