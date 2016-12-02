@@ -88,12 +88,12 @@
         "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/piantina2.jpg"
     },
     {
-        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/map_marker_outside_azure.png",
-        "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/map_marker_outside_azure.png"
-    },
-    {
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/design_fab_background.xml",
         "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/res/drawable/design_fab_background.xml"
+    },
+    {
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/map_marker_outside_azure.png",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/map_marker_outside_azure.png"
     },
     {
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",

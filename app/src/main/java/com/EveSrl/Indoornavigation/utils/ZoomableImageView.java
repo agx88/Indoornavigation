@@ -45,12 +45,8 @@ public class ZoomableImageView extends ImageView {
 
     // MIO-------------------------------------------------
     private MarkerPositioner drawSpace;
-    private int imageView_x;
-    private int imageView_y;
-    private int scaleView_x;
-    private int scaleView_y;
 
-    private float mScale = 0.0f;
+    int padding = 60;
     // #MIO------------------------------------------------
 
     public ZoomableImageView(Context context) {
@@ -316,9 +312,9 @@ public class ZoomableImageView extends ImageView {
 
             Log.d("bmSize", "bmWidth: " + bmWidth + " bmHeight : " + bmHeight);
 
-            float scaleX = (float) viewWidth / (float) bmWidth;
+            float scaleX = (float) viewWidth / (float) (bmWidth);
 
-            float scaleY = (float) viewHeight / (float) bmHeight;
+            float scaleY = (float) viewHeight / (float) (bmHeight);
 
             scale = Math.min(scaleX, scaleY);
 
@@ -343,7 +339,6 @@ public class ZoomableImageView extends ImageView {
             setImageMatrix(matrix);
 
             // MIO------------------------------
-            mScale = scale;
             updateDrawSpace();
             // #MIO-----------------------------
         }
@@ -365,14 +360,13 @@ public class ZoomableImageView extends ImageView {
     private void updateDrawSpace() {
         float[] mm = new float[9];
         matrix.getValues(mm);
-        mScale = saveScale;
-        //if (mScale > 0.0f)
-            drawSpace.updateScaleFactor(mScale, mScale);
-        //else
+
+        if (drawSpace != null) {
             drawSpace.updateScaleFactor(mm[Matrix.MSCALE_X], mm[Matrix.MSCALE_Y]);
 
-        drawSpace.updateTranslation(mm[Matrix.MTRANS_X], mm[Matrix.MTRANS_Y]);
-        drawSpace.updateAllMarkerPosition();
+            drawSpace.updateTranslation(mm[Matrix.MTRANS_X], mm[Matrix.MTRANS_Y]);
+            drawSpace.updateAllMarkerPosition();
+        }
     }
     // #MIO-----------------------------------------------
 

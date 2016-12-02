@@ -71,33 +71,29 @@ public class MarkerPositioner
 
         marker.setImageResource(R.drawable.map_marker_outside_azure);
 
-
         listCoordinate.put(tag, new PointF(x, y));
-
-        marker.setX(x);
-        marker.setY(y);
-
 
         marker.setTag(tag);
         marker.setOnClickListener(this);
         marker.setLayoutParams(lp);
-
         listMarker.put(tag, marker);
+
+        setMarkerPosition(x, y, tag);
 
         this.addView(marker);
     }
 
     public void setMarkerPosition(float x, float y, String tag) {
         ImageView marker = listMarker.get(tag);
-        //LayoutParams lp = (LayoutParams) marker.getLayoutParams();
+        LayoutParams lp = (LayoutParams) marker.getLayoutParams();
 
         listCoordinate.get(tag).set(x, y);
 
         //lp.leftMargin = (int) (tx + x * sx);
         //lp.topMargin = (int) (ty + y * sy);
 
-        marker.setX(x * sx + tx);
-        marker.setY(y * sy + ty);
+        marker.setX(x * sx + tx - lp.width/2);
+        marker.setY(y * sy + ty - lp.height);
 
         //marker.setX((x + tx) * sx);
         //marker.setY((y + ty) * sy);
