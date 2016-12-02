@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.*;
 import android.graphics.Point;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -22,11 +23,14 @@ public class MarkerPositioner
 
     private Context mContext;
     private HashMap<String, ImageView> listMarker;
-    private HashMap<String, android.graphics.Point> listCoordinate;
+    private HashMap<String, android.graphics.PointF> listCoordinate;
 
 
-    private int tx;
-    private int ty;
+    private float tx;
+    private float ty;
+    private float sx;
+    private float sy;
+    private float mScale;
 
     public MarkerPositioner(Context context) {
         super(context);
@@ -44,62 +48,83 @@ public class MarkerPositioner
         init(context);
     }
 
-    private void init(Context context){
+    private void init(Context context) {
         mContext = context;
         listMarker = new HashMap<>();
         listCoordinate = new HashMap<>();
 
-        tx = 0;
-        ty = 0;
+        mScale = 1.0f;
+        sx = 1.0f;
+        sy = 1.0f;
+        tx = 0.0f;
+        ty = 0.0f;
     }
 
 
-    public void setContext(Context context){
+    public void setContext(Context context) {
         mContext = context;
     }
 
-    public void addMarker(int x, int y, String tag){
+    public void addMarker(float x, float y, String tag) {
         LayoutParams lp = new LayoutParams(50, 50);
         ImageView marker = new ImageView(mContext);
 
         marker.setImageResource(R.drawable.map_marker_outside_azure);
 
-
-        listCoordinate.put(tag, new Point(x, y));
-        lp.leftMargin = tx + x - (lp.width / 2);
-        lp.topMargin = ty + y - lp.height;
+        listCoordinate.put(tag, new PointF(x, y));
 
         marker.setTag(tag);
         marker.setOnClickListener(this);
         marker.setLayoutParams(lp);
-
         listMarker.put(tag, marker);
+
+        setMarkerPosition(x, y, tag);
 
         this.addView(marker);
     }
 
-    public void setMarkerPosition(int x, int y, String tag){
+    public void setMarkerPosition(float x, float y, String tag) {
         ImageView marker = listMarker.get(tag);
-
         LayoutParams lp = (LayoutParams) marker.getLayoutParams();
 
         listCoordinate.get(tag).set(x, y);
 
-        lp.leftMargin = tx + x - (lp.width / 2);
-        lp.topMargin = ty + y - lp.height;
+        //lp.leftMargin = (int) (tx + x * sx);
+        //lp.topMargin = (int) (ty + y * sy);
 
-        marker.setLayoutParams(lp);
+        marker.setX(x * sx + tx - lp.width/2);
+        marker.setY(y * sy + ty - lp.height);
+
+        //marker.setX((x + tx) * sx);
+        //marker.setY((y + ty) * sy);
+
+        //marker.setX(x + tx);
+        //marker.setY(y + ty);
+
+        Log.d("ZoomableImageView", "x:= " + Float.toString(x) + "  y:= " + Float.toString(y));
+
+        //marker.setLayoutParams(lp);
     }
 
 
-    public void updateAllMarkerPosition(int x, int y){
-        tx = x;
-        ty = y;
-
-        for (String key: listMarker.keySet()
-             ) {
+    public void updateAllMarkerPosition() {
+        for (String key : listMarker.keySet()
+                ) {
             setMarkerPosition(listCoordinate.get(key).x, listCoordinate.get(key).y, key);
         }
+    }
+
+    public void updateTranslation(float tx, float ty) {
+        this.tx = tx;
+        this.ty = ty;
+        //this.tx = 0;
+        //this.ty = 0;
+    }
+
+
+    public void updateScaleFactor(float sx, float sy){
+        this.sx = sx;
+        this.sy = sy;
     }
 
     @Override
