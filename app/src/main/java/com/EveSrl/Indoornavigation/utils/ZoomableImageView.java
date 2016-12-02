@@ -26,7 +26,7 @@ public class ZoomableImageView extends ImageView {
     // Remember some things for zooming
     PointF last = new PointF();
     PointF start = new PointF();
-    float minScale = 0.85f; //1f;
+    float minScale = 0.5f; //1f;
     float maxScale = 3f;
     float[] m;
     int viewWidth, viewHeight;
@@ -45,8 +45,6 @@ public class ZoomableImageView extends ImageView {
 
     // MIO-------------------------------------------------
     private MarkerPositioner drawSpace;
-
-    int padding = 60;
     // #MIO------------------------------------------------
 
     public ZoomableImageView(Context context) {
@@ -215,13 +213,21 @@ public class ZoomableImageView extends ImageView {
 
         matrix.getValues(m);
 
-        float transX = m[Matrix.MTRANS_X];
+        float transX = m[Matrix.MTRANS_X];  // mode==DRAG -> deltaX
 
-        float transY = m[Matrix.MTRANS_Y];
+        float transY = m[Matrix.MTRANS_Y];  // mode==DRAG -> deltaY
 
-        float fixTransX = getFixTrans(transX, viewWidth, origWidth * saveScale);
+        float paddingX = 30;
 
-        float fixTransY = getFixTrans(transY, viewHeight, origHeight * saveScale);
+        float paddingY = 60;
+
+        if(mode == ZOOM){
+            paddingX = paddingY = 0;
+        }
+
+        float fixTransX = getFixTrans(transX, viewWidth, origWidth * saveScale, paddingX);
+
+        float fixTransY = getFixTrans(transY, viewHeight, origHeight * saveScale, paddingY);
 
         if (fixTransX != 0 || fixTransY != 0)
 
@@ -231,25 +237,37 @@ public class ZoomableImageView extends ImageView {
 
 
 
-    float getFixTrans(float trans, float viewSize, float contentSize) {
+    float getFixTrans(float trans, float viewSize, float contentSize, float padding) {
 
         float minTrans, maxTrans;
 
         if (contentSize <= viewSize) {
-            minTrans = 0;
-            //minTrans = 0 - padding;
+            //minTrans = 0;
 
-            maxTrans = viewSize - contentSize;
-            //maxTrans = viewSize - contentSize + padding;
+            // MIO-------------------------------
+            minTrans = 0 - padding;
+            // MIO-------------------------------
+
+            //maxTrans = viewSize - contentSize;
+
+            // MIO-------------------------------
+            maxTrans = viewSize - contentSize + padding;
+            // MIO-------------------------------
 
         } else {
-            minTrans = viewSize - contentSize;
-            //minTrans = viewSize - contentSize - padding;
+            //minTrans = viewSize - contentSize;
+            // MIO-------------------------------
+            minTrans = viewSize - contentSize - padding;
+            // MIO-------------------------------
 
-            maxTrans = 0;
-            //maxTrans = 0 + padding;
+            //maxTrans = 0;
+            // MIO-------------------------------
+            maxTrans = 0 + padding;
+            // MIO-------------------------------
 
         }
+
+        Log.d("Trans", "maxTrans:" + maxTrans + "  minTrans:" + minTrans + "  trans:" + trans);
 
         if (trans < minTrans)
 
@@ -260,15 +278,14 @@ public class ZoomableImageView extends ImageView {
             return -trans + maxTrans;
 
         return 0;
-
     }
 
     float getFixDragTrans(float delta, float viewSize, float contentSize) {
-
+        // If content is bigger than the View, then no movement are allowed.
         if (contentSize <= viewSize) {
 
             return 0;
-
+            //return delta;
         }
 
         return delta;
@@ -342,7 +359,7 @@ public class ZoomableImageView extends ImageView {
             setImageMatrix(matrix);
 
             float origScale = saveScale;
-            saveScale = minScale;
+            saveScale = 0.85f;
             if (origWidth * saveScale <= viewWidth || origHeight * saveScale <= viewHeight) {
                 matrix.postScale(saveScale/origScale, saveScale/origScale, viewWidth / 2, viewHeight / 2);
                 setImageMatrix(matrix);
