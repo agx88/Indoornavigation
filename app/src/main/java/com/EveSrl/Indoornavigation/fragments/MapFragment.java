@@ -2,6 +2,7 @@ package com.EveSrl.Indoornavigation.fragments;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,8 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.EveSrl.Indoornavigation.R;
+import com.EveSrl.Indoornavigation.adapters.BeaconListAdapter;
 import com.EveSrl.Indoornavigation.utils.MarkerPositioner;
+import com.EveSrl.Indoornavigation.utils.Point;
+import com.EveSrl.Indoornavigation.utils.Trilateration2D;
 import com.EveSrl.Indoornavigation.utils.ZoomableImageView;
+import com.estimote.sdk.Utils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -121,4 +126,26 @@ public class MapFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+    public class TrilaterationTask extends AsyncTask {
+
+        private Trilateration2D trilateration;
+        private BeaconListAdapter adapter;
+
+        @Override
+        protected Point doInBackground(Object[] params) {
+            adapter = (BeaconListAdapter) params[0];
+            trilateration = new Trilateration2D();
+            trilateration.initialize();
+            //Impostazione delle coordinate
+            trilateration.setA(1,1);
+            trilateration.setB(0,2);
+            trilateration.setC(2,3);
+            trilateration.setR1(Utils.computeAccuracy(adapter.getItem(0)));
+            trilateration.setR2(Utils.computeAccuracy(adapter.getItem(1)));
+            trilateration.setR3(Utils.computeAccuracy(adapter.getItem(2)));
+            return trilateration.getPoint();
+        }
+    }
+
 }
