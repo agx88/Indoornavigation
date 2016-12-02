@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Dec 02 09:38:39 CET 2016
+#Fri Dec 02 10:10:19 CET 2016
 175.set=ANDROID_RESOURCE
 122.file=/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/resources-debug.ap_/res/drawable-hdpi-v4/abc_ic_star_half_black_16dp.png
 60.set=ANDROID_RESOURCE

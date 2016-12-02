@@ -26,7 +26,7 @@ public class ZoomableImageView extends ImageView {
     // Remember some things for zooming
     PointF last = new PointF();
     PointF start = new PointF();
-    float minScale = 1f;
+    float minScale = 0.85f; //1f;
     float maxScale = 3f;
     float[] m;
     int viewWidth, viewHeight;
@@ -60,7 +60,6 @@ public class ZoomableImageView extends ImageView {
     }
 
     private void sharedConstructing(Context context) {
-
         super.setClickable(true);
 
         this.context = context;
@@ -85,7 +84,7 @@ public class ZoomableImageView extends ImageView {
                 PointF curr = new PointF(event.getX(), event.getY());
 
                 switch (event.getAction()) {
-                    // For the first pointer that touches the screen. This starts the gesture.
+
                     case MotionEvent.ACTION_DOWN:
 
                         last.set(curr);
@@ -96,9 +95,6 @@ public class ZoomableImageView extends ImageView {
 
                         break;
 
-                    // A change has happened during a press gesture.
-                    // A change has happened during a press gesture (between ACTION_DOWN and ACTION_UP).
-                    // The motion contains the most recent point, as well as any intermediate points since the last down or move event.
                     case MotionEvent.ACTION_MOVE:
 
                         if (mode == DRAG) {
@@ -116,10 +112,11 @@ public class ZoomableImageView extends ImageView {
                             fixTrans();
 
                             last.set(curr.x, curr.y);
+
                         }
+
                         break;
 
-                    // Sent when the last pointer leaves the screen.
                     case MotionEvent.ACTION_UP:
 
                         mode = NONE;
@@ -134,8 +131,8 @@ public class ZoomableImageView extends ImageView {
 
                         break;
 
-                    // Sent when a non-primary pointer goes up.
                     case MotionEvent.ACTION_POINTER_UP:
+
                         mode = NONE;
 
                         break;
@@ -154,8 +151,6 @@ public class ZoomableImageView extends ImageView {
                 return true; // indicate event was handled
 
             }
-
-
 
         });
     }
@@ -181,6 +176,7 @@ public class ZoomableImageView extends ImageView {
         public boolean onScale(ScaleGestureDetector detector) {
 
             float mScaleFactor = detector.getScaleFactor();
+
             float origScale = saveScale;
 
             saveScale *= mScaleFactor;
@@ -210,7 +206,9 @@ public class ZoomableImageView extends ImageView {
             fixTrans();
 
             return true;
+
         }
+
     }
 
     void fixTrans() {
@@ -226,8 +224,11 @@ public class ZoomableImageView extends ImageView {
         float fixTransY = getFixTrans(transY, viewHeight, origHeight * saveScale);
 
         if (fixTransX != 0 || fixTransY != 0)
+
             matrix.postTranslate(fixTransX, fixTransY);
+
     }
+
 
 
     float getFixTrans(float trans, float viewSize, float contentSize) {
@@ -235,16 +236,18 @@ public class ZoomableImageView extends ImageView {
         float minTrans, maxTrans;
 
         if (contentSize <= viewSize) {
-
             minTrans = 0;
+            //minTrans = 0 - padding;
 
             maxTrans = viewSize - contentSize;
+            //maxTrans = viewSize - contentSize + padding;
 
         } else {
-
             minTrans = viewSize - contentSize;
+            //minTrans = viewSize - contentSize - padding;
 
             maxTrans = 0;
+            //maxTrans = 0 + padding;
 
         }
 
@@ -312,9 +315,9 @@ public class ZoomableImageView extends ImageView {
 
             Log.d("bmSize", "bmWidth: " + bmWidth + " bmHeight : " + bmHeight);
 
-            float scaleX = (float) viewWidth / (float) (bmWidth);
+            float scaleX = (float) (viewWidth) / (float) (bmWidth);
 
-            float scaleY = (float) viewHeight / (float) (bmHeight);
+            float scaleY = (float) (viewHeight) / (float) (bmHeight);
 
             scale = Math.min(scaleX, scaleY);
 
@@ -337,6 +340,15 @@ public class ZoomableImageView extends ImageView {
             origHeight = viewHeight - 2 * redundantYSpace;
 
             setImageMatrix(matrix);
+
+            float origScale = saveScale;
+            saveScale = minScale;
+            if (origWidth * saveScale <= viewWidth || origHeight * saveScale <= viewHeight) {
+                matrix.postScale(saveScale/origScale, saveScale/origScale, viewWidth / 2, viewHeight / 2);
+                setImageMatrix(matrix);
+            }
+            else
+                saveScale = origScale;
 
             // MIO------------------------------
             updateDrawSpace();
