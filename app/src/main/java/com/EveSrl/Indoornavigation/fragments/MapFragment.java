@@ -38,6 +38,8 @@ public class MapFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     private MarkerPositioner drawSpace;
+   //Punto calcolato tramite trilaterazione
+    private Point target;
 
     public MapFragment() {
         // Required empty public constructor
@@ -145,6 +147,11 @@ public class MapFragment extends Fragment {
             trilateration.setR2(Utils.computeAccuracy(adapter.getItem(1)));
             trilateration.setR3(Utils.computeAccuracy(adapter.getItem(2)));
             return trilateration.getPoint();
+        }
+
+        protected void onPostExecute(Point result) {
+           //TODO cambiare l'esecuzione della post execute in modo che imposti diretamente il marker
+            target = result;
         }
     }
 
