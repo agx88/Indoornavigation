@@ -9,7 +9,7 @@
 
         <com.EveSrl.Indoornavigation.utils.ZoomableImageView
             android:id="@+id/piantina"
-            android:src="@drawable/piantina2"
+            android:src="@drawable/rettangolo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/piantina_description"
