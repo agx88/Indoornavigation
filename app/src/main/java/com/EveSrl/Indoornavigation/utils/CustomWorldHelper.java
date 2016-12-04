@@ -39,8 +39,8 @@ public class CustomWorldHelper {
     protected static long index = 0l;
 
     // Questi valori iniziali sono quelli usati per l'esempio di "BeyondAR Example"
-    protected static double latitude = 41.90533734214473d;
-    protected static double longitude = 2.565848038959814d;
+    protected static double latitude = 0.0d; //= 41.90533734214473d;
+    protected static double longitude = 0.0d; //= 2.565848038959814d;
 
     // Example World.
     public static World sampleWorld(Context context){
@@ -112,9 +112,9 @@ public class CustomWorldHelper {
 
         // User position (you can change it using the GPS listeners form Android
         // API)
-        GPSReader gpsReader = new GPSReader(context);
-        latitude = gpsReader.getLatitude();
-        longitude = gpsReader.getLongitude();
+        //GPSReader gpsReader = new GPSReader(context);
+        latitude = 0.0d;
+        longitude = 0.0d;
 
 
         sharedWorld.setGeoPosition(latitude, longitude);
@@ -149,7 +149,7 @@ public class CustomWorldHelper {
     }
     /** To load Object with an image from the app resources.
      *
-     * @param worldListType
+     * @param worldListType = ?
      * @param image     = ID of the image.
      * @param latitude  = Latitude value of the object.
      * @param longitude = Longitude value of the object.
@@ -194,7 +194,7 @@ public class CustomWorldHelper {
     }
     /** To load Object with an image loaded asynchronously form internet or saved in the sdcard.
      *
-     * @param worldListType
+     * @param worldListType = ?
      * @param image_URI = URI of the image.
      * @param latitude  = Latitude value of the object.
      * @param longitude = Longitude value of the object.
@@ -231,7 +231,7 @@ public class CustomWorldHelper {
     }
     /** Add the GeoObject parameter to the ARWorld.
      *
-     * @param worldListType
+     * @param worldListType = ?
      * @param goe = GeoObject Extended to load in the ARWorld.
      * @return   = Return the World updated with the new object.
      */

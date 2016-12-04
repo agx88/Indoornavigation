@@ -28,14 +28,11 @@ import java.util.ArrayList;
 
 import com.EveSrl.Indoornavigation.utils.CustomWorldHelper;
 import com.EveSrl.Indoornavigation.R;
-import com.EveSrl.Indoornavigation.utils.GPSReader;
 import com.EveSrl.Indoornavigation.utils.GeoObjectExt;
 
 public class ARFragment
         extends Fragment
         implements OnClickBeyondarObjectListener, LocationListener{
-
-    protected GPSReader gpsReader;
 
     protected BeyondarFragment mBeyondarFragment;
     protected World mWorld;
@@ -67,16 +64,16 @@ public class ARFragment
             // Just return the view as it is.
         }
 
-
-        // GPS for user's position.
-        gpsReader = new GPSReader(this.getContext());
-
         // We create the world and fill it
         //mWorld = CustomWorldHelper.sampleWorld(this, gpsReader.getLatitude(), gpsReader.getLongitude());
 
         //TODO: Usare .sampleWorld per fare un esempio. Usare .newWorld quando si passerà all'app "ufficiale".
-        mWorld = CustomWorldHelper.sampleWorld(this.getContext());
-        //mWorld = CustomWorldHelper.newWorld(this.getContext());
+        //mWorld = CustomWorldHelper.sampleWorld(this.getContext());
+
+        // ARWorld may be created in MarkerPositioner Class.
+        mWorld = CustomWorldHelper.getARWorld();
+        if (mWorld == null)
+            mWorld = CustomWorldHelper.newWorld(this.getContext());
 
         // Location can be set once the AR World was created.
         //CustomWorldHelper.setLocation(gpsReader.getLatitude(), gpsReader.getLongitude());
@@ -95,7 +92,7 @@ public class ARFragment
         // Set the radar view into our radar plugin.
         mRadarPlugin.setRadarView(mRadarView);
         // Set how far (in meters) we want to display in the view.
-        mRadarPlugin.setMaxDistance(100);
+        mRadarPlugin.setMaxDistance(1.5d);
 
         /* This part will may be useful.
 
@@ -160,7 +157,7 @@ public class ARFragment
 
     @Override
     public void onLocationChanged(Location location) {
-        CustomWorldHelper.setLocation(gpsReader.getLatitude(), gpsReader.getLongitude());
+        CustomWorldHelper.setLocation(0, 0);
 
         // Toast di cui ho bisogno per vedere se questo metodo funziona correttamente.
         Toast.makeText(this.getContext(), "La posizione dell'utente è cambiata!", Toast.LENGTH_LONG).show();
@@ -182,7 +179,6 @@ public class ARFragment
     @Override
     public void onResume() {
         super.onResume();
-        gpsReader.getLocation();
         //Toast.makeText(this, "GPS restarted!", Toast.LENGTH_LONG).show();
 
     }

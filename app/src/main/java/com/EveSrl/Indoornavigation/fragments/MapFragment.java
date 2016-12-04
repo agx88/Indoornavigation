@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.InflateException;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.EveSrl.Indoornavigation.MainActivity;
 import com.EveSrl.Indoornavigation.R;
 import com.EveSrl.Indoornavigation.adapters.BeaconListAdapter;
 import com.EveSrl.Indoornavigation.utils.MarkerPositioner;
@@ -41,6 +43,7 @@ public class MapFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     private MarkerPositioner drawSpace;
+    private ZoomableImageView zIView;
    //Punto calcolato tramite trilaterazione
     private Point target;
 
@@ -75,7 +78,8 @@ public class MapFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        // TrilaterationTask triTask = new TrilaterationTask();
+        // triTask.execute(((MainActivity) getActivity()).getBeaconListAdapter());
 
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -99,15 +103,9 @@ public class MapFragment extends Fragment {
             // Just return the view as it is.
         }
 
-        ZoomableImageView zIView = (ZoomableImageView) view.findViewById(R.id.piantina);
+        zIView = (ZoomableImageView) view.findViewById(R.id.piantina);
         //Mantiene il fragment "vivo" durante il cambio di orientamento
         setRetainInstance(true);
-
-        // Inizializzazione del FrameLayout utilizzato per disegnare i Marker sull'immagine.
-        drawSpace = (MarkerPositioner) view.findViewById(R.id.overlay);
-        drawSpace.setContext(this.getContext());
-
-        zIView.setMarkerPositioner(drawSpace);
 
         return view;
     }
@@ -168,7 +166,8 @@ public class MapFragment extends Fragment {
         protected void onPostExecute(Point result) {
            //TODO cambiare l'esecuzione della post execute in modo che imposti diretamente il marker
             target = result;
+
+
         }
     }
-
 }

@@ -12,6 +12,8 @@ import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.EveSrl.Indoornavigation.R;
+
 
 // This class allow to zoom-in and -out the ImageView.
 public class ZoomableImageView extends ImageView {
@@ -45,6 +47,9 @@ public class ZoomableImageView extends ImageView {
 
     // MIO-------------------------------------------------
     private MarkerPositioner drawSpace;
+
+    float paddingX = 30;
+    float paddingY = 60;
     // #MIO------------------------------------------------
 
     public ZoomableImageView(Context context) {
@@ -101,9 +106,9 @@ public class ZoomableImageView extends ImageView {
 
                             float deltaY = curr.y - last.y;
 
-                            float fixTransX = getFixDragTrans(deltaX, viewWidth, origWidth * saveScale);
+                            float fixTransX = getFixDragTrans(deltaX, viewWidth, origWidth * saveScale + paddingX*2);
 
-                            float fixTransY = getFixDragTrans(deltaY, viewHeight, origHeight * saveScale);
+                            float fixTransY = getFixDragTrans(deltaY, viewHeight, origHeight * saveScale + paddingY*2);
 
                             matrix.postTranslate(fixTransX, fixTransY);
 
@@ -139,7 +144,10 @@ public class ZoomableImageView extends ImageView {
 
                 setImageMatrix(matrix);
 
-                // MIO---------------------------------------------
+                // MIO------------------------------
+                if(drawSpace == null)
+                    setMarkerPositioner();
+
                 // Mettendo l'update qui, i marker non "traballano" più.
                 updateDrawSpace();
                 // #MIO---------------------------------------------
@@ -217,12 +225,11 @@ public class ZoomableImageView extends ImageView {
 
         float transY = m[Matrix.MTRANS_Y];  // mode==DRAG -> deltaY
 
-        float paddingX = 30;
-
-        float paddingY = 60;
+        float pX = paddingX;
+        float pY = paddingY;
 
         if(mode == ZOOM){
-            paddingX = paddingY = 0;
+            pX = pY = 0;
         }
 
         float fixTransX = getFixTrans(transX, viewWidth, origWidth * saveScale, paddingX);
@@ -267,7 +274,7 @@ public class ZoomableImageView extends ImageView {
 
         }
 
-        Log.d("Trans", "maxTrans:" + maxTrans + "  minTrans:" + minTrans + "  trans:" + trans);
+        //Log.d("Trans", "maxTrans:" + maxTrans + "  minTrans:" + minTrans + "  trans:" + trans);
 
         if (trans < minTrans)
 
@@ -285,7 +292,7 @@ public class ZoomableImageView extends ImageView {
         if (contentSize <= viewSize) {
 
             return 0;
-            //return delta;
+
         }
 
         return delta;
@@ -330,7 +337,7 @@ public class ZoomableImageView extends ImageView {
 
             int bmHeight = drawable.getIntrinsicHeight();
 
-            Log.d("bmSize", "bmWidth: " + bmWidth + " bmHeight : " + bmHeight);
+            //Log.d("bmSize", "bmWidth: " + bmWidth + " bmHeight : " + bmHeight);
 
             float scaleX = (float) (viewWidth) / (float) (bmWidth);
 
@@ -368,6 +375,9 @@ public class ZoomableImageView extends ImageView {
                 saveScale = origScale;
 
             // MIO------------------------------
+            if(drawSpace == null)
+                setMarkerPositioner();
+
             updateDrawSpace();
             // #MIO-----------------------------
         }
@@ -376,8 +386,12 @@ public class ZoomableImageView extends ImageView {
     }
 
     // MIO------------------------------------------------
-    public void setMarkerPositioner(MarkerPositioner markerPositioner){
-        drawSpace = markerPositioner;
+    public void setMarkerPositioner(){
+        drawSpace = (MarkerPositioner) ((View) this.getParent()).findViewById(R.id.overlay);
+        drawSpace.setContext(context);
+
+        // Supponiamo che il rettangolo rappresenti una stanza larga 3m e lunga 10m;
+        drawSpace.updateRatio(origWidth / (3 * saveScale), origHeight / (10 * saveScale));
 
         drawSpace.addMarker(0, 0, "Prova1");
         drawSpace.addMarker(110, 0, "Prova2");
@@ -395,6 +409,9 @@ public class ZoomableImageView extends ImageView {
 
             drawSpace.updateTranslation(mm[Matrix.MTRANS_X], mm[Matrix.MTRANS_Y]);
             drawSpace.updateAllMarkerPosition();
+
+
+            //Log.d("ZoomableImageView", "saveScale: " + Float.toString(saveScale));
         }
     }
     // #MIO-----------------------------------------------

@@ -2,7 +2,6 @@ package com.EveSrl.Indoornavigation.utils;
 
 import android.content.Context;
 import android.graphics.*;
-import android.graphics.Point;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -13,7 +12,6 @@ import android.widget.Toast;
 import com.EveSrl.Indoornavigation.R;
 
 import java.util.HashMap;
-
 
 
 // Questa classe verrà utilizzata per gestire tutti i Marker.
@@ -30,7 +28,9 @@ public class MarkerPositioner
     private float ty;
     private float sx;
     private float sy;
-    private float mScale;
+
+    private float meterPixelRatioX;
+    private float meterPixelRatioY;
 
     public MarkerPositioner(Context context) {
         super(context);
@@ -53,11 +53,12 @@ public class MarkerPositioner
         listMarker = new HashMap<>();
         listCoordinate = new HashMap<>();
 
-        mScale = 1.0f;
         sx = 1.0f;
         sy = 1.0f;
         tx = 0.0f;
         ty = 0.0f;
+        meterPixelRatioX = 0.0f;
+        meterPixelRatioY = 0.0f;
     }
 
 
@@ -66,19 +67,39 @@ public class MarkerPositioner
     }
 
     public void addMarker(float x, float y, String tag) {
-        LayoutParams lp = new LayoutParams(50, 50);
-        ImageView marker = new ImageView(mContext);
+        LayoutParams lp = new LayoutParams(50, 50); // Layout parameters of the marker.
+        ImageView marker = new ImageView(mContext); // ImageView representing the marker on the map.
 
+        double meterX, meterY;  // Coordinate in meter.
+        double lat, lon;        // Coordinate in latitude-longitude format.
+
+        // It sets the drawable for the marker.
         marker.setImageResource(R.drawable.map_marker_outside_azure);
-
+        // Store the coordinate (in pixel).
         listCoordinate.put(tag, new PointF(x, y));
-
+        // Some information related to the marker.
         marker.setTag(tag);
         marker.setOnClickListener(this);
         marker.setLayoutParams(lp);
+        // It adds the marker to the list.
         listMarker.put(tag, marker);
-
+        // It places the marker on the map.
         setMarkerPosition(x, y, tag);
+        // It calculates the meter according to the meter-pixel ratio.
+        meterX = x / meterPixelRatioX;
+        meterY = y / meterPixelRatioY;
+
+        // It transforms the coordinate in lat-lon format.
+        lat = meterX / (1850 * 60);
+        lon = meterY * 0.54 / (60 * 1000);
+
+        // If it doesn't already exist, it creates a new AR world.
+        if(CustomWorldHelper.getARWorld() == null)
+            CustomWorldHelper.newWorld(mContext);
+
+        // It adds Marker to the AR world.
+        CustomWorldHelper.addObject(R.drawable.map_marker_outside_azure, lat, lon, tag, null);
+        Log.d("MarkerPositioner", "meterX: " + meterX + "  lat:" + lat + "  lon:" + lon);
 
         this.addView(marker);
     }
@@ -100,8 +121,6 @@ public class MarkerPositioner
 
         //marker.setX(x + tx);
         //marker.setY(y + ty);
-
-        Log.d("ZoomableImageView", "x:= " + Float.toString(x) + "  y:= " + Float.toString(y));
 
         //marker.setLayoutParams(lp);
     }
@@ -125,6 +144,12 @@ public class MarkerPositioner
     public void updateScaleFactor(float sx, float sy){
         this.sx = sx;
         this.sy = sy;
+    }
+
+
+    public void updateRatio(float ratioX, float ratioY){
+        meterPixelRatioX = ratioX;
+        meterPixelRatioY = ratioY;
     }
 
     @Override
