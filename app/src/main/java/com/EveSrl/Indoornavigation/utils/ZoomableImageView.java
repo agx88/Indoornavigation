@@ -410,9 +410,17 @@ public class ZoomableImageView extends ImageView {
             drawSpace.updateTranslation(mm[Matrix.MTRANS_X], mm[Matrix.MTRANS_Y]);
             drawSpace.updateAllMarkerPosition();
 
-
-            //Log.d("ZoomableImageView", "saveScale: " + Float.toString(saveScale));
+            // TODO: Cancellare quando le prove saranno finite.
+            drawSpace.updateUserLocation(400, 250);
         }
+    }
+
+
+    public void updateUserLocation(float x, float y){
+        if (drawSpace != null){
+            drawSpace.updateUserLocation(x, y);
+        }
+
     }
     // #MIO-----------------------------------------------
 

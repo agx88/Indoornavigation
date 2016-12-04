@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.EveSrl.Indoornavigation.R;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 
 // Questa classe verrà utilizzata per gestire tutti i Marker.
@@ -73,8 +74,6 @@ public class MarkerPositioner
         double meterX, meterY;  // Coordinate in meter.
         double lat, lon;        // Coordinate in latitude-longitude format.
 
-        // It sets the drawable for the marker.
-        marker.setImageResource(R.drawable.map_marker_outside_azure);
         // Store the coordinate (in pixel).
         listCoordinate.put(tag, new PointF(x, y));
         // Some information related to the marker.
@@ -85,21 +84,32 @@ public class MarkerPositioner
         listMarker.put(tag, marker);
         // It places the marker on the map.
         setMarkerPosition(x, y, tag);
+
+        // It sets the drawable for the marker.
+        marker.setImageResource(R.drawable.map_marker_outside_azure);
         // It calculates the meter according to the meter-pixel ratio.
         meterX = x / meterPixelRatioX;
         meterY = y / meterPixelRatioY;
 
         // It transforms the coordinate in lat-lon format.
-        lat = meterX / (1850 * 60);
-        lon = meterY * 0.54 / (60 * 1000);
+        // "* 1000" is a trick to reduce marker size. (see also ARFragment.java: mRadarPlugin.setMaxDistance(2d * 10);)
+        lat = (meterX / (1850 * 60)) * 10;
+        lon = (meterY * 0.54 / (60 * 1000)) * 10;
 
-        // If it doesn't already exist, it creates a new AR world.
-        if(CustomWorldHelper.getARWorld() == null)
-            CustomWorldHelper.newWorld(mContext);
+        if(!tag.equals("User")) {
+            // If it doesn't already exist, it creates a new AR world.
+            if (CustomWorldHelper.getARWorld() == null)
+                CustomWorldHelper.newWorld(mContext);
 
-        // It adds Marker to the AR world.
-        CustomWorldHelper.addObject(R.drawable.map_marker_outside_azure, lat, lon, tag, null);
-        Log.d("MarkerPositioner", "meterX: " + meterX + "  lat:" + lat + "  lon:" + lon);
+            // It adds Marker to the AR world.
+            CustomWorldHelper.addObject(R.drawable.map_marker_outside_azure, lat, lon, tag, null);
+        }
+        else if (tag.equals("User")){
+            // It sets the drawable for the user's marker.
+            marker.setImageResource(R.drawable.flag);
+            // It updates user's location.
+            CustomWorldHelper.setLocation(lat, lon);
+        }
 
         this.addView(marker);
     }
@@ -136,8 +146,6 @@ public class MarkerPositioner
     public void updateTranslation(float tx, float ty) {
         this.tx = tx;
         this.ty = ty;
-        //this.tx = 0;
-        //this.ty = 0;
     }
 
 
@@ -150,6 +158,14 @@ public class MarkerPositioner
     public void updateRatio(float ratioX, float ratioY){
         meterPixelRatioX = ratioX;
         meterPixelRatioY = ratioY;
+    }
+
+    public void updateUserLocation(float ux, float uy){
+        try {
+            setMarkerPosition(ux, uy, "User");
+        } catch(Exception ex){
+            addMarker(ux, uy, "User");
+        }
     }
 
     @Override

@@ -20,6 +20,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import com.EveSrl.Indoornavigation.R;
+import com.beyondar.android.opengl.texture.Texture;
 import com.beyondar.android.world.World;
 
 import java.util.ArrayList;
@@ -41,6 +42,10 @@ public class CustomWorldHelper {
     // Questi valori iniziali sono quelli usati per l'esempio di "BeyondAR Example"
     protected static double latitude = 0.0d; //= 41.90533734214473d;
     protected static double longitude = 0.0d; //= 2.565848038959814d;
+
+    // Grandezza dei marker.
+    protected static int texW = 0;
+    protected static int texH = 0;
 
     // Example World.
     public static World sampleWorld(Context context){
@@ -136,12 +141,17 @@ public class CustomWorldHelper {
      */
     public static World addObject(int image, double latitude, double longitude, String name, Bundle info){
         GeoObjectExt goe;
+        Texture tex = new Texture();
         index += 1l;
         goe = new GeoObjectExt(index);
         goe.setGeoPosition(latitude, longitude);
         goe.setImageResource(image);
         goe.setName(name);
         goe.setInfo(info);
+
+
+        tex.setImageSize(texW, texH);
+        goe.setTexture(tex);
 
         addObject(goe);
 
@@ -159,12 +169,18 @@ public class CustomWorldHelper {
      */
 	public static World addObject(int worldListType, int image, double latitude, double longitude, String name, Bundle info){
         GeoObjectExt goe;
+        Texture tex = new Texture();
+
         index += 1l;
         goe = new GeoObjectExt(index);
         goe.setGeoPosition(latitude, longitude);
         goe.setImageResource(image);
         goe.setName(name);
         goe.setInfo(info);
+
+
+        tex.setImageSize(texW, texH);
+        goe.setTexture(tex);
 
         addObject(worldListType, goe);
 
@@ -181,12 +197,16 @@ public class CustomWorldHelper {
      */
     public static World addObject(String image_URI, double latitude, double longitude, String name, Bundle info){
         GeoObjectExt goe;
+        Texture tex = new Texture();
         index += 1l;
         goe = new GeoObjectExt(index);
         goe.setGeoPosition(latitude, longitude);
         goe.setImageUri(image_URI);
         goe.setName(name);
         goe.setInfo(info);
+
+        tex.setImageSize(texW, texH);
+        goe.setTexture(tex);
 
         addObject(goe);
 
@@ -204,12 +224,16 @@ public class CustomWorldHelper {
      */
     public static World addObject(int worldListType, String image_URI, double latitude, double longitude, String name, Bundle info){
         GeoObjectExt goe;
+        Texture tex = new Texture();
         index += 1l;
         goe = new GeoObjectExt(index);
         goe.setGeoPosition(latitude, longitude);
         goe.setImageUri(image_URI);
         goe.setName(name);
         goe.setInfo(info);
+
+        tex.setImageSize(texW, texH);
+        goe.setTexture(tex);
 
         addObject(worldListType, goe);
 

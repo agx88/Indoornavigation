@@ -78,9 +78,6 @@ public class MapFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // TrilaterationTask triTask = new TrilaterationTask();
-        // triTask.execute(((MainActivity) getActivity()).getBeaconListAdapter());
-
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -106,6 +103,10 @@ public class MapFragment extends Fragment {
         zIView = (ZoomableImageView) view.findViewById(R.id.piantina);
         //Mantiene il fragment "vivo" durante il cambio di orientamento
         setRetainInstance(true);
+
+        // TODO: We have to test the TrilaterationTask.
+        //TrilaterationTask triTask = new TrilaterationTask();
+        //triTask.execute(((MainActivity) getActivity()).getBeaconListAdapter());
 
         return view;
     }
@@ -167,7 +168,7 @@ public class MapFragment extends Fragment {
            //TODO cambiare l'esecuzione della post execute in modo che imposti diretamente il marker
             target = result;
 
-
+            zIView.updateUserLocation((float) result.getX(), (float) result.getY());
         }
     }
 }

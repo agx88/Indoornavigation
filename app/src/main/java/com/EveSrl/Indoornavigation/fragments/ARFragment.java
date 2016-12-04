@@ -5,19 +5,15 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.Button;
 import android.location.LocationListener;
 import android.widget.Toast;
 
 import com.beyondar.android.fragment.BeyondarFragment;
-import com.beyondar.android.fragment.BeyondarFragment;
+import com.beyondar.android.fragment.BeyondarFragmentSupport;
 import com.beyondar.android.plugin.radar.RadarView;
 import com.beyondar.android.plugin.radar.RadarWorldPlugin;
 import com.beyondar.android.view.OnClickBeyondarObjectListener;
@@ -64,22 +60,16 @@ public class ARFragment
             // Just return the view as it is.
         }
 
-        // We create the world and fill it
-        //mWorld = CustomWorldHelper.sampleWorld(this, gpsReader.getLatitude(), gpsReader.getLongitude());
-
-        //TODO: Usare .sampleWorld per fare un esempio. Usare .newWorld quando si passerà all'app "ufficiale".
-        //mWorld = CustomWorldHelper.sampleWorld(this.getContext());
-
         // ARWorld may be created in MarkerPositioner Class.
+        // We create the world and fill it
+        //mWorld = CustomWorldHelper.sampleWorld(this.getContext());
         mWorld = CustomWorldHelper.getARWorld();
         if (mWorld == null)
             mWorld = CustomWorldHelper.newWorld(this.getContext());
 
-        // Location can be set once the AR World was created.
-        //CustomWorldHelper.setLocation(gpsReader.getLatitude(), gpsReader.getLongitude());
-
         mBeyondarFragment.setWorld(mWorld);
         mBeyondarFragment.showFPS(false);
+        mBeyondarFragment.setMaxDistanceToRender(2f * 10);
 
         // set listener for the geoObjects
         mBeyondarFragment.setOnClickBeyondarObjectListener(this);
@@ -92,7 +82,9 @@ public class ARFragment
         // Set the radar view into our radar plugin.
         mRadarPlugin.setRadarView(mRadarView);
         // Set how far (in meters) we want to display in the view.
-        mRadarPlugin.setMaxDistance(1.5d);
+        // "* 10" is a trick to reduce marker size. (see also MarkerPositioner.java: lat = (meterX / (1850 * 60)) * 10;
+        //lon = (meterY * 0.54 / (60 * 1000)) * 10; )
+        mRadarPlugin.setMaxDistance(2d * 10);
 
         /* This part will may be useful.
 
