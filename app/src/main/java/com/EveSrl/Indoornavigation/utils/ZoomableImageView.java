@@ -232,9 +232,9 @@ public class ZoomableImageView extends ImageView {
             pX = pY = 0;
         }
 
-        float fixTransX = getFixTrans(transX, viewWidth, origWidth * saveScale, paddingX);
+        float fixTransX = getFixTrans(transX, viewWidth, origWidth * saveScale, pX);
 
-        float fixTransY = getFixTrans(transY, viewHeight, origHeight * saveScale, paddingY);
+        float fixTransY = getFixTrans(transY, viewHeight, origHeight * saveScale, pY);
 
         if (fixTransX != 0 || fixTransY != 0)
 
@@ -391,7 +391,7 @@ public class ZoomableImageView extends ImageView {
         drawSpace.setContext(context);
 
         // Supponiamo che il rettangolo rappresenti una stanza larga 3m e lunga 10m;
-        drawSpace.updateRatio(origWidth / (3 * saveScale), origHeight / (10 * saveScale));
+        drawSpace.updateRatio(oldMeasuredWidth / (3 * saveScale), oldMeasuredHeight / (10 * saveScale));
 
         drawSpace.addMarker(0, 0, "Prova1");
         drawSpace.addMarker(110, 0, "Prova2");
@@ -399,6 +399,11 @@ public class ZoomableImageView extends ImageView {
         drawSpace.addMarker(110, 110, "Prova4");
         drawSpace.addMarker(200, 180, "Prova5");
     }
+
+    public MarkerPositioner getMarkerPositioner(){
+        return drawSpace;
+    }
+    public void setMarkerPositioner(MarkerPositioner markerPositioner){ drawSpace = markerPositioner; }
 
     private void updateDrawSpace() {
         float[] mm = new float[9];

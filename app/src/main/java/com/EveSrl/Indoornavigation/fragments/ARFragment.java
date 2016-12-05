@@ -5,6 +5,7 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,11 +43,16 @@ public class ARFragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Mantiene il fragment "vivo" durante il cambio di orientamento
+        setRetainInstance(true);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
+        // "* 10" is a trick to reduce marker size. (see also MarkerPositioner.java: lat = (meterX / (1850 * 60)) * 10;
+        //lon = (meterY * 0.54 / (60 * 1000)) * 10; )
+        float maxDistance = 4.0f * 10;
 
         if(view != null){
             ViewGroup parent = (ViewGroup) view.getParent();
@@ -69,7 +75,7 @@ public class ARFragment
 
         mBeyondarFragment.setWorld(mWorld);
         mBeyondarFragment.showFPS(false);
-        mBeyondarFragment.setMaxDistanceToRender(2f * 10);
+        mBeyondarFragment.setMaxDistanceToRender(maxDistance);
 
         // set listener for the geoObjects
         mBeyondarFragment.setOnClickBeyondarObjectListener(this);
@@ -82,9 +88,7 @@ public class ARFragment
         // Set the radar view into our radar plugin.
         mRadarPlugin.setRadarView(mRadarView);
         // Set how far (in meters) we want to display in the view.
-        // "* 10" is a trick to reduce marker size. (see also MarkerPositioner.java: lat = (meterX / (1850 * 60)) * 10;
-        //lon = (meterY * 0.54 / (60 * 1000)) * 10; )
-        mRadarPlugin.setMaxDistance(2d * 10);
+        mRadarPlugin.setMaxDistance(maxDistance);
 
         /* This part will may be useful.
 
@@ -167,11 +171,20 @@ public class ARFragment
 
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.v("ARFragment", "Mi sono messo in pausa!");
+
+
+    }
+
+
 
     @Override
     public void onResume() {
         super.onResume();
         //Toast.makeText(this, "GPS restarted!", Toast.LENGTH_LONG).show();
-
+        Log.v("ARFragment", "Sono tornato!");
     }
 }

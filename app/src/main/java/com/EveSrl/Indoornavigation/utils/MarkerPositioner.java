@@ -67,6 +67,7 @@ public class MarkerPositioner
         mContext = context;
     }
 
+    // TODO: Check the case tag already exists.
     public void addMarker(float x, float y, String tag) {
         LayoutParams lp = new LayoutParams(50, 50); // Layout parameters of the marker.
         ImageView marker = new ImageView(mContext); // ImageView representing the marker on the map.
@@ -74,44 +75,57 @@ public class MarkerPositioner
         double meterX, meterY;  // Coordinate in meter.
         double lat, lon;        // Coordinate in latitude-longitude format.
 
-        // Store the coordinate (in pixel).
-        listCoordinate.put(tag, new PointF(x, y));
-        // Some information related to the marker.
-        marker.setTag(tag);
-        marker.setOnClickListener(this);
         marker.setLayoutParams(lp);
-        // It adds the marker to the list.
-        listMarker.put(tag, marker);
-        // It places the marker on the map.
-        setMarkerPosition(x, y, tag);
 
         // It sets the drawable for the marker.
         marker.setImageResource(R.drawable.map_marker_outside_azure);
-        // It calculates the meter according to the meter-pixel ratio.
-        meterX = x / meterPixelRatioX;
-        meterY = y / meterPixelRatioY;
 
-        // It transforms the coordinate in lat-lon format.
-        // "* 1000" is a trick to reduce marker size. (see also ARFragment.java: mRadarPlugin.setMaxDistance(2d * 10);)
-        lat = (meterX / (1850 * 60)) * 10;
-        lon = (meterY * 0.54 / (60 * 1000)) * 10;
+        if (listMarker.get(tag) == null) {
+            // Store the coordinate (in pixel).
+            listCoordinate.put(tag, new PointF(x, y));
+            // It adds the marker to the list.
+            listMarker.put(tag, marker);
 
-        if(!tag.equals("User")) {
-            // If it doesn't already exist, it creates a new AR world.
-            if (CustomWorldHelper.getARWorld() == null)
-                CustomWorldHelper.newWorld(mContext);
+            this.addView(marker);
 
-            // It adds Marker to the AR world.
-            CustomWorldHelper.addObject(R.drawable.map_marker_outside_azure, lat, lon, tag, null);
+            // Some information related to the marker.
+            marker.setTag(tag);
+            marker.setOnClickListener(this);
+
+            // It calculates the meter according to the meter-pixel ratio.
+            meterX = x / meterPixelRatioX;
+            meterY = y / meterPixelRatioY;
+
+            // It transforms the coordinate in lat-lon format.
+            // "* 10" is a trick to reduce marker size. (see also ARFragment.java: mRadarPlugin.setMaxDistance(2d * 10);)
+            // "/1000" transforms meter in kilometer;
+            // "/1,85" transforms kilometer in nautical miles.
+            // "/60" transforms latitude from sexagesimal form to decimal form.
+            lat = (meterX / (1850 * 60)) * 10;
+            // "* 0.54" is a conversion factor from kilometer to longitude.
+            // "/60" transforms latitude from sexagesimal form to decimal form.
+            lon = (meterY * 0.54 / (60 * 1000)) * 10;
+
+            if(!tag.equals("User")) {
+                // If it doesn't already exist, it creates a new AR world.
+                if (CustomWorldHelper.getARWorld() == null)
+                    CustomWorldHelper.newWorld(mContext);
+
+                // It adds Marker to the AR world.
+                CustomWorldHelper.addObject(R.drawable.map_marker_outside_azure, lat, lon, tag, null);
+            }
+            else if (tag.equals("User")){
+                // It sets the drawable for the user's marker.
+                marker.setImageResource(R.drawable.flag);
+                // It updates user's location.
+                CustomWorldHelper.setLocation(lat, lon);
+            }
         }
-        else if (tag.equals("User")){
-            // It sets the drawable for the user's marker.
-            marker.setImageResource(R.drawable.flag);
-            // It updates user's location.
-            CustomWorldHelper.setLocation(lat, lon);
-        }
+        else
+            listCoordinate.get(tag).set(x, y);
 
-        this.addView(marker);
+        // It places the marker on the map.
+        setMarkerPosition(x, y, tag);
     }
 
     public void setMarkerPosition(float x, float y, String tag) {
@@ -120,19 +134,8 @@ public class MarkerPositioner
 
         listCoordinate.get(tag).set(x, y);
 
-        //lp.leftMargin = (int) (tx + x * sx);
-        //lp.topMargin = (int) (ty + y * sy);
-
         marker.setX(x * sx + tx - lp.width/2);
         marker.setY(y * sy + ty - lp.height);
-
-        //marker.setX((x + tx) * sx);
-        //marker.setY((y + ty) * sy);
-
-        //marker.setX(x + tx);
-        //marker.setY(y + ty);
-
-        //marker.setLayoutParams(lp);
     }
 
 

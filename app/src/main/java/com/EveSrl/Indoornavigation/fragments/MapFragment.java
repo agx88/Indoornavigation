@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -82,6 +83,9 @@ public class MapFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        //Mantiene il fragment "vivo" durante il cambio di orientamento
+        setRetainInstance(true);
     }
 
     @Override
@@ -101,8 +105,6 @@ public class MapFragment extends Fragment {
         }
 
         zIView = (ZoomableImageView) view.findViewById(R.id.piantina);
-        //Mantiene il fragment "vivo" durante il cambio di orientamento
-        setRetainInstance(true);
 
         // TODO: We have to test the TrilaterationTask.
         //TrilaterationTask triTask = new TrilaterationTask();
@@ -127,6 +129,25 @@ public class MapFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        drawSpace = zIView.getMarkerPositioner();
+
+        Log.v("MapFragment", "Mi sono messo in pausa!");
+    }
+
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        zIView.setMarkerPositioner(drawSpace);
+        //Toast.makeText(this, "GPS restarted!", Toast.LENGTH_LONG).show();
+        Log.v("MapFragment", "Sono tornato!");
     }
 
     /**
@@ -171,4 +192,5 @@ public class MapFragment extends Fragment {
             zIView.updateUserLocation((float) result.getX(), (float) result.getY());
         }
     }
+
 }
