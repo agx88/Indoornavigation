@@ -52,7 +52,7 @@ public class ARFragment
                              Bundle savedInstanceState){
         // "* 10" is a trick to reduce marker size. (see also MarkerPositioner.java: lat = (meterX / (1850 * 60)) * 10;
         //lon = (meterY * 0.54 / (60 * 1000)) * 10; )
-        float maxDistance = 4.0f * 10;
+        float maxDistance = 2.0f * 10;
 
         if(view != null){
             ViewGroup parent = (ViewGroup) view.getParent();
@@ -130,20 +130,26 @@ public class ARFragment
             */
             // When an object is touched, app opens an image.
             try {
-                GeoObjectExt geo = (GeoObjectExt) beyondarObjects.get(0);
-                Bundle bndl = geo.getInfo();
+                GeoObjectExt goe = (GeoObjectExt) beyondarObjects.get(0);
+                Bundle bndl = goe.getInfo();
 
-                if (bndl.containsKey("Imgs")) {
-                    Intent intent = new Intent();
-                    int size = bndl.getStringArrayList("Imgs").size();
+                if(bndl != null) {
+                    if (bndl.containsKey("Imgs")) {
+                        Intent intent = new Intent();
+                        int size = bndl.getStringArrayList("Imgs").size();
 
-                    intent.setAction(Intent.ACTION_VIEW);
+                        intent.setAction(Intent.ACTION_VIEW);
 
-                    for (int i = 0; i < size; i++){
-                        intent.setDataAndType(Uri.parse("file://" + bndl.getStringArrayList("Imgs").get(i)), "image/*");
+                        for (int i = 0; i < size; i++) {
+                            intent.setDataAndType(Uri.parse("file://" + bndl.getStringArrayList("Imgs").get(i)), "image/*");
+                        }
+                        startActivity(intent);
                     }
-                    startActivity(intent);
-                }
+                } else
+                    Toast.makeText(this.getContext(), goe.getName() + "   d:" + String.format("%.2f", goe.getDistanceFromUser() / 10) + "m", Toast.LENGTH_SHORT).show();
+
+
+
             } catch(Exception e){
                 // Just for debugging
                 e.printStackTrace();
@@ -175,8 +181,7 @@ public class ARFragment
     public void onPause() {
         super.onPause();
         Log.v("ARFragment", "Mi sono messo in pausa!");
-
-
+        CustomWorldHelper.newWorld(getContext());
     }
 
 

@@ -19,9 +19,11 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.EveSrl.Indoornavigation.R;
 import com.beyondar.android.opengl.texture.Texture;
+import com.beyondar.android.world.BeyondarObject;
 import com.beyondar.android.world.World;
 
 import java.util.ArrayList;
@@ -46,6 +48,8 @@ public class CustomWorldHelper {
     protected static double longitude = 0.0d; //= 2.565848038959814d;
 
     protected static HashMap<String, Intent> tagMap = new HashMap<>();
+
+    protected static Context mContext;
     // Example World.
     public static World sampleWorld(Context context){
         Bundle bndl = new Bundle();
@@ -109,7 +113,7 @@ public class CustomWorldHelper {
         }
 
         sharedWorld = new World(context);
-
+        mContext = context;
         // The user can set the default bitmap. This is useful if you are
         // loading images form Internet and the connection get lost
         sharedWorld.setDefaultImage(R.drawable.map_marker_outside_pink_icon);
@@ -253,6 +257,17 @@ public class CustomWorldHelper {
     public static long getIndex(){ return index; }
     public static void incIndex(){ index += 1l; }
     public static World getARWorld(){ return sharedWorld; }
+
+
+    public static void updateGeoObjectLocation(String name, double lat, double lon){
+        for (BeyondarObject obL: CustomWorldHelper.getARWorld().getBeyondarObjectLists().get(0)
+                ) {
+            if(name.equals(obL.getName())) {
+                sharedWorld.remove(obL);
+                addObject(obL.getImageUri(), lat, lon, name, null);
+            }
+        }
+    }
 
     // Set user's location.
     public static void setLocation(double lat, double lon){

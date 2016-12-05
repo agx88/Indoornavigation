@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.EveSrl.Indoornavigation.R;
+import com.beyondar.android.world.BeyondarObject;
+import com.beyondar.android.world.BeyondarObjectList;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -24,6 +26,8 @@ public class MarkerPositioner
     private HashMap<String, ImageView> listMarker;
     private HashMap<String, android.graphics.PointF> listCoordinate;
 
+
+    private float trickFactor = 10;
 
     private float tx;
     private float ty;
@@ -86,8 +90,6 @@ public class MarkerPositioner
             // It adds the marker to the list.
             listMarker.put(tag, marker);
 
-            this.addView(marker);
-
             // Some information related to the marker.
             marker.setTag(tag);
             marker.setOnClickListener(this);
@@ -101,10 +103,10 @@ public class MarkerPositioner
             // "/1000" transforms meter in kilometer;
             // "/1,85" transforms kilometer in nautical miles.
             // "/60" transforms latitude from sexagesimal form to decimal form.
-            lat = (meterX / (1850 * 60)) * 10;
+            lat = (meterX / (1850 * 60)) * trickFactor;
             // "* 0.54" is a conversion factor from kilometer to longitude.
             // "/60" transforms latitude from sexagesimal form to decimal form.
-            lon = (meterY * 0.54 / (60 * 1000)) * 10;
+            lon = (meterY * 0.54 / (60 * 1000)) * trickFactor;
 
             if(!tag.equals("User")) {
                 // If it doesn't already exist, it creates a new AR world.
@@ -126,6 +128,8 @@ public class MarkerPositioner
 
         // It places the marker on the map.
         setMarkerPosition(x, y, tag);
+
+        this.addView(marker);
     }
 
     public void setMarkerPosition(float x, float y, String tag) {
@@ -173,6 +177,15 @@ public class MarkerPositioner
 
     @Override
     public void onClick(View view) {
-        Toast.makeText(mContext, view.getTag().toString(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(mContext, view.getTag().toString(), Toast.LENGTH_SHORT).show();
+        double d = 0.0d;
+
+        for (BeyondarObject obL: CustomWorldHelper.getARWorld().getBeyondarObjectLists().get(0)
+             ) {
+            d = obL.getDistanceFromUser() / trickFactor;
+            if(view.getTag().equals(obL.getName()))
+                Toast.makeText(mContext, obL.getName() + "   d:" + String.format("%.2f", d) + "m", Toast.LENGTH_SHORT).show();
+
+        }
     }
 }

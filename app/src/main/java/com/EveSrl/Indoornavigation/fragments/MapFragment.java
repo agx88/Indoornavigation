@@ -134,7 +134,7 @@ public class MapFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        drawSpace = zIView.getMarkerPositioner();
+        //drawSpace = zIView.getMarkerPositioner();
 
         Log.v("MapFragment", "Mi sono messo in pausa!");
     }
@@ -145,7 +145,7 @@ public class MapFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        zIView.setMarkerPositioner(drawSpace);
+        //zIView.setMarkerPositioner(drawSpace);
         //Toast.makeText(this, "GPS restarted!", Toast.LENGTH_LONG).show();
         Log.v("MapFragment", "Sono tornato!");
     }

@@ -391,7 +391,8 @@ public class ZoomableImageView extends ImageView {
         drawSpace.setContext(context);
 
         // Supponiamo che il rettangolo rappresenti una stanza larga 3m e lunga 10m;
-        drawSpace.updateRatio(oldMeasuredWidth / (3 * saveScale), oldMeasuredHeight / (10 * saveScale));
+
+        drawSpace.updateRatio(this.getDrawable().getIntrinsicWidth() / 3, this.getDrawable().getIntrinsicHeight() / 10);
 
         drawSpace.addMarker(0, 0, "Prova1");
         drawSpace.addMarker(110, 0, "Prova2");
