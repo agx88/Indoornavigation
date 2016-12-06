@@ -68,12 +68,12 @@
         "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_ratingbar_full_material.xml"
     },
     {
-        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
-        "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_btn_check_material.xml"
-    },
-    {
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/rettangolo.png",
         "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/rettangolo.png"
+    },
+    {
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_btn_check_material.xml"
     },
     {
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark.xml",
@@ -148,20 +148,20 @@
         "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_list_selector_background_transition_holo_light.xml"
     },
     {
-        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light.xml",
-        "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/drawable/common_google_signin_btn_icon_light.xml"
-    },
-    {
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/beacon_1.png",
         "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/beacon_1.png"
     },
     {
-        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/piantina2.jpg",
-        "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/piantina2.jpg"
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light.xml",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/drawable/common_google_signin_btn_icon_light.xml"
     },
     {
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/radar_north_small.png",
         "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/radar_north_small.png"
+    },
+    {
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/piantina2.jpg",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/piantina2.jpg"
     },
     {
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/design_fab_background.xml",

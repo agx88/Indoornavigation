@@ -56,6 +56,8 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+        <!-- Declaring Services -->
+        <service android:name="com.EveSrl.Indoornavigation.utils.TrilaterationService" />
         <service
             android:name="com.estimote.sdk.service.BeaconService"
             android:exported="false" />

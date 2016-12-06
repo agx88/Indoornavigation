@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/cloud/git-repo/Indoornavigation/app/src/main/AndroidManifest.xml:2:1-42:12
+ADDED from /home/cloud/git-repo/Indoornavigation/app/src/main/AndroidManifest.xml:2:1-45:12
 	package
 		ADDED from /home/cloud/git-repo/Indoornavigation/app/src/main/AndroidManifest.xml:3:5-42
 		INJECTED from /home/cloud/git-repo/Indoornavigation/app/src/main/AndroidManifest.xml
@@ -32,7 +32,7 @@ MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/cloud/git-r
 	android:name
 		ADDED from /home/cloud/git-repo/Indoornavigation/app/src/main/AndroidManifest.xml:11:22-64
 application
-ADDED from /home/cloud/git-repo/Indoornavigation/app/src/main/AndroidManifest.xml:13:5-40:19
+ADDED from /home/cloud/git-repo/Indoornavigation/app/src/main/AndroidManifest.xml:13:5-43:19
 MERGED from [com.android.support:design:23.4.0] /home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:24.0.0] /home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:appcompat-v7:23.4.0] /home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/AndroidManifest.xml:25:5-20
@@ -86,6 +86,10 @@ MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/cloud/g
 		ADDED from /home/cloud/git-repo/Indoornavigation/app/src/main/AndroidManifest.xml:38:13-66
 	android:name
 		ADDED from /home/cloud/git-repo/Indoornavigation/app/src/main/AndroidManifest.xml:37:13-58
+service#com.EveSrl.Indoornavigation.utils.TrilaterationService
+ADDED from /home/cloud/git-repo/Indoornavigation/app/src/main/AndroidManifest.xml:41:9-63
+	android:name
+		ADDED from /home/cloud/git-repo/Indoornavigation/app/src/main/AndroidManifest.xml:41:18-60
 uses-sdk
 INJECTED from /home/cloud/git-repo/Indoornavigation/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:23.4.0] /home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/AndroidManifest.xml:20:5-43

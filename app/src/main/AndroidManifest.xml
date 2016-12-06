@@ -37,6 +37,9 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+        <!-- Declaring Services -->
+        <service android:name=".utils.TrilaterationService" />
+
     </application>
 
 </manifest>

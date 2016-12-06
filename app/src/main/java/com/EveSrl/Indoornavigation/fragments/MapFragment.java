@@ -1,9 +1,13 @@
 package com.EveSrl.Indoornavigation.fragments;
 
+import android.app.Service;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -11,19 +15,19 @@ import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.EveSrl.Indoornavigation.MainActivity;
 import com.EveSrl.Indoornavigation.R;
 import com.EveSrl.Indoornavigation.adapters.BeaconListAdapter;
-import com.EveSrl.Indoornavigation.utils.AsyncResponse;
 import com.EveSrl.Indoornavigation.utils.MarkerPositioner;
 import com.EveSrl.Indoornavigation.utils.Point;
 import com.EveSrl.Indoornavigation.utils.Trilateration2D;
+import com.EveSrl.Indoornavigation.utils.TrilaterationService;
 import com.EveSrl.Indoornavigation.utils.ZoomableImageView;
 import com.estimote.sdk.Utils;
+
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,7 +39,7 @@ import com.estimote.sdk.Utils;
  */
 public class MapFragment
         extends Fragment
-        implements AsyncResponse {
+        implements TrilaterationService.Callbacks {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -47,21 +51,21 @@ public class MapFragment
 
     private OnFragmentInteractionListener mListener;
 
-    private MarkerPositioner drawSpace;
     private ZoomableImageView zIView;
    //Punto calcolato tramite trilaterazione
     private Point target;
+    private BeaconListAdapter adapter;
 
+    private Intent serviceIntent;
+    private TrilaterationService myService;
     // Inflate the layout for this fragment
     private View view;
 
-    private BeaconListAdapter adapter;
+
 
     public MapFragment() {
         // Required empty public constructor
     }
-
-
 
     /**
      * Use this factory method to create a new instance of
@@ -92,6 +96,10 @@ public class MapFragment
 
         //Mantiene il fragment "vivo" durante il cambio di orientamento
         setRetainInstance(true);
+
+        serviceIntent = new Intent(getContext(), TrilaterationService.class);
+        adapter = ((MainActivity) getActivity()).getBeaconListAdapter();
+        startTrilaterationService();
     }
 
     @Override
@@ -111,13 +119,6 @@ public class MapFragment
             // Just return the view as it is.
         }
 
-        // TODO: We have to test the TrilaterationTask.
-        adapter = ((MainActivity) getActivity()).getBeaconListAdapter();
-        TrilaterationTask triTask = new TrilaterationTask();
-        // This to set delegate/listener back to this class
-        triTask.delegate = this;
-        triTask.execute(adapter);
-
         return view;
     }
 
@@ -128,41 +129,41 @@ public class MapFragment
         }
     }
 
+    private ServiceConnection mConnection = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName className,
+                                       IBinder service) {
+            Toast.makeText(getActivity(), "onServiceConnected called", Toast.LENGTH_SHORT).show();
+            // We've binded to LocalService, cast the IBinder and get LocalService instance
+            TrilaterationService.LocalBinder binder = (TrilaterationService.LocalBinder) service;
+            myService = binder.getServiceInstance(); //Get instance of your service!
+            myService.registerClient(MapFragment.this); //Activity register in the service as client for callabcks!
+            myService.setAdapter(adapter);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            Toast.makeText(MapFragment.this.getActivity(), "onServiceDisconnected called", Toast.LENGTH_SHORT).show();
+        }
+    };
+
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
+    public void sendLocation(float x, float y) {
+        Log.v("MapFragment", "Sono passato per sendLocation.");
+        zIView.updateUserLocation(x, y);
+        Log.v("MapFragment", "...e ora esco.");
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
+
+    public void startTrilaterationService(){
+        getContext().startService(serviceIntent); // Starting the service
+        getContext().bindService(serviceIntent, mConnection, Context.BIND_AUTO_CREATE); // Binding to the service!
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        //drawSpace = zIView.getMarkerPositioner();
-
-        Log.v("MapFragment", "Mi sono messo in pausa!");
-    }
-
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        //zIView.setMarkerPositioner(drawSpace);
-        //Toast.makeText(this, "GPS restarted!", Toast.LENGTH_LONG).show();
-        Log.v("MapFragment", "Sono tornato!");
-    }
-
-    // It manages results from asyncTask
-    @Override
-    public void processFinish(Point result) {
-        //zIView.updateUserLocation((float) result.getX(), (float) result.getY());
-        zIView.updateUserLocation(110, 110);
+    public void stopTrilaterationService(){
+        getContext().unbindService(mConnection);
+        getContext().stopService(serviceIntent);
     }
 
     /**
@@ -180,46 +181,26 @@ public class MapFragment
         void onFragmentInteraction(Uri uri);
     }
 
-    public class TrilaterationTask extends AsyncTask<Object, Void, Point> {
-
-        private Trilateration2D trilateration;
-        private BeaconListAdapter adapter;
-
-        private AsyncResponse delegate = null;
-
-        @Override
-        protected Point doInBackground(Object[] params) {
-            adapter = (BeaconListAdapter) params[0];
-            Point result = null;
-
-            if(adapter.isReady()) {
-                trilateration = new Trilateration2D();
-                trilateration.initialize();
-                //Impostazione delle coordinate
-                trilateration.setA(1,1);
-                trilateration.setB(0,2);
-                trilateration.setC(2,3);
-
-                trilateration.setR1(Utils.computeAccuracy(adapter.getItem(0)));
-                trilateration.setR2(Utils.computeAccuracy(adapter.getItem(1)));
-                trilateration.setR3(Utils.computeAccuracy(adapter.getItem(2)));
-
-                result = trilateration.getPoint();
-            }
-
-            return result;
-        }
 
 
-        @Override
-        protected void onPostExecute(Point result) {
-            super.onPostExecute(result);
-           //TODO cambiare l'esecuzione della post execute in modo che imposti direttamente il marker
-            target = result;
-
-            delegate.processFinish(result);
-        }
-
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
     }
 
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 }
