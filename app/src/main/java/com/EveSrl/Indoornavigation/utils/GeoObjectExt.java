@@ -4,11 +4,6 @@ import android.os.Bundle;
 
 import com.beyondar.android.world.GeoObject;
 
-/**
- * Created by Cloud on 21/10/2016.
- */
-
-// TODO
 public class GeoObjectExt extends GeoObject {
     protected Bundle info;
 

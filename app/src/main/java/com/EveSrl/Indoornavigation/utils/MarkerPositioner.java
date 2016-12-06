@@ -69,7 +69,6 @@ public class MarkerPositioner
         mContext = context;
     }
 
-    // TODO: Check the case tag already exists.
     public void addMarker(float x, float y, String tag) {
         LayoutParams lp = new LayoutParams(50, 50); // Layout parameters of the marker.
         ImageView marker = new ImageView(mContext); // ImageView representing the marker on the map.
@@ -82,6 +81,7 @@ public class MarkerPositioner
         // It sets the drawable for the marker.
         marker.setImageResource(R.drawable.map_marker_outside_azure);
 
+        // If tag not already exists then it creates a new one....
         if (listMarker.get(tag) == null) {
             // Store the coordinate (in pixel).
             listCoordinate.put(tag, new PointF(x, y));
@@ -123,6 +123,7 @@ public class MarkerPositioner
                 CustomWorldHelper.setLocation(lat, lon);
             }
         }
+        // ....otherwise, update marker location.
         else
             listCoordinate.get(tag).set(x, y);
 
@@ -191,6 +192,24 @@ public class MarkerPositioner
         } catch(Exception ex){
             addMarker(ux, uy, "User");
         }
+    }
+
+    public Point fromMeterToPixel(Point m){
+        Point p = new Point();
+
+        p.setX(m.getX() * meterPixelRatioX);
+        p.setY(m.getY() * meterPixelRatioY);
+
+        return p;
+    }
+
+    public Point fromPixelToMeter(Point p){
+        Point m = new Point();
+
+        m.setX(p.getX() / meterPixelRatioX);
+        m.setY(p.getY() / meterPixelRatioY);
+
+        return m;
     }
 
     @Override

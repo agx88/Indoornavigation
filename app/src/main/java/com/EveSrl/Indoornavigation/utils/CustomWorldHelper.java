@@ -246,7 +246,7 @@ public class CustomWorldHelper {
     public static World addObject(int worldListType, GeoObjectExt goe){
         // Check if the AR World were correctly initialized.
         if (sharedWorld != null) {
-            // TODO: Check the case tag already exists.
+            /* TODO: Check the case tag already exists. */
             sharedWorld.addBeyondarObject(goe, worldListType);
         }
 

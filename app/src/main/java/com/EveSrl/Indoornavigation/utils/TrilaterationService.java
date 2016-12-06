@@ -1,13 +1,11 @@
 package com.EveSrl.Indoornavigation.utils;
 
-import android.app.Activity;
 import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 
 import com.EveSrl.Indoornavigation.adapters.BeaconListAdapter;
@@ -64,7 +62,6 @@ public class TrilaterationService extends Service {
         //Do what you need in onStartCommand when service has been started
         new Thread(new Runnable(){
             public void run() {
-                // TODO Auto-generated method stub
                 while(true)
                 {
                     try {
