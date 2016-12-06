@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-#Fri Dec 02 12:26:38 CET 2016
-=======
-#Tue Nov 29 17:44:58 CET 2016
->>>>>>> ARFragment
+#Mon Dec 05 23:12:53 CET 2016

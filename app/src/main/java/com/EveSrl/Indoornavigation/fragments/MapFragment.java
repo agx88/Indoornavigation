@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.EveSrl.Indoornavigation.MainActivity;
 import com.EveSrl.Indoornavigation.R;
 import com.EveSrl.Indoornavigation.adapters.BeaconListAdapter;
+import com.EveSrl.Indoornavigation.utils.AsyncResponse;
 import com.EveSrl.Indoornavigation.utils.MarkerPositioner;
 import com.EveSrl.Indoornavigation.utils.Point;
 import com.EveSrl.Indoornavigation.utils.Trilateration2D;
@@ -32,7 +33,9 @@ import com.estimote.sdk.Utils;
  * Use the {@link MapFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MapFragment extends Fragment {
+public class MapFragment
+        extends Fragment
+        implements AsyncResponse {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -111,6 +114,8 @@ public class MapFragment extends Fragment {
         // TODO: We have to test the TrilaterationTask.
         adapter = ((MainActivity) getActivity()).getBeaconListAdapter();
         TrilaterationTask triTask = new TrilaterationTask();
+        // This to set delegate/listener back to this class
+        triTask.delegate = this;
         triTask.execute(adapter);
 
         return view;
@@ -153,6 +158,13 @@ public class MapFragment extends Fragment {
         Log.v("MapFragment", "Sono tornato!");
     }
 
+    // It manages results from asyncTask
+    @Override
+    public void processFinish(Point result) {
+        //zIView.updateUserLocation((float) result.getX(), (float) result.getY());
+        zIView.updateUserLocation(110, 110);
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -173,30 +185,36 @@ public class MapFragment extends Fragment {
         private Trilateration2D trilateration;
         private BeaconListAdapter adapter;
 
+        private AsyncResponse delegate = null;
+
         @Override
         protected Point doInBackground(Object[] params) {
             adapter = (BeaconListAdapter) params[0];
-            trilateration = new Trilateration2D();
-            trilateration.initialize();
-            //Impostazione delle coordinate
-            trilateration.setA(1,1);
-            trilateration.setB(0,2);
-            trilateration.setC(2,3);
+            Point result = null;
+
             if(adapter.isReady()) {
+                trilateration = new Trilateration2D();
+                trilateration.initialize();
+                //Impostazione delle coordinate
+                trilateration.setA(1,1);
+                trilateration.setB(0,2);
+                trilateration.setC(2,3);
+
                 trilateration.setR1(Utils.computeAccuracy(adapter.getItem(0)));
                 trilateration.setR2(Utils.computeAccuracy(adapter.getItem(1)));
                 trilateration.setR3(Utils.computeAccuracy(adapter.getItem(2)));
+
+                result = trilateration.getPoint();
             }
 
-            return trilateration.getPoint();
+            return result;
         }
 
         protected void onPostExecute(Point result) {
            //TODO cambiare l'esecuzione della post execute in modo che imposti direttamente il marker
             target = result;
 
-            //zIView.updateUserLocation((float) result.getX(), (float) result.getY());
-            zIView.updateUserLocation(110, 110);
+            delegate.processFinish(result);
         }
     }
 

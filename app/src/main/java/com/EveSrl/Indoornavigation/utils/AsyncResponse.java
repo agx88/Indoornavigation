@@ -1,8 +1,6 @@
 package com.EveSrl.Indoornavigation.utils;
 
-/**
- * Created by cloud on 06/12/16.
- */
-
+// This interface is used to receive results from TrilaterationTask execution.
 public interface AsyncResponse {
+    void processFinish(Point result);
 }

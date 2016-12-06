@@ -1,37 +1,33 @@
 [
     {
-        "merged": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
-        "source": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\abc_search_url_text.xml"
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/color/switch_thumb_material_dark.xml"
     },
     {
-        "merged": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
-        "source": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\switch_thumb_material_dark.xml"
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/color/abc_secondary_text_material_light.xml"
     },
     {
-        "merged": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_light.xml",
-        "source": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\abc_secondary_text_material_light.xml"
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/color/abc_primary_text_material_dark.xml"
     },
     {
-        "merged": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
-        "source": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/color/abc_primary_text_disable_only_material_light.xml"
     },
     {
-        "merged": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
-        "source": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\abc_secondary_text_material_dark.xml"
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/color/abc_secondary_text_material_dark.xml"
     },
     {
-        "merged": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
-        "source": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\abc_secondary_text_material_dark.xml"
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/color/abc_primary_text_material_light.xml"
     },
     {
-        "merged": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
-        "source": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\abc_primary_text_material_dark.xml"
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/color/abc_primary_text_disable_only_material_dark.xml"
     },
     {
-<<<<<<< HEAD
-        "merged": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
-        "source": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\switch_thumb_material_dark.xml"
-=======
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_dark.xml",
         "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/color/common_google_signin_btn_text_dark.xml"
     },
@@ -42,46 +38,9 @@
     {
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
         "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/color/abc_search_url_text.xml"
->>>>>>> ARFragment
     },
     {
-        "merged": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
-        "source": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
-        "source": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\abc_search_url_text.xml"
-    },
-    {
-        "merged": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
-        "source": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\abc_primary_text_material_light.xml"
-    },
-    {
-        "merged": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
-        "source": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
-        "source": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\switch_thumb_material_light.xml"
-    },
-    {
-        "merged": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
-        "source": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\switch_thumb_material_light.xml"
-    },
-    {
-        "merged": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
-        "source": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\abc_primary_text_disable_only_material_light.xml"
-    },
-    {
-        "merged": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
-        "source": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\abc_primary_text_material_light.xml"
-    },
-    {
-        "merged": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_light.xml",
-        "source": "C:\\home\\cloud\\git-repo\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\abc_secondary_text_material_light.xml"
-    },
-    {
-        "merged": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
-        "source": "C:\\Users\\peppe\\Documents\\UNI\\Android\\git\\Indoornavigation\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color\\abc_primary_text_material_dark.xml"
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/color/switch_thumb_material_light.xml"
     }
 ]

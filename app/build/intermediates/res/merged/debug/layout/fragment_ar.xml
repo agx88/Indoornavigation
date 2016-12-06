@@ -34,12 +34,5 @@
                 android:src="@drawable/radar_north_small" />
         </FrameLayout>
 
-        <Button
-            android:id="@+id/showMapButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/show_map" />
-
-        <!-- android:layout_gravity="start|bottom" -->
     </FrameLayout>
 </FrameLayout>
