@@ -12,6 +12,10 @@
         "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_dialog_material_background_dark.xml"
     },
     {
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/beacon_beetrot.png",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/beacon_beetrot.png"
+    },
+    {
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light_focused.xml",
         "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/drawable/common_google_signin_btn_icon_light_focused.xml"
     },
@@ -84,10 +88,6 @@
         "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_btn_radio_material.xml"
     },
     {
-        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/beacon_2.png",
-        "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/beacon_2.png"
-    },
-    {
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_light.xml",
         "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_list_selector_holo_light.xml"
     },
@@ -136,24 +136,24 @@
         "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/res/drawable/design_snackbar_background.xml"
     },
     {
-        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
-        "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/beacon_lemon.png",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/beacon_lemon.png"
     },
     {
-        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/beacon_3.png",
-        "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/beacon_3.png"
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
     },
     {
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_light.xml",
         "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_list_selector_background_transition_holo_light.xml"
     },
     {
-        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/beacon_1.png",
-        "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/beacon_1.png"
-    },
-    {
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light.xml",
         "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/drawable/common_google_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/beacon_candy.png",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/beacon_candy.png"
     },
     {
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/radar_north_small.png",

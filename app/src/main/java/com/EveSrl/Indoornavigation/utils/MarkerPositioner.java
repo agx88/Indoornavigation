@@ -3,7 +3,6 @@ package com.EveSrl.Indoornavigation.utils;
 import android.content.Context;
 import android.graphics.*;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -11,10 +10,8 @@ import android.widget.Toast;
 
 import com.EveSrl.Indoornavigation.R;
 import com.beyondar.android.world.BeyondarObject;
-import com.beyondar.android.world.BeyondarObjectList;
 
 import java.util.HashMap;
-import java.util.Objects;
 
 
 // Questa classe verrà utilizzata per gestire tutti i Marker.
@@ -25,7 +22,7 @@ public class MarkerPositioner
     private Context mContext;
     private HashMap<String, ImageView> listMarker;
     private HashMap<String, android.graphics.PointF> listCoordinate;
-
+    private HashMap<String, Integer> listImageId;
 
     private float trickFactor = 10;
 
@@ -57,6 +54,7 @@ public class MarkerPositioner
         mContext = context;
         listMarker = new HashMap<>();
         listCoordinate = new HashMap<>();
+        listImageId = new HashMap<>();
 
         sx = 1.0f;
         sy = 1.0f;
@@ -89,6 +87,8 @@ public class MarkerPositioner
             listCoordinate.put(tag, new PointF(x, y));
             // It adds the marker to the list.
             listMarker.put(tag, marker);
+
+            listImageId.put(tag, 0);
 
             // Some information related to the marker.
             marker.setTag(tag);
@@ -197,12 +197,31 @@ public class MarkerPositioner
     public void onClick(View view) {
         //Toast.makeText(mContext, view.getTag().toString(), Toast.LENGTH_SHORT).show();
         double d = 0.0d;
+        ImageView selectedMarker = (ImageView) view;
 
         for (BeyondarObject obL: CustomWorldHelper.getARWorld().getBeyondarObjectLists().get(0)
              ) {
             d = obL.getDistanceFromUser() / trickFactor;
-            if(view.getTag().equals(obL.getName()))
+            if(view.getTag().equals(obL.getName())) {
                 Toast.makeText(mContext, obL.getName() + "   d:" + String.format("%.2f", d) + "m", Toast.LENGTH_SHORT).show();
+
+
+                // Clinking on a Marker, it changes its image cycles through beacons drawable resources.
+                if(listImageId.get(view.getTag().toString()) == 0){
+                    listImageId.put(view.getTag().toString(), 1);
+                    selectedMarker.setImageResource(R.drawable.beacon_candy);
+                } else if(listImageId.get(view.getTag().toString()) == 1){
+                    listImageId.put(view.getTag().toString(), 2);
+                    selectedMarker.setImageResource(R.drawable.beacon_beetrot);
+                } else if(listImageId.get(view.getTag().toString()) == 2){
+                    listImageId.put(view.getTag().toString(), 3);
+                    selectedMarker.setImageResource(R.drawable.beacon_lemon);
+                } else if(listImageId.get(view.getTag().toString()) == 3){
+                    listImageId.put(view.getTag().toString(), 0);
+                    selectedMarker.setImageResource(R.drawable.map_marker_outside_azure);
+                }
+
+            }
 
         }
     }

@@ -394,11 +394,16 @@ public class ZoomableImageView extends ImageView {
         // this.getDrawable().getIntrinsicWidth() -> larghezza dell'immagine.
         drawSpace.updateRatio(this.getDrawable().getIntrinsicWidth() / 3, this.getDrawable().getIntrinsicHeight() / 10);
 
-        drawSpace.addMarker(0, 0, "Prova1");
-        drawSpace.addMarker(this.getDrawable().getIntrinsicWidth(), 0, "Prova2");
-        drawSpace.addMarker(0, this.getDrawable().getIntrinsicHeight(), "Prova3");
-        drawSpace.addMarker(this.getDrawable().getIntrinsicWidth(), this.getDrawable().getIntrinsicHeight(), "Prova4");
-        drawSpace.addMarker(200, 180, "Prova5");
+
+        // Beacons
+        drawSpace.addMarker(this.getDrawable().getIntrinsicWidth() / 2, 0, "Lato Corto in Alto");
+        drawSpace.addMarker(0, this.getDrawable().getIntrinsicHeight() / 3, "Lato Lungo Sinistro 1");
+        drawSpace.addMarker(0, this.getDrawable().getIntrinsicHeight() * 2/3, "Lato Lungo Sinistro 2");
+        drawSpace.addMarker(this.getDrawable().getIntrinsicWidth() / 2, this.getDrawable().getIntrinsicHeight(), "Lato Corto in Basso");
+        drawSpace.addMarker(this.getDrawable().getIntrinsicWidth(), this.getDrawable().getIntrinsicHeight() / 3, "Lato Lungo Destro 1");
+        drawSpace.addMarker(this.getDrawable().getIntrinsicWidth(), this.getDrawable().getIntrinsicHeight() * 2/3, "Lato Lungo Destro 2");
+
+
 
         // TODO: Cancellare quando le prove saranno finite.
         drawSpace.updateUserLocation(400, 250);

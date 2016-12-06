@@ -12,17 +12,18 @@ import android.support.v4.app.NotificationCompat;
 
 import com.EveSrl.Indoornavigation.adapters.BeaconListAdapter;
 import com.EveSrl.Indoornavigation.fragments.MapFragment;
+import com.estimote.sdk.Utils;
 
 
 public class TrilaterationService extends Service {
     float x = 0.0f;
     float y = 0.0f;
 
-    NotificationManager notificationManager;
-    NotificationCompat.Builder mBuilder;
-
+    private Trilateration2D trilateration;
     private BeaconListAdapter adapter;
 
+    NotificationManager notificationManager;
+    NotificationCompat.Builder mBuilder;
     Callbacks activity;
     private final IBinder mBinder = new LocalBinder();
     Handler handler = new Handler();
@@ -32,7 +33,28 @@ public class TrilaterationService extends Service {
         public void run() {
             x += 1f;
             y += 1f;
-            activity.sendLocation(x, y); //Update Activity (client) by the implementd callback
+
+            if(adapter.isReady()) {
+                Point result = null;
+
+                trilateration = new Trilateration2D();
+                trilateration.initialize();
+                //Impostazione delle coordinate
+                trilateration.setA(1,1);
+                trilateration.setB(0,2);
+                trilateration.setC(2,3);
+
+                trilateration.setR1(Utils.computeAccuracy(adapter.getItem(0)));
+                trilateration.setR2(Utils.computeAccuracy(adapter.getItem(1)));
+                trilateration.setR3(Utils.computeAccuracy(adapter.getItem(2)));
+
+                result = trilateration.getPoint();
+
+                //activity.sendLocation((float) result.getX(), (float) result.getY()); //Update Activity (client) by the implemented callback
+            }
+
+            activity.sendLocation(110, 110);
+
             handler.postDelayed(this, 1000);
         }
     };

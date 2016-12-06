@@ -2539,11 +2539,11 @@ containing a value of this type.
         public static final int abc_textfield_search_activated_mtrl_alpha=0x7f020048;
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f020049;
         public static final int abc_textfield_search_material=0x7f02004a;
-        public static final int beacon_1=0x7f02004b;
-        public static final int beacon_2=0x7f02004c;
-        public static final int beacon_3=0x7f02004d;
-        public static final int beacon_gray=0x7f02004e;
-        public static final int beacon_icon=0x7f02004f;
+        public static final int beacon_beetrot=0x7f02004b;
+        public static final int beacon_candy=0x7f02004c;
+        public static final int beacon_gray=0x7f02004d;
+        public static final int beacon_icon=0x7f02004e;
+        public static final int beacon_lemon=0x7f02004f;
         public static final int common_full_open_on_phone=0x7f020050;
         public static final int common_google_signin_btn_icon_dark=0x7f020051;
         public static final int common_google_signin_btn_icon_dark_disabled=0x7f020052;

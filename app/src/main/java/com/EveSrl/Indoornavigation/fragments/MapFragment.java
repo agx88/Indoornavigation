@@ -150,9 +150,7 @@ public class MapFragment
 
     @Override
     public void sendLocation(float x, float y) {
-        Log.v("MapFragment", "Sono passato per sendLocation.");
         zIView.updateUserLocation(x, y);
-        Log.v("MapFragment", "...e ora esco.");
     }
 
 
