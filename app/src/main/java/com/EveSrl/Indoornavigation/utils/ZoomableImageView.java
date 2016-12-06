@@ -48,6 +48,9 @@ public class ZoomableImageView extends ImageView {
     // MIO-------------------------------------------------
     private MarkerPositioner drawSpace;
 
+    private float pixelMeterRatioX = 0.0f;
+    private float pixelMeterRatioY = 0.0f;
+
     float paddingX = 30;
     float paddingY = 60;
     // #MIO------------------------------------------------
@@ -392,8 +395,11 @@ public class ZoomableImageView extends ImageView {
 
         // Supponiamo che il rettangolo rappresenti una stanza larga 3m e lunga 10m;
         // this.getDrawable().getIntrinsicWidth() -> larghezza dell'immagine.
-        drawSpace.updateRatio(this.getDrawable().getIntrinsicWidth() / 3, this.getDrawable().getIntrinsicHeight() / 10);
+        pixelMeterRatioX = this.getDrawable().getIntrinsicWidth() / 3;
+        pixelMeterRatioY = this.getDrawable().getIntrinsicHeight() / 10;
 
+        Point.setPixelMeterRatioX(pixelMeterRatioX);
+        Point.setPixelMeterRatioY(pixelMeterRatioY);
 
         // Beacons
         drawSpace.addMarker(this.getDrawable().getIntrinsicWidth() / 2, 0, "Lato Corto in Alto");
@@ -406,7 +412,7 @@ public class ZoomableImageView extends ImageView {
 
 
         // TODO: Cancellare quando le prove saranno finite.
-        drawSpace.updateUserLocation(400, 250);
+        drawSpace.updateUserLocation(400 / pixelMeterRatioX, 250 / pixelMeterRatioY);
     }
 
 
@@ -422,10 +428,10 @@ public class ZoomableImageView extends ImageView {
         }
     }
 
-
-    public void updateUserLocation(float x, float y){
+    // Update user location with meter values along the axes.
+    public void updateUserLocation(float mx, float my){
         if (drawSpace != null){
-            drawSpace.updateUserLocation(x, y);
+            drawSpace.updateUserLocation(mx, my);
         }
 
     }

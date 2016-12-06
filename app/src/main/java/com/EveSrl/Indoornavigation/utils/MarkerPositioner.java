@@ -31,8 +31,6 @@ public class MarkerPositioner
     private float sx;
     private float sy;
 
-    private float meterPixelRatioX;
-    private float meterPixelRatioY;
 
     public MarkerPositioner(Context context) {
         super(context);
@@ -60,8 +58,7 @@ public class MarkerPositioner
         sy = 1.0f;
         tx = 0.0f;
         ty = 0.0f;
-        meterPixelRatioX = 0.0f;
-        meterPixelRatioY = 0.0f;
+
     }
 
 
@@ -95,18 +92,18 @@ public class MarkerPositioner
             marker.setOnClickListener(this);
 
             // It calculates the meter according to the meter-pixel ratio.
-            meterX = x / meterPixelRatioX;
-            meterY = y / meterPixelRatioY;
+            Point meter = new Point();
+            meter = Point.fromPixelToMeter(new Point(x, y));
 
             // It transforms the coordinate in lat-lon format.
             // "* 10" is a trick to reduce marker size. (see also ARFragment.java: mRadarPlugin.setMaxDistance(2d * 10);)
             // "/1000" transforms meter in kilometer;
             // "/1,85" transforms kilometer in nautical miles.
             // "/60" transforms latitude from sexagesimal form to decimal form.
-            lat = (meterX / (1850 * 60)) * trickFactor;
+            lat = (meter.getX() / (1850 * 60)) * trickFactor;
             // "* 0.54" is a conversion factor from kilometer to longitude.
             // "/60" transforms latitude from sexagesimal form to decimal form.
-            lon = (meterY * 0.54 / (60 * 1000)) * trickFactor;
+            lon = (meter.getY() * 0.54 / (60 * 1000)) * trickFactor;
 
             if(!tag.equals("User")) {
                 // If it doesn't already exist, it creates a new AR world.
@@ -144,18 +141,18 @@ public class MarkerPositioner
 
         if (tag.equals("User")){
             // It calculates the meter according to the meter-pixel ratio.
-            float meterX = x / meterPixelRatioX;
-            float meterY = y / meterPixelRatioY;
+            Point meter = new Point();
+            meter = Point.fromPixelToMeter(new Point(x, y));
 
             // It transforms the coordinate in lat-lon format.
             // "* 10" is a trick to reduce marker size. (see also ARFragment.java: mRadarPlugin.setMaxDistance(2d * 10);)
             // "/1000" transforms meter in kilometer;
             // "/1,85" transforms kilometer in nautical miles.
             // "/60" transforms latitude from sexagesimal form to decimal form.
-            double lat = (meterX / (1850 * 60)) * trickFactor;
+            double lat = (meter.getX() / (1850 * 60)) * trickFactor;
             // "* 0.54" is a conversion factor from kilometer to longitude.
             // "/60" transforms latitude from sexagesimal form to decimal form.
-            double lon = (meterY * 0.54 / (60 * 1000)) * trickFactor;
+            double lon = (meter.getY() * 0.54 / (60 * 1000)) * trickFactor;
             // It updates user's location.
             CustomWorldHelper.setLocation(lat, lon);
         }
@@ -180,37 +177,17 @@ public class MarkerPositioner
         this.sy = sy;
     }
 
-
-    public void updateRatio(float ratioX, float ratioY){
-        meterPixelRatioX = ratioX;
-        meterPixelRatioY = ratioY;
-    }
-
     public void updateUserLocation(float ux, float uy){
+        Point p = Point.fromMeterToPixel(new Point(ux, uy));
+
         try {
-            setMarkerPosition(ux, uy, "User");
+            setMarkerPosition((float) p.getX(), (float) p.getY(), "User");
         } catch(Exception ex){
-            addMarker(ux, uy, "User");
+            addMarker((float) p.getX(), (float) p.getY(), "User");
         }
     }
 
-    public Point fromMeterToPixel(Point m){
-        Point p = new Point();
 
-        p.setX(m.getX() * meterPixelRatioX);
-        p.setY(m.getY() * meterPixelRatioY);
-
-        return p;
-    }
-
-    public Point fromPixelToMeter(Point p){
-        Point m = new Point();
-
-        m.setX(p.getX() / meterPixelRatioX);
-        m.setY(p.getY() / meterPixelRatioY);
-
-        return m;
-    }
 
     @Override
     public void onClick(View view) {
