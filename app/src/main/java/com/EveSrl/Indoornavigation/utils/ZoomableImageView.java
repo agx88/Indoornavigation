@@ -391,20 +391,19 @@ public class ZoomableImageView extends ImageView {
         drawSpace.setContext(context);
 
         // Supponiamo che il rettangolo rappresenti una stanza larga 3m e lunga 10m;
-
+        // this.getDrawable().getIntrinsicWidth() -> larghezza dell'immagine.
         drawSpace.updateRatio(this.getDrawable().getIntrinsicWidth() / 3, this.getDrawable().getIntrinsicHeight() / 10);
 
         drawSpace.addMarker(0, 0, "Prova1");
-        drawSpace.addMarker(110, 0, "Prova2");
-        drawSpace.addMarker(0, 110, "Prova3");
-        drawSpace.addMarker(110, 110, "Prova4");
+        drawSpace.addMarker(this.getDrawable().getIntrinsicWidth(), 0, "Prova2");
+        drawSpace.addMarker(0, this.getDrawable().getIntrinsicHeight(), "Prova3");
+        drawSpace.addMarker(this.getDrawable().getIntrinsicWidth(), this.getDrawable().getIntrinsicHeight(), "Prova4");
         drawSpace.addMarker(200, 180, "Prova5");
+
+        // TODO: Cancellare quando le prove saranno finite.
+        drawSpace.updateUserLocation(400, 250);
     }
 
-    public MarkerPositioner getMarkerPositioner(){
-        return drawSpace;
-    }
-    public void setMarkerPositioner(MarkerPositioner markerPositioner){ drawSpace = markerPositioner; }
 
     private void updateDrawSpace() {
         float[] mm = new float[9];
@@ -415,9 +414,6 @@ public class ZoomableImageView extends ImageView {
 
             drawSpace.updateTranslation(mm[Matrix.MTRANS_X], mm[Matrix.MTRANS_Y]);
             drawSpace.updateAllMarkerPosition();
-
-            // TODO: Cancellare quando le prove saranno finite.
-            drawSpace.updateUserLocation(400, 250);
         }
     }
 

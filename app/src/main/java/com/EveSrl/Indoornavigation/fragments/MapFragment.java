@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.EveSrl.Indoornavigation.MainActivity;
 import com.EveSrl.Indoornavigation.R;
@@ -50,6 +51,8 @@ public class MapFragment extends Fragment {
 
     // Inflate the layout for this fragment
     private View view;
+
+    private BeaconListAdapter adapter;
 
     public MapFragment() {
         // Required empty public constructor
@@ -100,15 +103,17 @@ public class MapFragment extends Fragment {
 
         try {
             view = inflater.inflate(R.layout.fragment_map, container, false);
+            zIView = (ZoomableImageView) view.findViewById(R.id.piantina);
         } catch (InflateException ie) {
             // Just return the view as it is.
         }
 
-        zIView = (ZoomableImageView) view.findViewById(R.id.piantina);
-
         // TODO: We have to test the TrilaterationTask.
-        //TrilaterationTask triTask = new TrilaterationTask();
-        //triTask.execute(((MainActivity) getActivity()).getBeaconListAdapter());
+        adapter = ((MainActivity) getActivity()).getBeaconListAdapter();
+        if (adapter.isReady()){
+            TrilaterationTask triTask = new TrilaterationTask();
+            triTask.execute(adapter);
+        }
 
         return view;
     }
@@ -182,14 +187,16 @@ public class MapFragment extends Fragment {
             trilateration.setR1(Utils.computeAccuracy(adapter.getItem(0)));
             trilateration.setR2(Utils.computeAccuracy(adapter.getItem(1)));
             trilateration.setR3(Utils.computeAccuracy(adapter.getItem(2)));
+
             return trilateration.getPoint();
         }
 
         protected void onPostExecute(Point result) {
-           //TODO cambiare l'esecuzione della post execute in modo che imposti diretamente il marker
+           //TODO cambiare l'esecuzione della post execute in modo che imposti direttamente il marker
             target = result;
 
-            zIView.updateUserLocation((float) result.getX(), (float) result.getY());
+            //zIView.updateUserLocation((float) result.getX(), (float) result.getY());
+            zIView.updateUserLocation(200, 200);
         }
     }
 
