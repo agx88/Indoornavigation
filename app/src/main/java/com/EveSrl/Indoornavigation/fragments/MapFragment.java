@@ -110,10 +110,8 @@ public class MapFragment extends Fragment {
 
         // TODO: We have to test the TrilaterationTask.
         adapter = ((MainActivity) getActivity()).getBeaconListAdapter();
-        if (adapter.isReady()){
-            TrilaterationTask triTask = new TrilaterationTask();
-            triTask.execute(adapter);
-        }
+        TrilaterationTask triTask = new TrilaterationTask();
+        triTask.execute(adapter);
 
         return view;
     }
@@ -184,9 +182,11 @@ public class MapFragment extends Fragment {
             trilateration.setA(1,1);
             trilateration.setB(0,2);
             trilateration.setC(2,3);
-            trilateration.setR1(Utils.computeAccuracy(adapter.getItem(0)));
-            trilateration.setR2(Utils.computeAccuracy(adapter.getItem(1)));
-            trilateration.setR3(Utils.computeAccuracy(adapter.getItem(2)));
+            if(adapter.isReady()) {
+                trilateration.setR1(Utils.computeAccuracy(adapter.getItem(0)));
+                trilateration.setR2(Utils.computeAccuracy(adapter.getItem(1)));
+                trilateration.setR3(Utils.computeAccuracy(adapter.getItem(2)));
+            }
 
             return trilateration.getPoint();
         }
@@ -196,7 +196,7 @@ public class MapFragment extends Fragment {
             target = result;
 
             //zIView.updateUserLocation((float) result.getX(), (float) result.getY());
-            zIView.updateUserLocation(200, 200);
+            zIView.updateUserLocation(110, 110);
         }
     }
 
