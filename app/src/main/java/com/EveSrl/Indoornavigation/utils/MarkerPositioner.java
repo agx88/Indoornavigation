@@ -140,6 +140,24 @@ public class MarkerPositioner
 
         marker.setX(x * sx + tx - lp.width/2);
         marker.setY(y * sy + ty - lp.height);
+
+        if (tag.equals("User")){
+            // It calculates the meter according to the meter-pixel ratio.
+            float meterX = x / meterPixelRatioX;
+            float meterY = y / meterPixelRatioY;
+
+            // It transforms the coordinate in lat-lon format.
+            // "* 10" is a trick to reduce marker size. (see also ARFragment.java: mRadarPlugin.setMaxDistance(2d * 10);)
+            // "/1000" transforms meter in kilometer;
+            // "/1,85" transforms kilometer in nautical miles.
+            // "/60" transforms latitude from sexagesimal form to decimal form.
+            double lat = (meterX / (1850 * 60)) * trickFactor;
+            // "* 0.54" is a conversion factor from kilometer to longitude.
+            // "/60" transforms latitude from sexagesimal form to decimal form.
+            double lon = (meterY * 0.54 / (60 * 1000)) * trickFactor;
+            // It updates user's location.
+            CustomWorldHelper.setLocation(lat, lon);
+        }
     }
 
 
