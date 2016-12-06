@@ -180,7 +180,7 @@ public class MapFragment
         void onFragmentInteraction(Uri uri);
     }
 
-    public class TrilaterationTask extends AsyncTask {
+    public class TrilaterationTask extends AsyncTask<Object, Void, Point> {
 
         private Trilateration2D trilateration;
         private BeaconListAdapter adapter;
@@ -210,12 +210,16 @@ public class MapFragment
             return result;
         }
 
+
+        @Override
         protected void onPostExecute(Point result) {
+            super.onPostExecute(result);
            //TODO cambiare l'esecuzione della post execute in modo che imposti direttamente il marker
             target = result;
 
             delegate.processFinish(result);
         }
+
     }
 
 }
