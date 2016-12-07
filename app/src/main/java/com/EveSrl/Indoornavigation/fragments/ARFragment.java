@@ -76,7 +76,6 @@ public class ARFragment
         mBeyondarFragment.setWorld(mWorld);
         mBeyondarFragment.showFPS(false);
         mBeyondarFragment.setMaxDistanceToRender(maxDistance);
-
         // set listener for the geoObjects
         mBeyondarFragment.setOnClickBeyondarObjectListener(this);
 

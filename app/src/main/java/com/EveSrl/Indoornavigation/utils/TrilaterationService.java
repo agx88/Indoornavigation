@@ -48,10 +48,10 @@ public class TrilaterationService extends Service {
 
                 result = trilateration.getPoint();
 
-                //activity.sendLocation((float) result.getX(), (float) result.getY()); //Update Activity (client) by the implemented callback
+                activity.sendLocation((float) result.getX(), (float) result.getY()); //Update Activity (client) by the implemented callback
             }
 
-            activity.sendLocation(110, 110);
+            //activity.sendLocation(0, 3.3f);
 
             handler.postDelayed(this, 1000);
         }

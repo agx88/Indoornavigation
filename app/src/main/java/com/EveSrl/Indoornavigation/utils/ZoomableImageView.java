@@ -393,9 +393,9 @@ public class ZoomableImageView extends ImageView {
         drawSpace = (MarkerPositioner) ((View) this.getParent()).findViewById(R.id.overlay);
         drawSpace.setContext(context);
 
-        // Supponiamo che il rettangolo rappresenti una stanza larga 3m e lunga 10m;
+        // Supponiamo che il rettangolo rappresenti una stanza larga 5m e lunga 10m;
         // this.getDrawable().getIntrinsicWidth() -> larghezza dell'immagine.
-        pixelMeterRatioX = this.getDrawable().getIntrinsicWidth() / 3;
+        pixelMeterRatioX = this.getDrawable().getIntrinsicWidth() / 5;
         pixelMeterRatioY = this.getDrawable().getIntrinsicHeight() / 10;
 
         Point.setPixelMeterRatioX(pixelMeterRatioX);

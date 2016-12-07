@@ -195,10 +195,12 @@ public class MapFragment
     @Override
     public void onPause() {
         super.onPause();
+        stopTrilaterationService();
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        startTrilaterationService();
     }
 }

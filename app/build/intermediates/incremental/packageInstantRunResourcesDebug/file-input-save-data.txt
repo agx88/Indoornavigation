@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Dec 06 16:20:26 CET 2016
+#Wed Dec 07 09:59:28 CET 2016
 210.set=ANDROID_RESOURCE
 14.set=ANDROID_RESOURCE
 180.file=/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/resources-debug.ap_/res/drawable/abc_btn_default_mtrl_shape.xml
