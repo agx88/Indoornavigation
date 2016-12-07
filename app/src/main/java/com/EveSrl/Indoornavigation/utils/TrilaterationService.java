@@ -10,10 +10,15 @@ import android.support.v4.app.NotificationCompat;
 
 import com.EveSrl.Indoornavigation.adapters.BeaconListAdapter;
 import com.EveSrl.Indoornavigation.fragments.MapFragment;
+import com.estimote.sdk.Beacon;
 import com.estimote.sdk.Utils;
 
 
 public class TrilaterationService extends Service {
+    private final int BEACON_NEAREST = 0;
+    private final int BEACON_NEAR = 1;
+    private final int BEACON_FAR = 2;
+
     float x = 0.0f;
     float y = 0.0f;
 
@@ -35,16 +40,23 @@ public class TrilaterationService extends Service {
             if(adapter.isReady()) {
                 Point result = null;
 
+
+                Beacon beacon_nearest = adapter.getItem(BEACON_NEAREST);
+                Beacon beacon_near = adapter.getItem(BEACON_NEAR);
+                Beacon beacon_far = adapter.getItem(BEACON_FAR);
+
+
+
                 trilateration = new Trilateration2D();
                 trilateration.initialize();
                 //Impostazione delle coordinate
-                trilateration.setA(2.5,10.0);
-                trilateration.setB(0,6.67);
-                trilateration.setC(5,6.67);
+                trilateration.setA(beacon_nearest.getMajor(), beacon_nearest.getMinor());
+                trilateration.setB(beacon_near.getMajor(), beacon_near.getMinor());
+                trilateration.setC(beacon_far.getMajor(), beacon_far.getMinor());
 
-                trilateration.setR1(Utils.computeAccuracy(adapter.getItem(0)));
-                trilateration.setR2(Utils.computeAccuracy(adapter.getItem(1)));
-                trilateration.setR3(Utils.computeAccuracy(adapter.getItem(2)));
+                trilateration.setR1(Utils.computeAccuracy(beacon_nearest));
+                trilateration.setR2(Utils.computeAccuracy(beacon_near));
+                trilateration.setR3(Utils.computeAccuracy(beacon_far));
 
                 result = trilateration.getPoint();
 
