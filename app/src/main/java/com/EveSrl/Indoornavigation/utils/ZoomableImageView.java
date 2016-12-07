@@ -16,7 +16,8 @@ import com.EveSrl.Indoornavigation.R;
 
 
 // This class allow to zoom-in and -out the ImageView.
-public class ZoomableImageView extends ImageView {
+public class
+ZoomableImageView extends ImageView {
     Matrix matrix;
     // We can be in one of these 3 states
     static final int NONE = 0;
@@ -402,12 +403,12 @@ public class ZoomableImageView extends ImageView {
         Point.setPixelMeterRatioY(pixelMeterRatioY);
 
         // Beacons
-        drawSpace.addMarker(this.getDrawable().getIntrinsicWidth() / 2, 0, "Lato Corto in Alto");
-        drawSpace.addMarker(0, this.getDrawable().getIntrinsicHeight() / 3, "Lato Lungo Sinistro 1");
-        drawSpace.addMarker(0, this.getDrawable().getIntrinsicHeight() * 2/3, "Lato Lungo Sinistro 2");
-        drawSpace.addMarker(this.getDrawable().getIntrinsicWidth() / 2, this.getDrawable().getIntrinsicHeight(), "Lato Corto in Basso");
-        drawSpace.addMarker(this.getDrawable().getIntrinsicWidth(), this.getDrawable().getIntrinsicHeight() / 3, "Lato Lungo Destro 1");
-        drawSpace.addMarker(this.getDrawable().getIntrinsicWidth(), this.getDrawable().getIntrinsicHeight() * 2/3, "Lato Lungo Destro 2");
+        //drawSpace.addMarker(this.getDrawable().getIntrinsicWidth() / 2, 0, "Lato Corto in Alto");
+        //drawSpace.addMarker(0, this.getDrawable().getIntrinsicHeight() / 3, "Lato Lungo Sinistro 1");
+        //drawSpace.addMarker(0, this.getDrawable().getIntrinsicHeight() * 2/3, "Lato Lungo Sinistro 2");
+        //drawSpace.addMarker(this.getDrawable().getIntrinsicWidth() / 2, this.getDrawable().getIntrinsicHeight(), "Lato Corto in Basso");
+        //drawSpace.addMarker(this.getDrawable().getIntrinsicWidth(), this.getDrawable().getIntrinsicHeight() / 3, "Lato Lungo Destro 1");
+        //drawSpace.addMarker(this.getDrawable().getIntrinsicWidth(), this.getDrawable().getIntrinsicHeight() * 2/3, "Lato Lungo Destro 2");
 
 
 
@@ -430,11 +431,23 @@ public class ZoomableImageView extends ImageView {
 
     // Update user location with meter values along the axes.
     public void updateUserLocation(float mx, float my){
-        if (drawSpace != null){
-            drawSpace.updateUserLocation(mx, my);
-        }
-
+        addBeacon(mx, my, "User");
+        //if (drawSpace != null){
+        //    drawSpace.updateUserLocation(mx, my);
+        //}
     }
+
+    // Method for adding a Beacon on the map.
+    public void addBeacon(float mx, float my, String tag){
+        if (drawSpace != null){
+            drawSpace.addMarkerMeter(mx, my, tag);
+        }
+    }
+
+    public void addBeaconPoint(Point p, String tag){
+        addBeacon((float) p.getX(), (float) p.getY(), tag);
+    }
+
     // #MIO-----------------------------------------------
 
 }

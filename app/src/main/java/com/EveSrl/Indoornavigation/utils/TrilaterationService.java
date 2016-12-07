@@ -13,17 +13,13 @@ import com.EveSrl.Indoornavigation.fragments.MapFragment;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.Utils;
 
+import java.util.HashMap;
+
 
 public class TrilaterationService extends Service {
-    private final int BEACON_NEAREST = 0;
-    private final int BEACON_NEAR = 1;
-    private final int BEACON_FAR = 2;
-
-    float x = 0.0f;
-    float y = 0.0f;
-
-    private Trilateration2D trilateration;
+    private HashMap<String, Point> coordinateBeacons;
     private BeaconListAdapter adapter;
+
 
     NotificationManager notificationManager;
     NotificationCompat.Builder mBuilder;
@@ -34,37 +30,46 @@ public class TrilaterationService extends Service {
     Runnable serviceRunnable = new Runnable() {
         @Override
         public void run() {
-            x += 1f;
-            y += 1f;
+            final int BEACON_NEAREST = 0;
+            final int BEACON_NEAR = 1;
+            final int BEACON_FAR = 2;
+            Trilateration2D trilateration;
+
+            Point result;
+
+            String tag_beacon_nearest;
+            String tag_beacon_near;
+            String tag_beacon_far;
+
+            Point beacon_nearest;
+            Point beacon_near;
+            Point beacon_far;
+
 
             if(adapter.isReady()) {
-                Point result = null;
+                tag_beacon_nearest = adapter.getItem(BEACON_NEAREST).getMajor() + ":" + adapter.getItem(BEACON_NEAREST).getMinor();
+                tag_beacon_near = adapter.getItem(BEACON_NEAR).getMajor() + ":" + adapter.getItem(BEACON_NEAR).getMinor();
+                tag_beacon_far = adapter.getItem(BEACON_FAR).getMajor() + ":" + adapter.getItem(BEACON_FAR).getMinor();
 
-
-                Beacon beacon_nearest = adapter.getItem(BEACON_NEAREST);
-                Beacon beacon_near = adapter.getItem(BEACON_NEAR);
-                Beacon beacon_far = adapter.getItem(BEACON_FAR);
-
-
+                beacon_nearest = coordinateBeacons.get(tag_beacon_nearest);
+                beacon_near = coordinateBeacons.get(tag_beacon_near);
+                beacon_far = coordinateBeacons.get(tag_beacon_far);
 
                 trilateration = new Trilateration2D();
                 trilateration.initialize();
                 //Impostazione delle coordinate
-                trilateration.setA(beacon_nearest.getMajor(), beacon_nearest.getMinor());
-                trilateration.setB(beacon_near.getMajor(), beacon_near.getMinor());
-                trilateration.setC(beacon_far.getMajor(), beacon_far.getMinor());
+                trilateration.setA(beacon_nearest.getX(), beacon_nearest.getY());
+                trilateration.setB(beacon_near.getX(), beacon_near.getY());
+                trilateration.setC(beacon_far.getX(), beacon_far.getY());
 
-                trilateration.setR1(Utils.computeAccuracy(beacon_nearest));
-                trilateration.setR2(Utils.computeAccuracy(beacon_near));
-                trilateration.setR3(Utils.computeAccuracy(beacon_far));
+                trilateration.setR1(Utils.computeAccuracy(adapter.getItem(BEACON_NEAREST)));
+                trilateration.setR2(Utils.computeAccuracy(adapter.getItem(BEACON_NEAR)));
+                trilateration.setR3(Utils.computeAccuracy(adapter.getItem(BEACON_FAR)));
 
                 result = trilateration.getPoint();
 
-                activity.sendLocation((float) result.getX(), (float) result.getY()); //Update Activity (client) by the implemented callback
+
             }
-
-            //activity.sendLocation(0, 3.3f);
-
             handler.postDelayed(this, 1000);
         }
     };
@@ -92,15 +97,17 @@ public class TrilaterationService extends Service {
         return START_NOT_STICKY;
     }
 
+    public void setAdapter(BeaconListAdapter adapter) {
+        this.adapter = adapter;
+    }
 
+    public void setCoordinateBeacons(HashMap<String, Point> coordinateBeacons) {
+        this.coordinateBeacons = coordinateBeacons;
+    }
 
     @Override
     public IBinder onBind(Intent intent) {
         return mBinder;
-    }
-
-    public void prova(){
-        handler.postDelayed(serviceRunnable, 0);
     }
 
     // Here Activity register to the service as Callbacks client
@@ -108,14 +115,9 @@ public class TrilaterationService extends Service {
         this.activity = (Callbacks)activity;
     }
 
-    // Set beacon list adapter.
-    public void setAdapter(BeaconListAdapter bla){
-        adapter = bla;
-    }
-
     //callbacks interface for communication with service clients!
     public interface Callbacks{
-        void sendLocation(float x, float y);
+        void updateLocation(Point result);
     }
 
     public class LocalBinder extends Binder {

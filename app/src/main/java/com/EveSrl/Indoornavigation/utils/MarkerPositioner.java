@@ -202,6 +202,8 @@ public class MarkerPositioner
     }
 
     public void updateUserLocation(float ux, float uy){
+        addMarkerMeter(ux, uy, "User");
+        /*
         Point p = Point.fromMeterToPixel(new Point(ux, uy));
 
         Log.v("MP", "px:" + p.getX() + "  py:" + p.getY());
@@ -211,9 +213,20 @@ public class MarkerPositioner
         } catch(Exception ex){
             addMarker((float) p.getX(), (float) p.getY(), "User");
         }
+        */
     }
 
 
+    // This method adds a marker based on coordinates in meters.
+    public void addMarkerMeter(float mx, float my, String tag){
+        Point p = Point.fromMeterToPixel(new Point(mx, my));
+
+        try {
+            setMarkerPosition((float) p.getX(), (float) p.getY(), tag);
+        } catch(Exception ex){
+            addMarker((float) p.getX(), (float) p.getY(), tag);
+        }
+    }
 
     @Override
     public void onClick(View view) {

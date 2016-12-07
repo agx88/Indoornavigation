@@ -27,6 +27,7 @@ import com.EveSrl.Indoornavigation.utils.TrilaterationService;
 import com.EveSrl.Indoornavigation.utils.ZoomableImageView;
 import com.estimote.sdk.Utils;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -53,7 +54,6 @@ public class MapFragment
 
     private ZoomableImageView zIView;
    //Punto calcolato tramite trilaterazione
-    private Point target;
     private BeaconListAdapter adapter;
 
     private Intent serviceIntent;
@@ -62,6 +62,8 @@ public class MapFragment
     private View view;
 
 
+
+    private HashMap<String, Point> coordinateBeacons;
 
     public MapFragment() {
         // Required empty public constructor
@@ -96,10 +98,6 @@ public class MapFragment
 
         //Mantiene il fragment "vivo" durante il cambio di orientamento
         setRetainInstance(true);
-
-        serviceIntent = new Intent(getContext(), TrilaterationService.class);
-        adapter = ((MainActivity) getActivity()).getBeaconListAdapter();
-        startTrilaterationService();
     }
 
     @Override
@@ -113,8 +111,42 @@ public class MapFragment
         }
 
         try {
+            Point p;
             view = inflater.inflate(R.layout.fragment_map, container, false);
             zIView = (ZoomableImageView) view.findViewById(R.id.piantina);
+
+            // Defining binding between coordinates and beacons.
+            coordinateBeacons = new HashMap<>();
+            p = new Point(2.5d, 0.0d);
+            coordinateBeacons.put("Major1:Minor1", p);
+            zIView.addBeaconPoint(p, "Major1:Minor1");
+
+            p = new Point(0.0d, 3.3d);
+            coordinateBeacons.put("Major2:Minor2", p);
+            zIView.addBeaconPoint(p, "Major2:Minor2");
+
+            p = new Point(0.0d, 6.7d);
+            coordinateBeacons.put("Major3:Minor3", p);
+            zIView.addBeaconPoint(p, "Major3:Minor3");
+
+            p = new Point(2.5d, 10.0d);
+            coordinateBeacons.put("Major4:Minor4", p);
+            zIView.addBeaconPoint(p, "Major4:Minor4");
+
+            p = new Point(5.0d, 3.3d);
+            coordinateBeacons.put("Major5:Minor5", p);
+            zIView.addBeaconPoint(p, "Major5:Minor5");
+
+            p = new Point(5.0d, 6.7d);
+            coordinateBeacons.put("Major6:Minor6", p);
+            zIView.addBeaconPoint(p, "Major6:Minor6");
+
+
+            // Start TrilaterationService
+            serviceIntent = new Intent(getContext(), TrilaterationService.class);
+            adapter = ((MainActivity) getActivity()).getBeaconListAdapter();
+            startTrilaterationService();
+
         } catch (InflateException ie) {
             // Just return the view as it is.
         }
@@ -132,7 +164,9 @@ public class MapFragment
             TrilaterationService.LocalBinder binder = (TrilaterationService.LocalBinder) service;
             myService = binder.getServiceInstance(); //Get instance of your service!
             myService.registerClient(MapFragment.this); //Activity register in the service as client for callabcks!
+
             myService.setAdapter(adapter);
+            myService.setCoordinateBeacons(coordinateBeacons);
         }
 
         @Override
@@ -140,12 +174,6 @@ public class MapFragment
             //Toast.makeText(MapFragment.this.getActivity(), "onServiceDisconnected called", Toast.LENGTH_SHORT).show();
         }
     };
-
-    @Override
-    public void sendLocation(float x, float y) {
-        zIView.updateUserLocation(x, y);
-    }
-
 
     public void startTrilaterationService(){
         getContext().startService(serviceIntent); // Starting the service
@@ -155,6 +183,12 @@ public class MapFragment
     public void stopTrilaterationService(){
         getContext().unbindService(mConnection);
         getContext().stopService(serviceIntent);
+    }
+
+    @Override
+    public void updateLocation(Point result) {
+        zIView.updateUserLocation((float) result.getX(), (float) result.getY());
+
     }
 
     /**
