@@ -112,6 +112,14 @@ public class MarkerPositioner
 
                 // It adds Marker to the AR world.
                 CustomWorldHelper.addObject(R.drawable.map_marker_outside_azure, lat, lon, tag, null);
+
+                if(tag.equals("Lato Corto in Alto") || tag.equals("Lato Corto in Basso")){
+                    marker.setImageResource(R.drawable.beacon_lemon);
+                } else if(tag.equals("Lato Lungo Sinistro 1") || tag.equals("Lato Lungo Destro 2")){
+                    marker.setImageResource(R.drawable.beacon_candy);
+                } else if(tag.equals("Lato Lungo Sinistro 2") || tag.equals("Lato Lungo Destro 1")){
+                    marker.setImageResource(R.drawable.beacon_beetrot);
+                }
             }
             else if (tag.equals("User")){
                 // It sets the drawable for the user's marker.
@@ -213,6 +221,8 @@ public class MarkerPositioner
         double d = 0.0d;
         ImageView selectedMarker = (ImageView) view;
 
+        /*
+
         for (BeyondarObject obL: CustomWorldHelper.getARWorld().getBeyondarObjectLists().get(0)
              ) {
             d = obL.getDistanceFromUser() / trickFactor;
@@ -238,5 +248,6 @@ public class MarkerPositioner
             }
 
         }
+        */
     }
 }

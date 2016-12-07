@@ -38,9 +38,9 @@ public class TrilaterationService extends Service {
                 trilateration = new Trilateration2D();
                 trilateration.initialize();
                 //Impostazione delle coordinate
-                trilateration.setA(1,1);
-                trilateration.setB(0,2);
-                trilateration.setC(2,3);
+                trilateration.setA(2.5,10.0);
+                trilateration.setB(0,6.67);
+                trilateration.setC(5,6.67);
 
                 trilateration.setR1(Utils.computeAccuracy(adapter.getItem(0)));
                 trilateration.setR2(Utils.computeAccuracy(adapter.getItem(1)));
