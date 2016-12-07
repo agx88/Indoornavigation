@@ -26,7 +26,7 @@ public class TrilaterationService extends Service {
     Callbacks activity;
     private final IBinder mBinder = new LocalBinder();
     Handler handler = new Handler();
-
+    // TODO: Da testare!
     Runnable serviceRunnable = new Runnable() {
         @Override
         public void run() {
