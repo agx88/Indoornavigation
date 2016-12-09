@@ -47,12 +47,12 @@ public class MapFragment
     private static final String ARG_PARAM2 = "param2";
 
 
-    public static final String beacon_lato_corto_alto = "Lato Corto Alto";
-    public static final String beacon_lato_corto_basso = "Lato Corto Basso";
-    public static final String beacon_lato_lungo_destro_alto = "Destro Lungo Alto";
-    public static final String beacon_lato_lungo_destro_basso = "Destro Lungo Basso";
-    public static final String beacon_lato_lungo_sinistro_alto = "Sinistro Lungo Alto";
-    public static final String beacon_lato_lungo_sinistro_basso = "Sinistro Lungo Basso";
+    public static final String beacon_lato_corto_alto = "25:50";
+    public static final String beacon_lato_corto_basso = "1:1";
+    public static final String beacon_lato_lungo_destro_alto = "5:3";
+    public static final String beacon_lato_lungo_destro_basso = "1:4";
+    public static final String beacon_lato_lungo_sinistro_alto = "8408:31297"; // VIOLA SCURO
+    public static final String beacon_lato_lungo_sinistro_basso = "1:2";
 
 
     // TODO: Rename and change types of parameters
@@ -201,8 +201,19 @@ public class MapFragment
 
     @Override
     public void updateLocation(Point result) {
-        zIView.updateUserLocation((float) result.getX(), (float) result.getY());
+        // Check if result is bigger than room edge.
+        if (result.getY() > ZoomableImageView.roomHeight)
+            result.setY(ZoomableImageView.roomHeight);
+        else if (result.getY() < 0.0f)
+            result.setY(0.0f);
 
+        if (result.getX() > ZoomableImageView.roomWidth)
+            result.setX(ZoomableImageView.roomWidth);
+        else if (result.getY() < 0.0f)
+            result.setY(0.0f);
+
+
+        zIView.updateUserLocation((float) result.getX(), (float) result.getY());
     }
 
     /**

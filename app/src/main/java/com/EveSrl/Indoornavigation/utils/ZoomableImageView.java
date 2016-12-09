@@ -54,6 +54,9 @@ ZoomableImageView extends ImageView {
 
     float paddingX = 30;
     float paddingY = 60;
+
+    public static float roomWidth = 5.0f;
+    public static float roomHeight = 10.0f;
     // #MIO------------------------------------------------
 
     public ZoomableImageView(Context context) {
@@ -396,8 +399,8 @@ ZoomableImageView extends ImageView {
 
         // Supponiamo che il rettangolo rappresenti una stanza larga 5m e lunga 10m;
         // this.getDrawable().getIntrinsicWidth() -> larghezza dell'immagine.
-        pixelMeterRatioX = this.getDrawable().getIntrinsicWidth() / 5;
-        pixelMeterRatioY = this.getDrawable().getIntrinsicHeight() / 10;
+        pixelMeterRatioX = this.getDrawable().getIntrinsicWidth() / roomWidth;
+        pixelMeterRatioY = this.getDrawable().getIntrinsicHeight() / roomHeight;
 
         Point.setPixelMeterRatioX(pixelMeterRatioX);
         Point.setPixelMeterRatioY(pixelMeterRatioY);

@@ -68,7 +68,7 @@ public class TrilaterationService extends Service {
 
                 result = trilateration.getPoint();
 
-
+                activity.updateLocation(result);
             }
             handler.postDelayed(this, 1000);
         }
