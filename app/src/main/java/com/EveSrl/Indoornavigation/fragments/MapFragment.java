@@ -201,6 +201,8 @@ public class MapFragment
 
     @Override
     public void updateLocation(Point result) {
+        Log.d("uLocation", "result:(" + result.getX() + "," + result.getY() + ")");
+
         // Check if result is bigger than room edge.
         if (result.getY() > ZoomableImageView.roomHeight)
             result.setY(ZoomableImageView.roomHeight);
@@ -209,9 +211,10 @@ public class MapFragment
 
         if (result.getX() > ZoomableImageView.roomWidth)
             result.setX(ZoomableImageView.roomWidth);
-        else if (result.getY() < 0.0f)
-            result.setY(0.0f);
+        else if (result.getX() < 0.0f)
+            result.setX(0.0f);
 
+        //Log.d("uLocation", "result2:(" + result.getX() + "," + result.getY() + ")");
 
         zIView.updateUserLocation((float) result.getX(), (float) result.getY());
     }
