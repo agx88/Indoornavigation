@@ -173,7 +173,7 @@ public class MapFragment
         @Override
         public void onServiceConnected(ComponentName className,
                                        IBinder service) {
-            //Toast.makeText(getActivity(), "onServiceConnected called", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "onServiceConnected called", Toast.LENGTH_SHORT).show();
             // We've binded to LocalService, cast the IBinder and get LocalService instance
             TrilaterationService.LocalBinder binder = (TrilaterationService.LocalBinder) service;
             myService = binder.getServiceInstance(); //Get instance of your service!
@@ -258,7 +258,7 @@ public class MapFragment
 
     @Override
     public void onDestroy() {
-        stopTrilaterationService();
+        //stopTrilaterationService();
         super.onDestroy();
     }
 }
