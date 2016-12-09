@@ -81,6 +81,8 @@ ZoomableImageView extends ImageView {
 
         setScaleType(ScaleType.MATRIX);
 
+        setMarkerPositioner();
+
         setOnTouchListener(new OnTouchListener() {
 
             @Override
@@ -390,7 +392,7 @@ ZoomableImageView extends ImageView {
     }
 
     // MIO------------------------------------------------
-    public void setMarkerPositioner(){
+    private void setMarkerPositioner(){
         drawSpace = (MarkerPositioner) ((View) this.getParent()).findViewById(R.id.overlay);
         drawSpace.setContext(context);
 
@@ -439,9 +441,7 @@ ZoomableImageView extends ImageView {
 
     // Method for adding a Beacon on the map.
     public void addBeacon(float mx, float my, String tag){
-        if (drawSpace != null){
-            drawSpace.addMarkerMeter(mx, my, tag);
-        }
+        drawSpace.addMarkerMeter(mx, my, tag);
     }
 
     public void addBeaconPoint(Point p, String tag){

@@ -72,12 +72,12 @@
         "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_ratingbar_full_material.xml"
     },
     {
-        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/rettangolo.png",
-        "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/rettangolo.png"
-    },
-    {
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
         "source": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/rettangolo.png",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/rettangolo.png"
     },
     {
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark.xml",

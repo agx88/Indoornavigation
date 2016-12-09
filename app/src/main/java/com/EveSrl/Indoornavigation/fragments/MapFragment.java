@@ -46,6 +46,15 @@ public class MapFragment
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+
+    private static final String beacon_lato_corto_alto = "Lato Corto Alto";
+    private static final String beacon_lato_corto_basso = "Lato Corto Basso";
+    private static final String beacon_lato_lungo_destro_alto = "Destro Lungo Alto";
+    private static final String beacon_lato_lungo_destro_basso = "Destro Lungo Basso";
+    private static final String beacon_lato_lungo_sinistro_alto = "Sinistro Lungo Alto";
+    private static final String beacon_lato_lungo_sinistro_basso = "Sinistro Lungo Basso";
+
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -100,6 +109,33 @@ public class MapFragment
         setRetainInstance(true);
     }
 
+    private void putBeacon(Point p, String tag){
+        coordinateBeacons.put(tag, p);
+        zIView.addBeaconPoint(p, tag);
+    }
+
+    private void beacons(){
+        coordinateBeacons = new HashMap<>();
+        Point p;
+        p = new Point(2.5d, 0.0d);
+        putBeacon(p, beacon_lato_corto_alto);
+
+        p = new Point(0.0d, 3.3d);
+        putBeacon(p, beacon_lato_lungo_destro_alto);
+
+        p = new Point(0.0d, 6.7d);
+        putBeacon(p, beacon_lato_lungo_destro_basso);
+
+        p = new Point(2.5d, 10.0d);
+        putBeacon(p, beacon_lato_corto_basso);
+
+        p = new Point(5.0d, 3.3d);
+        putBeacon(p, beacon_lato_lungo_sinistro_alto);
+
+        p = new Point(5.0d, 6.7d);
+        putBeacon(p, beacon_lato_lungo_sinistro_basso);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -111,48 +147,24 @@ public class MapFragment
         }
 
         try {
-            Point p;
             view = inflater.inflate(R.layout.fragment_map, container, false);
             zIView = (ZoomableImageView) view.findViewById(R.id.piantina);
-
-            // Defining binding between coordinates and beacons.
-            coordinateBeacons = new HashMap<>();
-            p = new Point(2.5d, 0.0d);
-            coordinateBeacons.put("Major1:Minor1", p);
-            zIView.addBeaconPoint(p, "Major1:Minor1");
-
-            p = new Point(0.0d, 3.3d);
-            coordinateBeacons.put("Major2:Minor2", p);
-            zIView.addBeaconPoint(p, "Major2:Minor2");
-
-            p = new Point(0.0d, 6.7d);
-            coordinateBeacons.put("Major3:Minor3", p);
-            zIView.addBeaconPoint(p, "Major3:Minor3");
-
-            p = new Point(2.5d, 10.0d);
-            coordinateBeacons.put("Major4:Minor4", p);
-            zIView.addBeaconPoint(p, "Major4:Minor4");
-
-            p = new Point(5.0d, 3.3d);
-            coordinateBeacons.put("Major5:Minor5", p);
-            zIView.addBeaconPoint(p, "Major5:Minor5");
-
-            p = new Point(5.0d, 6.7d);
-            coordinateBeacons.put("Major6:Minor6", p);
-            zIView.addBeaconPoint(p, "Major6:Minor6");
-
-
-            // Start TrilaterationService
-            serviceIntent = new Intent(getContext(), TrilaterationService.class);
-            adapter = ((MainActivity) getActivity()).getBeaconListAdapter();
-            startTrilaterationService();
-
         } catch (InflateException ie) {
             // Just return the view as it is.
         }
 
+        // Defining binding between coordinates and beacons.
+        beacons();
+
+        // Start TrilaterationService
+        serviceIntent = new Intent(getContext(), TrilaterationService.class);
+        adapter = ((MainActivity) getActivity()).getBeaconListAdapter();
+        startTrilaterationService();
+
         return view;
     }
+
+
 
     private ServiceConnection mConnection = new ServiceConnection() {
 
@@ -221,8 +233,8 @@ public class MapFragment
 
     @Override
     public void onPause() {
-        super.onPause();
         stopTrilaterationService();
+        super.onPause();
     }
 
     @Override
@@ -233,7 +245,7 @@ public class MapFragment
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         stopTrilaterationService();
+        super.onDestroy();
     }
 }

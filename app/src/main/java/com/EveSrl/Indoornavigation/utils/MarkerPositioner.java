@@ -124,6 +124,9 @@ public class MarkerPositioner
             else if (tag.equals("User")){
                 // It sets the drawable for the user's marker.
                 marker.setImageResource(R.drawable.flag);
+                // If it doesn't already exist, it creates a new AR world.
+                if (CustomWorldHelper.getARWorld() == null)
+                    CustomWorldHelper.newWorld(mContext);
                 // It updates user's location.
                 CustomWorldHelper.setLocation(lat, lon);
             }
@@ -165,20 +168,22 @@ public class MarkerPositioner
             // It updates user's location.
             CustomWorldHelper.setLocation(lat, lon);
 
-            for (BeyondarObject obL: CustomWorldHelper.getARWorld().getBeyondarObjectLists().get(0)
-                    ) {
-                double d = obL.getDistanceFromUser() / trickFactor;
-                // When user is too close to the marker, it appears too big. So, when the distance is less
-                // the 1.0m, the BeyondarObject use a mini version of the marker.
-                if (!obL.getName().equals("User")) {
-                    if (d < 1.0d) {
-                        Log.v("MP", "Sono entrato qui!");
-                        // TODO: Ridurre la dimensione del marker quando vicino all'utente.
-                    } else {
 
+            if(CustomWorldHelper.getARWorld() != null)
+                for (BeyondarObject obL: CustomWorldHelper.getARWorld().getBeyondarObjectLists().get(0)
+                        ) {
+                    double d = obL.getDistanceFromUser() / trickFactor;
+                    // When user is too close to the marker, it appears too big. So, when the distance is less
+                    // the 1.0m, the BeyondarObject use a mini version of the marker.
+                    if (!obL.getName().equals("User")) {
+                        if (d < 1.0d) {
+                            Log.v("MP", "Sono entrato qui!");
+                            // TODO: Ridurre la dimensione del marker quando vicino all'utente.
+                        } else {
+
+                        }
                     }
                 }
-            }
         }
     }
 
