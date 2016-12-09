@@ -47,12 +47,12 @@ public class MapFragment
     private static final String ARG_PARAM2 = "param2";
 
 
-    private static final String beacon_lato_corto_alto = "Lato Corto Alto";
-    private static final String beacon_lato_corto_basso = "Lato Corto Basso";
-    private static final String beacon_lato_lungo_destro_alto = "Destro Lungo Alto";
-    private static final String beacon_lato_lungo_destro_basso = "Destro Lungo Basso";
-    private static final String beacon_lato_lungo_sinistro_alto = "Sinistro Lungo Alto";
-    private static final String beacon_lato_lungo_sinistro_basso = "Sinistro Lungo Basso";
+    public static final String beacon_lato_corto_alto = "Lato Corto Alto";
+    public static final String beacon_lato_corto_basso = "Lato Corto Basso";
+    public static final String beacon_lato_lungo_destro_alto = "Destro Lungo Alto";
+    public static final String beacon_lato_lungo_destro_basso = "Destro Lungo Basso";
+    public static final String beacon_lato_lungo_sinistro_alto = "Sinistro Lungo Alto";
+    public static final String beacon_lato_lungo_sinistro_basso = "Sinistro Lungo Basso";
 
 
     // TODO: Rename and change types of parameters
@@ -149,12 +149,14 @@ public class MapFragment
         try {
             view = inflater.inflate(R.layout.fragment_map, container, false);
             zIView = (ZoomableImageView) view.findViewById(R.id.piantina);
+
+            // Defining binding between coordinates and beacons.
+            beacons();
         } catch (InflateException ie) {
             // Just return the view as it is.
         }
 
-        // Defining binding between coordinates and beacons.
-        beacons();
+
 
         // Start TrilaterationService
         serviceIntent = new Intent(getContext(), TrilaterationService.class);

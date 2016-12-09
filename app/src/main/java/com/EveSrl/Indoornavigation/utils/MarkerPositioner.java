@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.EveSrl.Indoornavigation.R;
+import com.EveSrl.Indoornavigation.fragments.MapFragment;
 import com.beyondar.android.opengl.texture.Texture;
 import com.beyondar.android.world.BeyondarObject;
 
@@ -113,11 +114,11 @@ public class MarkerPositioner
                 // It adds Marker to the AR world.
                 CustomWorldHelper.addObject(R.drawable.map_marker_outside_azure, lat, lon, tag, null);
 
-                if(tag.equals("Lato Corto in Alto") || tag.equals("Lato Corto in Basso")){
+                if(tag.equals(MapFragment.beacon_lato_corto_alto) || tag.equals(MapFragment.beacon_lato_corto_basso)){
                     marker.setImageResource(R.drawable.beacon_lemon);
-                } else if(tag.equals("Lato Lungo Sinistro 1") || tag.equals("Lato Lungo Destro 2")){
+                } else if(tag.equals(MapFragment.beacon_lato_lungo_sinistro_alto) || tag.equals(MapFragment.beacon_lato_lungo_destro_basso)){
                     marker.setImageResource(R.drawable.beacon_candy);
-                } else if(tag.equals("Lato Lungo Sinistro 2") || tag.equals("Lato Lungo Destro 1")){
+                } else if(tag.equals(MapFragment.beacon_lato_lungo_sinistro_basso) || tag.equals(MapFragment.beacon_lato_lungo_destro_alto)){
                     marker.setImageResource(R.drawable.beacon_beetrot);
                 }
             }

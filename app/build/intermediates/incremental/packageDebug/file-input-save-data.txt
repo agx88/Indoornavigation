@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Dec 09 11:19:49 CET 2016
+#Fri Dec 09 12:27:21 CET 2016
 210.set=ANDROID_RESOURCE
 14.set=ANDROID_RESOURCE
 180.file=/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/resources-debug.ap_/res/drawable/abc_list_selector_background_transition_holo_dark.xml
