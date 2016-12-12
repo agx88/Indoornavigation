@@ -92,7 +92,7 @@ public class TrilaterationService extends Service {
                 while(true)
                 {
                     try {
-                        Thread.sleep(10000);
+                        Thread.sleep(1000);
                         //REST OF CODE HERE//
                         if(activity != null)
                             handler.postDelayed(serviceRunnable, 0);
