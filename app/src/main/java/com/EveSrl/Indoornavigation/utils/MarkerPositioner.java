@@ -15,6 +15,7 @@ import com.beyondar.android.opengl.texture.Texture;
 import com.beyondar.android.world.BeyondarObject;
 
 import java.util.HashMap;
+import java.util.Locale;
 
 
 // Questa classe verrà utilizzata per gestire tutti i Marker.
@@ -25,7 +26,6 @@ public class MarkerPositioner
     private Context mContext;
     private HashMap<String, ImageView> listMarker;
     private HashMap<String, android.graphics.PointF> listCoordinate;
-    private HashMap<String, Integer> listImageId;
 
     private float trickFactor = 10;
 
@@ -55,7 +55,6 @@ public class MarkerPositioner
         mContext = context;
         listMarker = new HashMap<>();
         listCoordinate = new HashMap<>();
-        listImageId = new HashMap<>();
 
         sx = 1.0f;
         sy = 1.0f;
@@ -104,14 +103,11 @@ public class MarkerPositioner
             // "/60" transforms latitude from sexagesimal form to decimal form.
             lon = (meter.getY() * 0.54 / (60 * 1000)) * trickFactor;
 
+            // If it doesn't already exist, it creates a new AR world.
+            if (CustomWorldHelper.getARWorld() == null)
+                CustomWorldHelper.newWorld(mContext);
+
             if(!tag.equals("User")) {
-                // If it doesn't already exist, it creates a new AR world.
-                if (CustomWorldHelper.getARWorld() == null)
-                    CustomWorldHelper.newWorld(mContext);
-
-                listImageId.put(tag, 0);
-
-
                 if(tag.equals(MapFragment.beacon_lato_corto_alto) || tag.equals(MapFragment.beacon_lato_corto_basso)){
                     marker.setImageResource(R.drawable.beacon_lemon);
                     // It adds Marker to the AR world.
@@ -131,9 +127,6 @@ public class MarkerPositioner
             else if (tag.equals("User")){
                 // It sets the drawable for the user's marker.
                 marker.setImageResource(R.drawable.flag);
-                // If it doesn't already exist, it creates a new AR world.
-                if (CustomWorldHelper.getARWorld() == null)
-                    CustomWorldHelper.newWorld(mContext);
                 // It updates user's location.
                 CustomWorldHelper.setLocation(lat, lon);
             }
@@ -175,7 +168,7 @@ public class MarkerPositioner
             // It updates user's location.
             CustomWorldHelper.setLocation(lat, lon);
 
-
+            /*
             if(CustomWorldHelper.getARWorld() != null)
                 for (BeyondarObject obL: CustomWorldHelper.getARWorld().getBeyondarObjectLists().get(0)
                         ) {
@@ -191,6 +184,7 @@ public class MarkerPositioner
                         }
                     }
                 }
+            */
         }
     }
 
@@ -243,18 +237,18 @@ public class MarkerPositioner
     @Override
     public void onClick(View view) {
         //Toast.makeText(mContext, view.getTag().toString(), Toast.LENGTH_SHORT).show();
-        double d = 0.0d;
+        double d;
         ImageView selectedMarker = (ImageView) view;
 
-        /*
+
 
         for (BeyondarObject obL: CustomWorldHelper.getARWorld().getBeyondarObjectLists().get(0)
              ) {
             d = obL.getDistanceFromUser() / trickFactor;
-            if(view.getTag().equals(obL.getName())) {
-                Toast.makeText(mContext, obL.getName() + "   d:" + String.format("%.2f", d) + "m", Toast.LENGTH_SHORT).show();
+            if(selectedMarker.getTag().equals(obL.getName())) {
+                Toast.makeText(mContext, obL.getName() + "   d:" + String.format(Locale.ITALY, "%.2f", d) + "m", Toast.LENGTH_SHORT).show();
 
-
+                /*
                 // Clinking on a Marker, it changes its image cycles through beacons drawable resources.
                 if(listImageId.get(view.getTag().toString()) == 0){
                     listImageId.put(view.getTag().toString(), 1);
@@ -269,10 +263,10 @@ public class MarkerPositioner
                     listImageId.put(view.getTag().toString(), 0);
                     selectedMarker.setImageResource(R.drawable.map_marker_outside_azure);
                 }
-
+                */
             }
 
         }
-        */
+
     }
 }

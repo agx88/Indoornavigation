@@ -22,7 +22,6 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.EveSrl.Indoornavigation.R;
-import com.beyondar.android.opengl.texture.Texture;
 import com.beyondar.android.world.BeyondarObject;
 import com.beyondar.android.world.World;
 
