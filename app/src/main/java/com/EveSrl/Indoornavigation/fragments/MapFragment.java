@@ -121,19 +121,19 @@ public class MapFragment
         putBeacon(p, beacon_lato_corto_alto);
 
         p = new Point(0.0d, 3.3d);
-        putBeacon(p, beacon_lato_lungo_destro_alto);
+        putBeacon(p, beacon_lato_lungo_sinistro_alto);
 
         p = new Point(0.0d, 6.7d);
-        putBeacon(p, beacon_lato_lungo_destro_basso);
+        putBeacon(p, beacon_lato_lungo_sinistro_basso);
 
         p = new Point(2.5d, 10.0d);
         putBeacon(p, beacon_lato_corto_basso);
 
         p = new Point(5.0d, 3.3d);
-        putBeacon(p, beacon_lato_lungo_sinistro_alto);
+        putBeacon(p, beacon_lato_lungo_destro_alto);
 
         p = new Point(5.0d, 6.7d);
-        putBeacon(p, beacon_lato_lungo_sinistro_basso);
+        putBeacon(p, beacon_lato_lungo_destro_basso);
     }
 
     @Override

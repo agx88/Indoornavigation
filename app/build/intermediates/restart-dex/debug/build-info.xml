@@ -5,32 +5,61 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="4930100397939"
+    timestamp="7116265577350"
     token="-1471898201175341706"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="544" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="62" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="57" />
     <task
         name="verifier"
-        duration="0" />
+        duration="3" />
+
+    <artifact
+        location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/reload-dex/debug/classes.dex"
+        type="RELOAD_DEX" />
 
     <build
-        timestamp="4737674506712"
+        timestamp="6546901131441"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/cloud/git-repo/Indoornavigation/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="4930100397939"
-        verifier="COLD_SWAP_REQUESTED" />
+        timestamp="6832349389622"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/builds/debug/6832349389622/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="6865547697179"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/builds/debug/6865547697179/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="6905479553124"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/builds/debug/6905479553124/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="7116265577350"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/reload-dex/debug/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
 
 </instant-run>

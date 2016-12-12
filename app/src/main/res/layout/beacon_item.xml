@@ -5,12 +5,13 @@
               android:layout_height="wrap_content"
               android:orientation="horizontal">
 
-  <ImageView android:layout_width="60dp"
-             android:layout_height="80dp"
-             android:layout_gravity="center_vertical"
-             android:layout_marginRight="10dp"
-             android:padding="10dp"
-             android:src="@drawable/beacon_gray"/>
+  <ImageView  android:tag="beacon_image"
+              android:layout_width="60dp"
+              android:layout_height="80dp"
+              android:layout_gravity="center_vertical"
+              android:layout_marginRight="10dp"
+              android:padding="10dp"
+              android:src="@drawable/beacon_gray"/>
 
   <LinearLayout android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

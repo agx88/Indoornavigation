@@ -3,60 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="/home/cloud/git-repo/Indoornavigation/app/libs/beyondar-radar-plugin-v0.9.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="25ce04f5845c01910b0f3600914c0c8e8e4f37c2">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/2/beyondar-radar-plugin-v0.9.1_5cb1c94c669850bb900032b99942f7bdfb03ec30/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_a861992fc0c7ff51b5a398b39d5fbd042869db8c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.estimote/sdk/0.10.8/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="640af651fe94032b8f34112aabd351df29d3e2df">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.estimote-sdk-0.10.8_4cab0b080c5218a4a7e1643ba91a19acf8ba3ce2/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/cloud/git-repo/Indoornavigation/app/libs/beyondar-googlemap-plugin-v0.9.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="ab763928a3a6743d6d0677cea065d171efb40b7a">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/2/beyondar-googlemap-plugin-v0.9.0_e05684495e8e866b15fc10eaa8fa81017be7061b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-10.0.1_cdf3cb1bf89383ecd2340c6142b765d624dc555e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
-        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.0.1_32e2170bc872f50de9dbd902d21f5508c9b2e54a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/cloud/git-repo/Indoornavigation/app/libs/beyondar-v0.9.3.jar"
         jumboMode="true"
         optimize="true"
@@ -72,6 +18,24 @@
         revision="23.0.3"
         sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
         <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_e6621fa778b174ef21750999dc50fe16ac61f489/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cloud/git-repo/Indoornavigation/app/libs/beyondar-radar-plugin-v0.9.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="25ce04f5845c01910b0f3600914c0c8e8e4f37c2">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/2/beyondar-radar-plugin-v0.9.1_5cb1c94c669850bb900032b99942f7bdfb03ec30/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_a861992fc0c7ff51b5a398b39d5fbd042869db8c/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -93,11 +57,20 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.estimote/sdk/0.10.8/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="640af651fe94032b8f34112aabd351df29d3e2df">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.estimote-sdk-0.10.8_4cab0b080c5218a4a7e1643ba91a19acf8ba3ce2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="93199123c2643da440aa59968e58e5ce0ae565d1">
+        sha1="1107bbba0d647d035b5eb4022d9207b165dd76b1">
         <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_c81934d7128b6b6eb2eee52788f98465325f89b3/classes.dex" />
     </item>
     <item
@@ -120,11 +93,20 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/cloud/git-repo/Indoornavigation/app/libs/beyondar-googlemap-plugin-v0.9.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ab763928a3a6743d6d0677cea065d171efb40b7a">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/2/beyondar-googlemap-plugin-v0.9.0_e05684495e8e866b15fc10eaa8fa81017be7061b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="7d958a0943a29f8041c5bc6ad25cd8b1ee3a4b60">
+        sha1="2c181ac4c76d4ac6b0a4a9fcb182d6eb946e80f7">
         <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_2f77238adc13ea918ea59cc4a6786a296882436c/classes.dex" />
     </item>
     <item
@@ -135,6 +117,15 @@
         revision="23.0.3"
         sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
         <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-maps-10.0.1_e13c2df49ab8bc6846fd4cc0e8f8c9be1f4aa5b1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-10.0.1_cdf3cb1bf89383ecd2340c6142b765d624dc555e/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -162,6 +153,15 @@
         revision="23.0.3"
         sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
         <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-10.0.1_324bc7aea436c3659ffe7150e249f0c709f2c6ae/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.0.1_32e2170bc872f50de9dbd902d21f5508c9b2e54a/classes.dex" />
     </item>
 
 </items>

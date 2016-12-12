@@ -5,9 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.EveSrl.Indoornavigation.R;
+import com.EveSrl.Indoornavigation.fragments.MapFragment;
+import com.EveSrl.Indoornavigation.utils.CustomWorldHelper;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.Utils;
 
@@ -48,6 +51,7 @@ public class BeaconListAdapter extends RecyclerView.Adapter<BeaconListAdapter.Vi
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.beacon_item, parent, false);
+
         return new ViewHolder(view);
     }
 
@@ -58,6 +62,20 @@ public class BeaconListAdapter extends RecyclerView.Adapter<BeaconListAdapter.Vi
         holder.minorTextView.setText("Minor: " + beacons.get(position).getMinor());
         holder.measuredPowerTextView.setText("MPower: " + beacons.get(position).getMeasuredPower());
         holder.rssiTextView.setText("RSSI: " + beacons.get(position).getRssi());
+
+        String tag = beacons.get(position).getMajor() + ":" + beacons.get(position).getMinor();
+        if(tag.equals(MapFragment.beacon_lato_corto_alto) || tag.equals(MapFragment.beacon_lato_corto_basso)){
+            holder.beaconImageView.setImageResource(R.drawable.beacon_lemon);
+
+        } else if(tag.equals(MapFragment.beacon_lato_lungo_sinistro_alto) || tag.equals(MapFragment.beacon_lato_lungo_destro_basso)){
+            holder.beaconImageView.setImageResource(R.drawable.beacon_beetrot);
+
+        } else if(tag.equals(MapFragment.beacon_lato_lungo_sinistro_basso) || tag.equals(MapFragment.beacon_lato_lungo_destro_alto)){
+            holder.beaconImageView.setImageResource(R.drawable.beacon_candy);
+        }
+
+
+
     }
 
     @Override
@@ -76,6 +94,7 @@ public class BeaconListAdapter extends RecyclerView.Adapter<BeaconListAdapter.Vi
         final TextView minorTextView;
         final TextView measuredPowerTextView;
         final TextView rssiTextView;
+        final ImageView beaconImageView;
 
         ViewHolder(View view) {
             super(view);
@@ -84,6 +103,7 @@ public class BeaconListAdapter extends RecyclerView.Adapter<BeaconListAdapter.Vi
             minorTextView = (TextView) view.findViewWithTag("minor");
             measuredPowerTextView = (TextView) view.findViewWithTag("mpower");
             rssiTextView = (TextView) view.findViewWithTag("rssi");
+            beaconImageView = (ImageView) view.findViewWithTag("beacon_image");
         }
     }
 }

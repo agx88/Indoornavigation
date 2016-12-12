@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Dec 12 10:10:08 CET 2016
+#Mon Dec 12 10:40:07 CET 2016
 210.set=ANDROID_RESOURCE
 14.set=ANDROID_RESOURCE
 180.file=/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/resources-debug.ap_/res/drawable/design_snackbar_background.xml
