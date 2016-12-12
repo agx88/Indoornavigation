@@ -52,7 +52,7 @@ public class ARFragment
                              Bundle savedInstanceState){
         // "* 10" is a trick to reduce marker size. (see also MarkerPositioner.java: lat = (meterX / (1850 * 60)) * 10;
         //lon = (meterY * 0.54 / (60 * 1000)) * 10; )
-        float maxDistance = 2.0f * 10;
+        float maxDistance = 10.0f * 10;
 
         if(view != null){
             ViewGroup parent = (ViewGroup) view.getParent();
