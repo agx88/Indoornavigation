@@ -57,8 +57,8 @@ public class ARFragment
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        if(mBeyondarFragment == null)
-            initBeyondARStuff();
+
+
     }
 
     @Override
@@ -77,6 +77,8 @@ public class ARFragment
         } catch (InflateException ie) {
             // Just return the view as it is.
         }
+
+        initBeyondARStuff();
 
         return view;
     }
@@ -186,8 +188,6 @@ public class ARFragment
     @Override
     public void onPause() {
         super.onPause();
-        Log.v("ARFragment", "Mi sono messo in pausa!");
-        CustomWorldHelper.newWorld(getContext());
     }
 
 
@@ -195,7 +195,5 @@ public class ARFragment
     @Override
     public void onResume() {
         super.onResume();
-        //Toast.makeText(this, "GPS restarted!", Toast.LENGTH_LONG).show();
-        Log.v("ARFragment", "Sono tornato!");
     }
 }
