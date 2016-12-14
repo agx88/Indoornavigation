@@ -13,6 +13,7 @@ import com.EveSrl.Indoornavigation.R;
 import com.EveSrl.Indoornavigation.fragments.MapFragment;
 import com.beyondar.android.opengl.texture.Texture;
 import com.beyondar.android.world.BeyondarObject;
+import com.beyondar.android.world.BeyondarObjectList;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -243,12 +244,13 @@ public class MarkerPositioner
         ImageView selectedMarker = (ImageView) view;
 
 
-
-        for (BeyondarObject obL: CustomWorldHelper.getARWorld().getBeyondarObjectLists().get(0)
+        for (BeyondarObjectList bL:  CustomWorldHelper.getARWorld().getBeyondarObjectLists()
              ) {
-            d = obL.getDistanceFromUser() / trickFactor;
-            if(selectedMarker.getTag().equals(obL.getName())) {
-                Toast.makeText(mContext, obL.getName() + "   d:" + String.format(Locale.ITALY, "%.2f", d) + "m", Toast.LENGTH_SHORT).show();
+            for (BeyondarObject obL : bL
+                    ) {
+                d = obL.getDistanceFromUser() / trickFactor;
+                if (selectedMarker.getTag().equals(obL.getName())) {
+                    Toast.makeText(mContext, obL.getName() + "   d:" + String.format(Locale.ITALY, "%.2f", d) + "m", Toast.LENGTH_SHORT).show();
 
                 /*
                 // Clinking on a Marker, it changes its image cycles through beacons drawable resources.
@@ -266,9 +268,9 @@ public class MarkerPositioner
                     selectedMarker.setImageResource(R.drawable.map_marker_outside_azure);
                 }
                 */
+                }
+
             }
-
         }
-
     }
 }

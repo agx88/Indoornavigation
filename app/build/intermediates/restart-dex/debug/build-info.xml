@@ -5,26 +5,23 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="6133315568646"
+    timestamp="6611778848042"
     token="-1471898201175341706"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="282" />
+        duration="230" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="17" />
+        duration="26" />
     <task
         name="verifier"
-        duration="0" />
+        duration="1" />
 
-    <artifact
-        location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex"
-        type="DEX" />
     <artifact
         location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
         type="DEX" />
@@ -53,11 +50,15 @@
             type="DEX" />
     </build>
     <build
-        timestamp="6133315568646"
+        timestamp="6488037474814"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex"
             type="DEX" />
+    </build>
+    <build
+        timestamp="6611778848042"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
             type="DEX" />
