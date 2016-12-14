@@ -27,8 +27,12 @@ public class MarkerPositioner
     private Context mContext;
     private HashMap<String, ImageView> listMarker;
     private HashMap<String, android.graphics.PointF> listCoordinate;
+    private HashMap<String, Boolean> listMarked;
+
 
     private float trickFactor = 10;
+
+    private float userRotation = 0.0f;
 
     private float tx;
     private float ty;
@@ -56,6 +60,7 @@ public class MarkerPositioner
         mContext = context;
         listMarker = new HashMap<>();
         listCoordinate = new HashMap<>();
+        listMarked = new HashMap<>();
 
         sx = 1.0f;
         sy = 1.0f;
@@ -84,6 +89,8 @@ public class MarkerPositioner
                 listCoordinate.put(tag, new PointF(x, y));
                 // It adds the marker to the list.
                 listMarker.put(tag, marker);
+                // Il marker viene inserito nella lista dei marker contrassegnabili.
+                listMarked.put(tag, false);
 
                 // Some information related to the marker.
                 marker.setTag(tag);
@@ -125,7 +132,7 @@ public class MarkerPositioner
                 }
                 else if (tag.equals("User")){
 
-                    lp = new LayoutParams(65, 65);
+                    lp = new LayoutParams(60, 60);
                     // It sets the drawable for the user's marker.
                     marker.setImageResource(R.drawable.user_icon);
                     // It updates user's location.
@@ -149,9 +156,6 @@ public class MarkerPositioner
         LayoutParams lp = (LayoutParams) marker.getLayoutParams();
         // It saves marker position on a list.
         listCoordinate.get(tag).set(x, y);
-        // It calculates marker position based on scale and translate factors.
-        marker.setX(x * sx + tx - lp.width/2);
-        marker.setY(y * sy + ty - lp.height);
 
         if (tag.equals("User")){
             // It calculates the meter according to the meter-pixel ratio.
@@ -167,6 +171,46 @@ public class MarkerPositioner
             double lon = (meter.getY() * 0.54 / (60 * 1000)) * trickFactor;
             // It updates user's location.
             CustomWorldHelper.setLocation(lat, lon);
+
+            Log.v("userOrientation", "userRotation(degree): " + userRotation);
+            Log.v("userOrientation", "userRotation(radiant): " + userRotation * Math.PI / 180);
+
+            //marker.setX(x * sx + tx - lp.width/2 - (lp.width/2 * (float) Math.cos(userRotation * Math.PI / 180) + lp.height * (float) Math.sin(userRotation * Math.PI / 180)));
+            //marker.setY(y * sy + ty - lp.height - (lp.height * (float) Math.cos(userRotation * Math.PI / 180) + lp.width/2 * (float) Math.sin(userRotation * Math.PI / 180)));
+
+
+
+            //marker.setX((lp.height * (float) Math.sin(userRotation * Math.PI / 180) - lp.width/2 * (float) Math.cos(userRotation * Math.PI / 180)));
+            //marker.setY((lp.width/2 * (float) Math.sin(userRotation * Math.PI / 180)) - lp.height * (float) Math.cos(userRotation * Math.PI / 180));
+
+
+            //marker.setRotation(0);
+            //marker.setX(tx - lp.width/2);
+            //marker.setY(ty - lp.height);
+
+            //marker.setRotation(90);
+            //marker.setX(tx);
+            //marker.setY(ty - lp.height/2);
+
+            //marker.setRotation(180);
+            //marker.setX(tx - lp.width/2);
+            //marker.setY(ty);
+
+            //marker.setRotation(-90);
+            //marker.setX(tx - lp.width);
+            //marker.setY(ty - lp.height/2);
+
+            marker.setRotation(userRotation);
+            marker.setX((float) (x * sx + tx - (lp.width/2 - lp.width/2 * Math.sin(userRotation * Math.PI / 180))));
+            marker.setY((float) (y * sy + ty - (lp.height/2 + lp.height/2 * Math.cos(userRotation * Math.PI / 180))));
+            // It calculates marker position based on scale and translate factors.
+            //marker.setX(x * sx + tx - lp.width/2);
+            //marker.setY(y * sy + ty - lp.height);
+        }
+        else{
+            // It calculates marker position based on scale and translate factors.
+            marker.setX(x * sx + tx - lp.width/2);
+            marker.setY(y * sy + ty - lp.height);
         }
     }
 
@@ -178,7 +222,8 @@ public class MarkerPositioner
         }
     }
 
-    // Update translation factors when the map resizing. Necessary to mantain X and Y relative to the MAP.
+    // Update translation factors when the map resizing. Necessary to
+    // mantain X and Y relative to the MAP.
     public void updateTranslation(float tx, float ty) {
         this.tx = tx;
         this.ty = ty;
@@ -195,11 +240,14 @@ public class MarkerPositioner
         addMarkerMeter(ux, uy, "User");
     }
 
-
+    // It changes the orientation of user's marker in the map.
     public void updateUserOrientation(float degree){
-        ImageView user = listMarker.get("User");
+        // We need to condider an offset of "-90°" because user's marker start in a vertical position.
+        // (Normally, 0° is a horizontal position)
+        userRotation = degree - 90;
 
-        user.setRotation(degree - 90);
+        String key = "User";
+        setMarkerPosition(listCoordinate.get(key).x, listCoordinate.get(key).y, key);
     }
 
     // This method adds a marker based on coordinates in meters.

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Dec 14 16:20:06 CET 2016
+#Wed Dec 14 17:31:19 CET 2016
 210.set=ANDROID_RESOURCE
 14.set=ANDROID_RESOURCE
 180.file=/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/resources-debug.ap_/res/mipmap-xxxhdpi-v4/ic_launcher.png
