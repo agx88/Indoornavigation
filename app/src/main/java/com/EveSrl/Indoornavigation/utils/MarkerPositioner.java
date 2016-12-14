@@ -147,18 +147,15 @@ public class MarkerPositioner
     public void setMarkerPosition(float x, float y, String tag) {
         ImageView marker = listMarker.get(tag);
         LayoutParams lp = (LayoutParams) marker.getLayoutParams();
-
+        // It saves marker position on a list.
         listCoordinate.get(tag).set(x, y);
-
+        // It calculates marker position based on scale and translate factors.
         marker.setX(x * sx + tx - lp.width/2);
         marker.setY(y * sy + ty - lp.height);
 
         if (tag.equals("User")){
             // It calculates the meter according to the meter-pixel ratio.
             Point meter = Point.fromPixelToMeter(new Point(x, y));
-
-            Log.v("MP", "x:" + x + "  y:" + y);
-
             // It transforms the coordinate in lat-lon format.
             // "* 10" is a trick to reduce marker size. (see also ARFragment.java: mRadarPlugin.setMaxDistance(2d * 10);)
             // "/1000" transforms meter in kilometer;
@@ -170,28 +167,10 @@ public class MarkerPositioner
             double lon = (meter.getY() * 0.54 / (60 * 1000)) * trickFactor;
             // It updates user's location.
             CustomWorldHelper.setLocation(lat, lon);
-
-            /*
-            if(CustomWorldHelper.getARWorld() != null)
-                for (BeyondarObject obL: CustomWorldHelper.getARWorld().getBeyondarObjectLists().get(0)
-                        ) {
-                    double d = obL.getDistanceFromUser() / trickFactor;
-                    // When user is too close to the marker, it appears too big. So, when the distance is less
-                    // the 1.0m, the BeyondarObject use a mini version of the marker.
-                    if (!obL.getName().equals("User")) {
-                        if (d < 1.0d) {
-                            Log.v("MP", "Sono entrato qui!");
-                            // TODO: Ridurre la dimensione del marker quando vicino all'utente.
-                        } else {
-
-                        }
-                    }
-                }
-            */
         }
     }
 
-
+    // Update the position of all the markers when the map resizing. Marker X and Y didn't change. Translation and scale factors changed.
     public void updateAllMarkerPosition() {
         for (String key : listMarker.keySet()
                 ) {
@@ -199,32 +178,22 @@ public class MarkerPositioner
         }
     }
 
+    // Update translation factors when the map resizing. Necessary to mantain X and Y relative to the MAP.
     public void updateTranslation(float tx, float ty) {
         this.tx = tx;
         this.ty = ty;
     }
 
-
+    // Update scale factors when map resizing. Necessary to mantain X and Y relative to the MAP.
     public void updateScaleFactor(float sx, float sy){
         this.sx = sx;
         this.sy = sy;
     }
 
+    // Update user's location with beacons provided location.
     public void updateUserLocation(float ux, float uy){
         addMarkerMeter(ux, uy, "User");
-        /*
-        Point p = Point.fromMeterToPixel(new Point(ux, uy));
-
-        Log.v("MP", "px:" + p.getX() + "  py:" + p.getY());
-
-        try {
-            setMarkerPosition((float) p.getX(), (float) p.getY(), "User");
-        } catch(Exception ex){
-            addMarker((float) p.getX(), (float) p.getY(), "User");
-        }
-        */
     }
-
 
     // This method adds a marker based on coordinates in meters.
     public void addMarkerMeter(float mx, float my, String tag){
@@ -243,33 +212,16 @@ public class MarkerPositioner
         double d;
         ImageView selectedMarker = (ImageView) view;
 
-
+        // It searches the BeyondAR object corresponding to the clicked beacon.
         for (BeyondarObjectList bL:  CustomWorldHelper.getARWorld().getBeyondarObjectLists()
              ) {
             for (BeyondarObject obL : bL
                     ) {
-                d = obL.getDistanceFromUser() / trickFactor;
                 if (selectedMarker.getTag().equals(obL.getName())) {
+                    // It gets the distance between the user and the selected beacons.
+                    d = obL.getDistanceFromUser() / trickFactor;
                     Toast.makeText(mContext, obL.getName() + "   d:" + String.format(Locale.ITALY, "%.2f", d) + "m", Toast.LENGTH_SHORT).show();
-
-                /*
-                // Clinking on a Marker, it changes its image cycles through beacons drawable resources.
-                if(listImageId.get(view.getTag().toString()) == 0){
-                    listImageId.put(view.getTag().toString(), 1);
-                    selectedMarker.setImageResource(R.drawable.beacon_candy);
-                } else if(listImageId.get(view.getTag().toString()) == 1){
-                    listImageId.put(view.getTag().toString(), 2);
-                    selectedMarker.setImageResource(R.drawable.beacon_beetrot);
-                } else if(listImageId.get(view.getTag().toString()) == 2){
-                    listImageId.put(view.getTag().toString(), 3);
-                    selectedMarker.setImageResource(R.drawable.beacon_lemon);
-                } else if(listImageId.get(view.getTag().toString()) == 3){
-                    listImageId.put(view.getTag().toString(), 0);
-                    selectedMarker.setImageResource(R.drawable.map_marker_outside_azure);
                 }
-                */
-                }
-
             }
         }
     }
