@@ -5,6 +5,10 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -41,7 +45,8 @@ import java.util.Map;
  */
 public class MapFragment
         extends Fragment
-        implements TrilaterationService.Callbacks {
+        implements TrilaterationService.Callbacks,
+                    SensorEventListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -51,6 +56,9 @@ public class MapFragment
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    // device sensor manager
+    private SensorManager mSensorManager;
 
     private OnFragmentInteractionListener mListener;
 
@@ -98,6 +106,9 @@ public class MapFragment
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+        // Initialize your android device sensor capabilities.
+        mSensorManager = (SensorManager) this.getActivity().getSystemService(Context.SENSOR_SERVICE);
+
         //Mantiene il fragment "vivo" durante il cambio di orientamento
         setRetainInstance(true);
     }
@@ -107,6 +118,8 @@ public class MapFragment
         zIView.addBeaconPoint(p, tag);
     }
 
+
+    // Initialize beacons location.
     private void beacons(){
         coordinateBeacons = new HashMap<>();
         Point p;
@@ -212,6 +225,19 @@ public class MapFragment
         zIView.updateUserLocation((float) result.getX(), (float) result.getY());
     }
 
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        // Get the angle around the z-axis rotated.
+        float degree = Math.round(sensorEvent.values[0]);
+
+        zIView.updateUserOrientatoin(degree);
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -243,6 +269,9 @@ public class MapFragment
     @Override
     public void onPause() {
         stopTrilaterationService();
+        // To stop the listener and save battery.
+        mSensorManager.unregisterListener(this);
+
         super.onPause();
     }
 
@@ -250,6 +279,10 @@ public class MapFragment
     public void onResume() {
         super.onResume();
         startTrilaterationService();
+
+        mSensorManager.registerListener(this,
+                mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
+                SensorManager.SENSOR_DELAY_GAME);
     }
 
     @Override

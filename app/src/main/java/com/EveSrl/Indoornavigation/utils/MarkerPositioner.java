@@ -195,6 +195,13 @@ public class MarkerPositioner
         addMarkerMeter(ux, uy, "User");
     }
 
+
+    public void updateUserOrientation(float degree){
+        ImageView user = listMarker.get("User");
+
+        user.setRotation(degree - 90);
+    }
+
     // This method adds a marker based on coordinates in meters.
     public void addMarkerMeter(float mx, float my, String tag){
         Point p = Point.fromMeterToPixel(new Point(mx, my));

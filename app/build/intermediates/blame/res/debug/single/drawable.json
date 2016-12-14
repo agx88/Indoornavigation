@@ -160,12 +160,12 @@
         "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/beacon_candy.png"
     },
     {
-        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/radar_north_small.png",
-        "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/radar_north_small.png"
-    },
-    {
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/piantina2.jpg",
         "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/piantina2.jpg"
+    },
+    {
+        "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/radar_north_small.png",
+        "source": "/home/cloud/git-repo/Indoornavigation/app/src/main/res/drawable/radar_north_small.png"
     },
     {
         "merged": "/home/cloud/git-repo/Indoornavigation/app/build/intermediates/res/merged/debug/drawable/design_fab_background.xml",

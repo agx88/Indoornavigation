@@ -440,6 +440,11 @@ ZoomableImageView extends ImageView {
         //}
     }
 
+    public void updateUserOrientatoin(float degree){
+        drawSpace.updateUserOrientation(degree);
+    }
+
+
     // Method for adding a Beacon on the map.
     public void addBeacon(float mx, float my, String tag){
         if(drawSpace == null)

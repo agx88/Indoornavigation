@@ -66,7 +66,8 @@ public class TrilaterationService extends Service {
                     trilateration.setR2(Utils.computeAccuracy(adapter.getItem(BEACON_NEAR)));
                     trilateration.setR3(Utils.computeAccuracy(adapter.getItem(BEACON_FAR)));
 
-                    result = trilateration.getPoint();
+                    // result = trilateration.getPoint();
+                    result = new Point(1, 2.5);
 
                     activity.updateLocation(result);
                 }
