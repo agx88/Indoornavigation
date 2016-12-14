@@ -14,6 +14,7 @@ import com.EveSrl.Indoornavigation.fragments.MapFragment;
 import com.beyondar.android.opengl.texture.Texture;
 import com.beyondar.android.world.BeyondarObject;
 import com.beyondar.android.world.BeyondarObjectList;
+import com.beyondar.android.world.GeoObject;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -27,7 +28,7 @@ public class MarkerPositioner
     private Context mContext;
     private HashMap<String, ImageView> listMarker;
     private HashMap<String, android.graphics.PointF> listCoordinate;
-    private HashMap<String, Boolean> listMarked;
+    private String beaconMarked = "";
 
 
     private float trickFactor = 10;
@@ -60,7 +61,6 @@ public class MarkerPositioner
         mContext = context;
         listMarker = new HashMap<>();
         listCoordinate = new HashMap<>();
-        listMarked = new HashMap<>();
 
         sx = 1.0f;
         sy = 1.0f;
@@ -89,8 +89,6 @@ public class MarkerPositioner
                 listCoordinate.put(tag, new PointF(x, y));
                 // It adds the marker to the list.
                 listMarker.put(tag, marker);
-                // Il marker viene inserito nella lista dei marker contrassegnabili.
-                listMarked.put(tag, false);
 
                 // Some information related to the marker.
                 marker.setTag(tag);
@@ -276,8 +274,57 @@ public class MarkerPositioner
                     // It gets the distance between the user and the selected beacons.
                     d = obL.getDistanceFromUser() / trickFactor;
                     Toast.makeText(mContext, obL.getName() + "   d:" + String.format(Locale.ITALY, "%.2f", d) + "m", Toast.LENGTH_SHORT).show();
+
+                    if(beaconMarked.equals(selectedMarker.getTag())){
+                        CustomWorldHelper.removeIndicator();
+                        beaconMarked = "";
+                    } else {
+                        beaconMarked = (String) selectedMarker.getTag();
+
+                        Point direction = findDirection((float) CustomWorldHelper.getARWorld().getLatitude(),
+                                                        (float) CustomWorldHelper.getARWorld().getLongitude(),
+                                                        (float) ((GeoObject) obL).getLatitude(),
+                                                        (float) ((GeoObject) obL).getLongitude());
+
+
+                        CustomWorldHelper.addObject(CustomWorldHelper.DIRECTION_INDICATORS, R.drawable.freccia, direction.getX(), direction.getY(), "Freccia", null);
+                    }
                 }
             }
         }
+    }
+
+    // It finds direction between user and selected marker.
+    public Point findDirection(float userLat, float userLon, float markerLat, float markerLon){
+        float dirX;
+        float dirY;
+
+        float appX;
+        float appY;
+
+        Point arrow = new Point();
+
+        // It transforms the coordinate in lat-lon format.
+        // "* 10" is a trick to reduce marker size. (see also ARFragment.java: mRadarPlugin.setMaxDistance(2d * 10);)
+        // "/1000" transforms meter in kilometer;
+        // "/1,85" transforms kilometer in nautical miles.
+        // "/60" transforms latitude from sexagesimal form to decimal form.
+        dirX = (markerLat - userLat) * (1850 * 60) / trickFactor;
+        // "* 0.54" is a conversion factor from kilometer to longitude.
+        // "/60" transforms latitude from sexagesimal form to decimal form.
+        dirY = (markerLon - userLon) * (1000 * 60) / trickFactor;
+
+
+        appX = (float) (dirX / Math.sqrt(dirX*dirX + dirY*dirY));
+        appY = (float) (dirY / Math.sqrt(dirX*dirX + dirY*dirY));
+
+
+        arrow.setX((appX / (1850 * 60)) * trickFactor);
+        arrow.setY((appY * 0.54f / (60 * 1000)) * trickFactor);
+
+        arrow.setX(arrow.getX() + userLat);
+        arrow.setY(arrow.getY() + userLon);
+
+        return arrow;
     }
 }

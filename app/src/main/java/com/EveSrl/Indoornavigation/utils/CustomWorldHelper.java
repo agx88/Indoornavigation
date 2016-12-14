@@ -38,7 +38,7 @@ public class CustomWorldHelper {
 	public static final int BEACONS_LEMON = 1;
     public static final int BEACONS_BEETROT = 2;
     public static final int BEACONS_CANDY = 3;
-
+    public static final int DIRECTION_INDICATORS = 4;
 
 	public static World sharedWorld;
 
@@ -261,13 +261,10 @@ public class CustomWorldHelper {
     public static World getARWorld(){ return sharedWorld; }
 
 
-    public static void updateGeoObjectLocation(String name, double lat, double lon){
-        for (BeyondarObject obL: CustomWorldHelper.getARWorld().getBeyondarObjectLists().get(0)
-                ) {
-            if(name.equals(obL.getName())) {
-                sharedWorld.remove(obL);
-                addObject(obL.getImageUri(), lat, lon, name, null);
-            }
+    public static void removeIndicator(){
+        for (BeyondarObject goe: sharedWorld.getBeyondarObjectList(DIRECTION_INDICATORS)
+             ) {
+            sharedWorld.remove(goe);
         }
     }
 
