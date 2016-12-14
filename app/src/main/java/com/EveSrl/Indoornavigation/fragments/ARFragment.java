@@ -1,11 +1,13 @@
 package com.EveSrl.Indoornavigation.fragments;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.res.ResourcesCompat;
 import android.util.Log;
 import android.view.InflateException;
 import android.view.LayoutInflater;
@@ -108,6 +110,12 @@ public class ARFragment
         mRadarPlugin.setRadarView(mRadarView);
         // Set how far (in meters) we want to display in the view.
         mRadarPlugin.setMaxDistance(maxDistance);
+
+
+        // We can customize the color of the items
+        mRadarPlugin.setListColor(CustomWorldHelper.BEACONS_LEMON, ResourcesCompat.getColor(getResources(), R.color.colorAccent, null));
+        mRadarPlugin.setListColor(CustomWorldHelper.BEACONS_BEETROT, ResourcesCompat.getColor(getResources(), R.color.colorPrimaryDark, null));
+        mRadarPlugin.setListColor(CustomWorldHelper.BEACONS_CANDY, ResourcesCompat.getColor(getResources(), R.color.colorPrimary, null));
 
         /* This part will may be useful.
 

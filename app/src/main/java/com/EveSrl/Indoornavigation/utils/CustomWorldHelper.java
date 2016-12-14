@@ -35,7 +35,10 @@ import java.util.HashMap;
 
 @SuppressLint("SdCardPath")
 public class CustomWorldHelper {
-	public static final int LIST_TYPE_EXAMPLE_1 = 1;
+	public static final int BEACONS_LEMON = 1;
+    public static final int BEACONS_BEETROT = 2;
+    public static final int BEACONS_CANDY = 3;
+
 
 	public static World sharedWorld;
 
@@ -64,7 +67,7 @@ public class CustomWorldHelper {
                 "Little Green Ball",
                 null);
 
-        addObject(LIST_TYPE_EXAMPLE_1,              // TYPE
+        addObject(BEACONS_LEMON,              // TYPE
                 // URI
                 "http://wikizilla.org/wiki/images/thumb/1/14/Download-Godzilla-Strike-Zone-v1-0-0-APK-gratis.png/330px-Download-Godzilla-Strike-Zone-v1-0-0-APK-gratis.png",
                 43.5873893d + 0.00014767853754d,    // Latitude
