@@ -13,10 +13,10 @@
         android:id="@+id/AR_container">
 
         <fragment
+            class = "com.beyondar.android.fragment.BeyondarFragment"
             android:id="@+id/myFragmentSample"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            class = "com.beyondar.android.fragment.BeyondarFragment"
         />
 
         <!-- android:name="com.beyondar.android.fragment.BeyondarFragment" -->

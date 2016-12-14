@@ -5,51 +5,53 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="7555919706134"
+    timestamp="4279264742853"
     token="-1471898201175341706"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="634" />
+        duration="310" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="26" />
+        duration="42" />
     <task
         name="verifier"
         duration="2" />
 
     <artifact
-        location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex"
-        type="DEX" />
-    <artifact
-        location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex"
-        type="DEX" />
-    <artifact
-        location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
+        location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex"
         type="DEX" />
 
     <build
-        timestamp="6546901131441"
+        timestamp="3339219214250"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/cloud/git-repo/Indoornavigation/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="7555919706134"
+        timestamp="3381643526632"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_"
+            type="RESOURCES" />
+    </build>
+    <build
+        timestamp="3737835224806"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex"
             type="DEX" />
+    </build>
+    <build
+        timestamp="4279264742853"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex"
-            type="DEX" />
-        <artifact
-            location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
+            location="/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex"
             type="DEX" />
     </build>
 

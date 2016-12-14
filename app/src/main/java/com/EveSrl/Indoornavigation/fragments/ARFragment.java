@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.InflateException;
@@ -14,7 +15,6 @@ import android.location.LocationListener;
 import android.widget.Toast;
 
 import com.beyondar.android.fragment.BeyondarFragment;
-import com.beyondar.android.fragment.BeyondarFragmentSupport;
 import com.beyondar.android.plugin.radar.RadarView;
 import com.beyondar.android.plugin.radar.RadarWorldPlugin;
 import com.beyondar.android.view.OnClickBeyondarObjectListener;
@@ -48,11 +48,21 @@ public class ARFragment
     }
 
     @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if(mBeyondarFragment == null)
+            initBeyondARStuff();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
-        // "* 10" is a trick to reduce marker size. (see also MarkerPositioner.java: lat = (meterX / (1850 * 60)) * 10;
-        //lon = (meterY * 0.54 / (60 * 1000)) * 10; )
-        float maxDistance = 10.0f * 10;
+
 
         if(view != null){
             ViewGroup parent = (ViewGroup) view.getParent();
@@ -61,10 +71,20 @@ public class ARFragment
         }
 
         try {
-            view = loadViewFromXML(inflater, container, savedInstanceState);
+            view = inflater.inflate(R.layout.fragment_ar, container, false);
         } catch (InflateException ie) {
             // Just return the view as it is.
         }
+
+        return view;
+    }
+
+    public void initBeyondARStuff(){
+        // "* 10" is a trick to reduce marker size. (see also MarkerPositioner.java: lat = (meterX / (1850 * 60)) * 10;
+        //lon = (meterY * 0.54 / (60 * 1000)) * 10; )
+        float maxDistance = 10.0f * 10;
+
+        mBeyondarFragment = (BeyondarFragment) this.getActivity().getFragmentManager().findFragmentById(R.id.myFragmentSample);
 
         // ARWorld may be created in MarkerPositioner Class.
         // We create the world and fill it
@@ -98,28 +118,7 @@ public class ARFragment
          */
 
         mWorld.addPlugin(mRadarPlugin);
-
-        return view;
     }
-
-    private View loadViewFromXML(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_ar, container, false);
-        mBeyondarFragment = (BeyondarFragment) this.getActivity().getFragmentManager().findFragmentById(R.id.myFragmentSample);
-
-        /*
-        showMapButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.v("showMapButton", "Prova");
-            }
-        });
-        */
-
-
-        return view;
-    }
-
 
     @Override
     public void onClickBeyondarObject(ArrayList<BeyondarObject> beyondarObjects) {
