@@ -69,76 +69,78 @@ public class MarkerPositioner
     }
 
     public void addMarker(float x, float y, String tag) {
-        LayoutParams lp = new LayoutParams(50, 50); // Layout parameters of the marker.
-        ImageView marker = new ImageView(mContext); // ImageView representing the marker on the map.
+            LayoutParams lp = new LayoutParams(50, 50); // Layout parameters of the marker.
+            ImageView marker = new ImageView(mContext); // ImageView representing the marker on the map.
 
-        double lat, lon;        // Coordinate in latitude-longitude format.
+            double lat, lon;        // Coordinate in latitude-longitude format.
 
-        marker.setLayoutParams(lp);
+            // It sets the drawable for the marker.
+            marker.setImageResource(R.drawable.map_marker_outside_azure);
 
-        // It sets the drawable for the marker.
-        marker.setImageResource(R.drawable.map_marker_outside_azure);
+            // If tag not already exists then it creates a new one....
+            if (listMarker.get(tag) == null) {
+                // Store the coordinate (in pixel).
+                listCoordinate.put(tag, new PointF(x, y));
+                // It adds the marker to the list.
+                listMarker.put(tag, marker);
 
-        // If tag not already exists then it creates a new one....
-        if (listMarker.get(tag) == null) {
-            // Store the coordinate (in pixel).
-            listCoordinate.put(tag, new PointF(x, y));
-            // It adds the marker to the list.
-            listMarker.put(tag, marker);
+                // Some information related to the marker.
+                marker.setTag(tag);
+                marker.setOnClickListener(this);
 
-            // Some information related to the marker.
-            marker.setTag(tag);
-            marker.setOnClickListener(this);
+                // It calculates the meter according to the meter-pixel ratio.
+                Point meter = Point.fromPixelToMeter(new Point(x, y));
 
-            // It calculates the meter according to the meter-pixel ratio.
-            Point meter = Point.fromPixelToMeter(new Point(x, y));
+                // It transforms the coordinate in lat-lon format.
+                // "* 10" is a trick to reduce marker size. (see also ARFragment.java: mRadarPlugin.setMaxDistance(2d * 10);)
+                // "/1000" transforms meter in kilometer;
+                // "/1,85" transforms kilometer in nautical miles.
+                // "/60" transforms latitude from sexagesimal form to decimal form.
+                lat = (meter.getX() / (1850 * 60)) * trickFactor;
+                // "* 0.54" is a conversion factor from kilometer to longitude.
+                // "/60" transforms latitude from sexagesimal form to decimal form.
+                lon = (meter.getY() * 0.54 / (60 * 1000)) * trickFactor;
 
-            // It transforms the coordinate in lat-lon format.
-            // "* 10" is a trick to reduce marker size. (see also ARFragment.java: mRadarPlugin.setMaxDistance(2d * 10);)
-            // "/1000" transforms meter in kilometer;
-            // "/1,85" transforms kilometer in nautical miles.
-            // "/60" transforms latitude from sexagesimal form to decimal form.
-            lat = (meter.getX() / (1850 * 60)) * trickFactor;
-            // "* 0.54" is a conversion factor from kilometer to longitude.
-            // "/60" transforms latitude from sexagesimal form to decimal form.
-            lon = (meter.getY() * 0.54 / (60 * 1000)) * trickFactor;
+                // If it doesn't already exist, it creates a new AR world.
+                if (CustomWorldHelper.getARWorld() == null)
+                    CustomWorldHelper.newWorld(mContext);
 
-            // If it doesn't already exist, it creates a new AR world.
-            if (CustomWorldHelper.getARWorld() == null)
-                CustomWorldHelper.newWorld(mContext);
+                if(!tag.equals("User")) {
+                    if(tag.equals(MapFragment.beacon_lato_corto_alto) || tag.equals(MapFragment.beacon_lato_corto_basso)){
+                        marker.setImageResource(R.drawable.beacon_lemon);
+                        // It adds Marker to the AR world.
+                        CustomWorldHelper.addObject(CustomWorldHelper.BEACONS_LEMON, R.drawable.beacon_lemon, lat, lon, tag, null);
 
-            if(!tag.equals("User")) {
-                if(tag.equals(MapFragment.beacon_lato_corto_alto) || tag.equals(MapFragment.beacon_lato_corto_basso)){
-                    marker.setImageResource(R.drawable.beacon_lemon);
-                    // It adds Marker to the AR world.
-                    CustomWorldHelper.addObject(CustomWorldHelper.BEACONS_LEMON, R.drawable.beacon_lemon, lat, lon, tag, null);
+                    } else if(tag.equals(MapFragment.beacon_lato_lungo_sinistro_alto) || tag.equals(MapFragment.beacon_lato_lungo_destro_basso)){
+                        marker.setImageResource(R.drawable.beacon_beetrot);
+                        // It adds Marker to the AR world.
+                        CustomWorldHelper.addObject(CustomWorldHelper.BEACONS_BEETROT, R.drawable.beacon_beetrot, lat, lon, tag, null);
 
-                } else if(tag.equals(MapFragment.beacon_lato_lungo_sinistro_alto) || tag.equals(MapFragment.beacon_lato_lungo_destro_basso)){
-                    marker.setImageResource(R.drawable.beacon_beetrot);
-                    // It adds Marker to the AR world.
-                    CustomWorldHelper.addObject(CustomWorldHelper.BEACONS_BEETROT, R.drawable.beacon_beetrot, lat, lon, tag, null);
+                    } else if(tag.equals(MapFragment.beacon_lato_lungo_sinistro_basso) || tag.equals(MapFragment.beacon_lato_lungo_destro_alto)){
+                        marker.setImageResource(R.drawable.beacon_candy);
+                        // It adds Marker to the AR world.
+                        CustomWorldHelper.addObject(CustomWorldHelper.BEACONS_CANDY, R.drawable.beacon_candy, lat, lon, tag, null);
+                    }
+                }
+                else if (tag.equals("User")){
 
-                } else if(tag.equals(MapFragment.beacon_lato_lungo_sinistro_basso) || tag.equals(MapFragment.beacon_lato_lungo_destro_alto)){
-                    marker.setImageResource(R.drawable.beacon_candy);
-                    // It adds Marker to the AR world.
-                    CustomWorldHelper.addObject(CustomWorldHelper.BEACONS_CANDY, R.drawable.beacon_candy, lat, lon, tag, null);
+                    lp = new LayoutParams(65, 65);
+                    // It sets the drawable for the user's marker.
+                    marker.setImageResource(R.drawable.user_icon);
+                    // It updates user's location.
+                    CustomWorldHelper.setLocation(lat, lon);
                 }
             }
-            else if (tag.equals("User")){
-                // It sets the drawable for the user's marker.
-                marker.setImageResource(R.drawable.flag);
-                // It updates user's location.
-                CustomWorldHelper.setLocation(lat, lon);
-            }
-        }
-        // ....otherwise, update marker location.
-        else
-            listCoordinate.get(tag).set(x, y);
+            // ....otherwise, update marker location.
+            else
+                listCoordinate.get(tag).set(x, y);
 
-        // It places the marker on the map.
-        setMarkerPosition(x, y, tag);
+            marker.setLayoutParams(lp);
 
-        this.addView(marker);
+            // It places the marker on the map.
+            setMarkerPosition(x, y, tag);
+
+            this.addView(marker);
     }
 
     public void setMarkerPosition(float x, float y, String tag) {

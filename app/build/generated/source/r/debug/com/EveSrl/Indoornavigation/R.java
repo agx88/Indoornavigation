@@ -2575,12 +2575,13 @@ containing a value of this type.
         public static final int map_marker_outside_azure=0x7f02006c;
         public static final int map_marker_outside_chartreuse=0x7f02006d;
         public static final int map_marker_outside_pink_icon=0x7f02006e;
-        public static final int notification_template_icon_bg=0x7f020074;
+        public static final int notification_template_icon_bg=0x7f020075;
         public static final int piantina=0x7f02006f;
         public static final int piantina2=0x7f020070;
         public static final int radar_bg_small=0x7f020071;
         public static final int radar_north_small=0x7f020072;
         public static final int rettangolo=0x7f020073;
+        public static final int user_icon=0x7f020074;
     }
     public static final class id {
         public static final int AR_container=0x7f0c0081;
