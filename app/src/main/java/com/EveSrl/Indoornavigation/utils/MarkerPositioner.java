@@ -107,17 +107,17 @@ public class MarkerPositioner
                     CustomWorldHelper.newWorld(mContext);
 
                 if(!tag.equals("User")) {
-                    if(tag.equals(MapFragment.beacon_lato_corto_alto) || tag.equals(MapFragment.beacon_lato_corto_basso)){
+                    if(tag.equals(KnownBeacons.beacon_lato_corto_alto) || tag.equals(KnownBeacons.beacon_lato_corto_basso)){
                         marker.setImageResource(R.drawable.beacon_lemon);
                         // It adds Marker to the AR world.
                         CustomWorldHelper.addObject(CustomWorldHelper.BEACONS_LEMON, R.drawable.beacon_lemon, lat, lon, tag, null);
 
-                    } else if(tag.equals(MapFragment.beacon_lato_lungo_sinistro_alto) || tag.equals(MapFragment.beacon_lato_lungo_destro_basso)){
+                    } else if(tag.equals(KnownBeacons.beacon_lato_lungo_sinistro_alto) || tag.equals(KnownBeacons.beacon_lato_lungo_destro_basso)){
                         marker.setImageResource(R.drawable.beacon_beetrot);
                         // It adds Marker to the AR world.
                         CustomWorldHelper.addObject(CustomWorldHelper.BEACONS_BEETROT, R.drawable.beacon_beetrot, lat, lon, tag, null);
 
-                    } else if(tag.equals(MapFragment.beacon_lato_lungo_sinistro_basso) || tag.equals(MapFragment.beacon_lato_lungo_destro_alto)){
+                    } else if(tag.equals(KnownBeacons.beacon_lato_lungo_sinistro_basso) || tag.equals(KnownBeacons.beacon_lato_lungo_destro_alto)){
                         marker.setImageResource(R.drawable.beacon_candy);
                         // It adds Marker to the AR world.
                         CustomWorldHelper.addObject(CustomWorldHelper.BEACONS_CANDY, R.drawable.beacon_candy, lat, lon, tag, null);

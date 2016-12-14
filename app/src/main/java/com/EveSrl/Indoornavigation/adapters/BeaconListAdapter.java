@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.EveSrl.Indoornavigation.R;
 import com.EveSrl.Indoornavigation.fragments.MapFragment;
 import com.EveSrl.Indoornavigation.utils.CustomWorldHelper;
+import com.EveSrl.Indoornavigation.utils.KnownBeacons;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.Utils;
 
@@ -34,7 +35,18 @@ public class BeaconListAdapter extends RecyclerView.Adapter<BeaconListAdapter.Vi
 
     public void replaceWith(Collection<Beacon> newBeacons) {
         this.beacons.clear();
-        this.beacons.addAll(newBeacons);
+        //this.beacons.addAll(newBeacons);
+
+        for (Beacon bcnDiscovered: newBeacons
+             ){
+            String mTag = bcnDiscovered.getMajor() + ":" + bcnDiscovered.getMinor();
+            for (String tag : KnownBeacons.getAllAsList()
+                    ) {
+                if(mTag.equals(tag)){
+                    this.beacons.add(bcnDiscovered);
+                }
+            }
+        }
         notifyDataSetChanged();
     }
 
@@ -64,13 +76,13 @@ public class BeaconListAdapter extends RecyclerView.Adapter<BeaconListAdapter.Vi
         holder.rssiTextView.setText("RSSI: " + beacons.get(position).getRssi());
 
         String tag = beacons.get(position).getMajor() + ":" + beacons.get(position).getMinor();
-        if(tag.equals(MapFragment.beacon_lato_corto_alto) || tag.equals(MapFragment.beacon_lato_corto_basso)){
+        if(tag.equals(KnownBeacons.beacon_lato_corto_alto) || tag.equals(KnownBeacons.beacon_lato_corto_basso)){
             holder.beaconImageView.setImageResource(R.drawable.beacon_lemon);
 
-        } else if(tag.equals(MapFragment.beacon_lato_lungo_sinistro_alto) || tag.equals(MapFragment.beacon_lato_lungo_destro_basso)){
+        } else if(tag.equals(KnownBeacons.beacon_lato_lungo_sinistro_alto) || tag.equals(KnownBeacons.beacon_lato_lungo_destro_basso)){
             holder.beaconImageView.setImageResource(R.drawable.beacon_beetrot);
 
-        } else if(tag.equals(MapFragment.beacon_lato_lungo_sinistro_basso) || tag.equals(MapFragment.beacon_lato_lungo_destro_alto)){
+        } else if(tag.equals(KnownBeacons.beacon_lato_lungo_sinistro_basso) || tag.equals(KnownBeacons.beacon_lato_lungo_destro_alto)){
             holder.beaconImageView.setImageResource(R.drawable.beacon_candy);
         }
 

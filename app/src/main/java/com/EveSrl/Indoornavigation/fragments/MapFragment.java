@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.EveSrl.Indoornavigation.MainActivity;
 import com.EveSrl.Indoornavigation.R;
 import com.EveSrl.Indoornavigation.adapters.BeaconListAdapter;
+import com.EveSrl.Indoornavigation.utils.KnownBeacons;
 import com.EveSrl.Indoornavigation.utils.MarkerPositioner;
 import com.EveSrl.Indoornavigation.utils.Point;
 import com.EveSrl.Indoornavigation.utils.Trilateration2D;
@@ -45,14 +46,6 @@ public class MapFragment
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-
-    public static final String beacon_lato_corto_alto = "25:50";
-    public static final String beacon_lato_corto_basso = "1:1";
-    public static final String beacon_lato_lungo_destro_alto = "5:3";
-    public static final String beacon_lato_lungo_destro_basso = "1:4";
-    public static final String beacon_lato_lungo_sinistro_alto = "8408:31297"; // VIOLA SCURO
-    public static final String beacon_lato_lungo_sinistro_basso = "1:2";
 
 
     // TODO: Rename and change types of parameters
@@ -118,22 +111,22 @@ public class MapFragment
         coordinateBeacons = new HashMap<>();
         Point p;
         p = new Point(2.5d, 0.0d);
-        putBeacon(p, beacon_lato_corto_alto);
+        putBeacon(p, KnownBeacons.beacon_lato_corto_alto);
 
         p = new Point(0.0d, 3.3d);
-        putBeacon(p, beacon_lato_lungo_sinistro_alto);
+        putBeacon(p, KnownBeacons.beacon_lato_lungo_sinistro_alto);
 
         p = new Point(0.0d, 6.7d);
-        putBeacon(p, beacon_lato_lungo_sinistro_basso);
+        putBeacon(p, KnownBeacons.beacon_lato_lungo_sinistro_basso);
 
         p = new Point(2.5d, 10.0d);
-        putBeacon(p, beacon_lato_corto_basso);
+        putBeacon(p, KnownBeacons.beacon_lato_corto_basso);
 
         p = new Point(5.0d, 3.3d);
-        putBeacon(p, beacon_lato_lungo_destro_alto);
+        putBeacon(p, KnownBeacons.beacon_lato_lungo_destro_alto);
 
         p = new Point(5.0d, 6.7d);
-        putBeacon(p, beacon_lato_lungo_destro_basso);
+        putBeacon(p, KnownBeacons.beacon_lato_lungo_destro_basso);
     }
 
     @Override

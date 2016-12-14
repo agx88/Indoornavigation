@@ -1,4 +1,4 @@
-#Wed Dec 14 10:29:44 CET 2016
+#Wed Dec 14 13:43:32 CET 2016
 base.0=/home/cloud/git-repo/Indoornavigation/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_2f77238adc13ea918ea59cc4a6786a296882436c
 renamed.1=classes.dex
 renamed.0=classes2.dex
