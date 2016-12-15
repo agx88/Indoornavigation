@@ -262,10 +262,11 @@ public class CustomWorldHelper {
 
 
     public static void removeIndicator(){
-        for (BeyondarObject goe: sharedWorld.getBeyondarObjectList(DIRECTION_INDICATORS)
-             ) {
-            sharedWorld.remove(goe);
-        }
+        if(sharedWorld.getBeyondarObjectList(DIRECTION_INDICATORS) != null)
+            for (BeyondarObject goe: sharedWorld.getBeyondarObjectList(DIRECTION_INDICATORS)
+                 ) {
+                sharedWorld.remove(goe);
+            }
     }
 
     // Set user's location.

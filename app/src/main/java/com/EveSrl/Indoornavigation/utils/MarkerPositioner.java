@@ -16,6 +16,8 @@ import com.beyondar.android.world.BeyondarObject;
 import com.beyondar.android.world.BeyondarObjectList;
 import com.beyondar.android.world.GeoObject;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -264,30 +266,36 @@ public class MarkerPositioner
         //Toast.makeText(mContext, view.getTag().toString(), Toast.LENGTH_SHORT).show();
         double d;
         ImageView selectedMarker = (ImageView) view;
+        ArrayList<BeyondarObjectList> copy;
+
+        copy = new ArrayList<>(CustomWorldHelper.getARWorld().getBeyondarObjectLists());
 
         // It searches the BeyondAR object corresponding to the clicked beacon.
-        for (BeyondarObjectList bL:  CustomWorldHelper.getARWorld().getBeyondarObjectLists()
+        for (BeyondarObjectList bL:  copy
              ) {
-            for (BeyondarObject obL : bL
-                    ) {
-                if (selectedMarker.getTag().equals(obL.getName())) {
-                    // It gets the distance between the user and the selected beacons.
-                    d = obL.getDistanceFromUser() / trickFactor;
-                    Toast.makeText(mContext, obL.getName() + "   d:" + String.format(Locale.ITALY, "%.2f", d) + "m", Toast.LENGTH_SHORT).show();
+            if(bL != null) {
+                for (BeyondarObject obL : bL
+                        ) {
+                    if (selectedMarker.getTag().equals(obL.getName())) {
+                        // It gets the distance between the user and the selected beacons.
+                        d = obL.getDistanceFromUser() / trickFactor;
+                        Toast.makeText(mContext, obL.getName() + "   d:" + String.format(Locale.ITALY, "%.2f", d) + "m", Toast.LENGTH_SHORT).show();
 
-                    if(beaconMarked.equals(selectedMarker.getTag())){
                         CustomWorldHelper.removeIndicator();
-                        beaconMarked = "";
-                    } else {
-                        beaconMarked = (String) selectedMarker.getTag();
 
-                        Point direction = findDirection((float) CustomWorldHelper.getARWorld().getLatitude(),
-                                                        (float) CustomWorldHelper.getARWorld().getLongitude(),
-                                                        (float) ((GeoObject) obL).getLatitude(),
-                                                        (float) ((GeoObject) obL).getLongitude());
+                        if (beaconMarked.equals(selectedMarker.getTag())) {
+                            beaconMarked = "";
+                        } else {
+                            beaconMarked = (String) selectedMarker.getTag();
+
+                            Point direction = findDirection((float) CustomWorldHelper.getARWorld().getLatitude(),
+                                                            (float) CustomWorldHelper.getARWorld().getLongitude(),
+                                                            (float) ((GeoObject) obL).getLatitude(),
+                                                            (float) ((GeoObject) obL).getLongitude());
 
 
-                        CustomWorldHelper.addObject(CustomWorldHelper.DIRECTION_INDICATORS, R.drawable.freccia, direction.getX(), direction.getY(), "Freccia", null);
+                            CustomWorldHelper.addObject(CustomWorldHelper.DIRECTION_INDICATORS, R.drawable.freccia, direction.getX(), direction.getY(), "Freccia", null);
+                        }
                     }
                 }
             }
