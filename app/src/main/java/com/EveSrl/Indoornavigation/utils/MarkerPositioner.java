@@ -26,11 +26,18 @@ import java.util.Locale;
 public class MarkerPositioner
         extends FrameLayout
         implements View.OnClickListener {
+    private String BEACON_LEMON_R = "beacon_lemon";
+    private String BEACON_LEMON_MARKED_R = "beacon_lemon";
+    private String BEACON_BEETROT_R = "beacon_beetrot";
+    private String BEACON_BEETROT_MARKED_R = "beacon_beetrot";
+    private String BEACON_CANDY_R = "beacon_candy";
+    private String BEACON_CANDY_MARKED_R = "beacon_candy";
 
     private Context mContext;
     private HashMap<String, ImageView> listMarker;
     private HashMap<String, android.graphics.PointF> listCoordinate;
-    private String beaconMarked = "";
+    private HashMap<String, String> listResource;
+    private ImageView beaconMarked = null;
 
 
     private float trickFactor = 10;
@@ -63,6 +70,7 @@ public class MarkerPositioner
         mContext = context;
         listMarker = new HashMap<>();
         listCoordinate = new HashMap<>();
+        listResource = new HashMap<>();
 
         sx = 1.0f;
         sy = 1.0f;
@@ -114,24 +122,32 @@ public class MarkerPositioner
                     CustomWorldHelper.newWorld(mContext);
 
                 if(!tag.equals("User")) {
+
                     if(tag.equals(KnownBeacons.beacon_lato_corto_alto) || tag.equals(KnownBeacons.beacon_lato_corto_basso)){
                         marker.setImageResource(R.drawable.beacon_lemon);
+                        //marker.setImageResource(getResources().getIdentifier("beacon_lemon", R.drawable.class.getSimpleName(), mContext.getPackageName()));
+
                         // It adds Marker to the AR world.
                         CustomWorldHelper.addObject(CustomWorldHelper.BEACONS_LEMON, R.drawable.beacon_lemon, lat, lon, tag, null);
+
+                        listResource.put(tag, BEACON_LEMON_R);
 
                     } else if(tag.equals(KnownBeacons.beacon_lato_lungo_sinistro_alto) || tag.equals(KnownBeacons.beacon_lato_lungo_destro_basso)){
                         marker.setImageResource(R.drawable.beacon_beetrot);
                         // It adds Marker to the AR world.
                         CustomWorldHelper.addObject(CustomWorldHelper.BEACONS_BEETROT, R.drawable.beacon_beetrot, lat, lon, tag, null);
 
+                        listResource.put(tag, BEACON_BEETROT_R);
+
                     } else if(tag.equals(KnownBeacons.beacon_lato_lungo_sinistro_basso) || tag.equals(KnownBeacons.beacon_lato_lungo_destro_alto)){
                         marker.setImageResource(R.drawable.beacon_candy);
                         // It adds Marker to the AR world.
                         CustomWorldHelper.addObject(CustomWorldHelper.BEACONS_CANDY, R.drawable.beacon_candy, lat, lon, tag, null);
+
+                        listResource.put(tag, BEACON_CANDY_R);
                     }
                 }
                 else if (tag.equals("User")){
-
                     lp = new LayoutParams(60, 60);
                     // It sets the drawable for the user's marker.
                     marker.setImageResource(R.drawable.user_icon);
@@ -267,7 +283,8 @@ public class MarkerPositioner
         double d;
         ImageView selectedMarker = (ImageView) view;
         ArrayList<BeyondarObjectList> copy;
-
+        ImageView oldBeaconMarked = beaconMarked;
+        // Without copy, it gets ConcurrentModificationException beacuse of "CustomWorldHelper.removeIndicator();"
         copy = new ArrayList<>(CustomWorldHelper.getARWorld().getBeyondarObjectLists());
 
         // It searches the BeyondAR object corresponding to the clicked beacon.
@@ -280,13 +297,22 @@ public class MarkerPositioner
                         // It gets the distance between the user and the selected beacons.
                         d = obL.getDistanceFromUser() / trickFactor;
                         Toast.makeText(mContext, obL.getName() + "   d:" + String.format(Locale.ITALY, "%.2f", d) + "m", Toast.LENGTH_SHORT).show();
-
+                        // It removes old arrow.
                         CustomWorldHelper.removeIndicator();
 
-                        if (beaconMarked.equals(selectedMarker.getTag())) {
-                            beaconMarked = "";
+                        // If it was selected the beacon previous selected, it just sets beaconMarked at an empty value.
+                        if (beaconMarked != null && beaconMarked.equals(selectedMarker)) {
+                            beaconMarked = null;
+
+                            selectedMarker.setImageResource(getResources().getIdentifier(listResource.get(selectedMarker.getTag().toString()), R.drawable.class.getSimpleName(), mContext.getPackageName()));
                         } else {
-                            beaconMarked = (String) selectedMarker.getTag();
+                            // Otherwise, if it was selected another beacon, it sets beaconMarked at the new value.
+                            beaconMarked = selectedMarker;
+
+                            if(oldBeaconMarked != null)
+                                oldBeaconMarked.setImageResource(getResources().getIdentifier(listResource.get(oldBeaconMarked.getTag().toString()), R.drawable.class.getSimpleName(), mContext.getPackageName()));
+
+                            beaconMarked.setImageResource(getResources().getIdentifier(listResource.get(beaconMarked.getTag().toString()) + "_marked", R.drawable.class.getSimpleName(), mContext.getPackageName()));
 
                             Point direction = findDirection((float) CustomWorldHelper.getARWorld().getLatitude(),
                                                             (float) CustomWorldHelper.getARWorld().getLongitude(),
@@ -296,6 +322,7 @@ public class MarkerPositioner
 
                             CustomWorldHelper.addObject(CustomWorldHelper.DIRECTION_INDICATORS, R.drawable.freccia, direction.getX(), direction.getY(), "Freccia", null);
                         }
+
                     }
                 }
             }
